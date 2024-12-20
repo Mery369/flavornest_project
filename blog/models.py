@@ -77,7 +77,7 @@ class Recipe(models.Model):
         """
         Returns the name of the recipe.
         """
-        return self.name
+        return self.recipe_name
     
 
 class Rating(models.Model):

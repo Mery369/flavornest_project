@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.db.models import Avg
-
+from django.views import generic
+from .models import Recipe
 # Create your views here.
 
 # def recipe_detail(request, recipe_id):
@@ -18,3 +19,7 @@ from django.db.models import Avg
 #         'ratings': ratings,
 #         'average_rating': average_rating,
 #     })
+class RecipeList(generic.ListView):
+    queryset = Recipe.objects.all()
+    template_name = 'blog/home.html'  # Pointing to home.html instead of recipe_list.html
+    context_object_name = 'recipes'  # This is the name you can use in the template
