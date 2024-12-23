@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <div class="d-none d-md-block col-md-6 masthead-image">
+                    <img src="{{ recipe.recipe_image.url }}" class="scale" alt="placeholder">
+                </div>
+                <!-- Recipe name goes in these h1 tags -->
+                <h1 class="post-title">{{ recipe.recipe_name }}</h1>
+                <!-- Recipe author goes before the | the post's created date goes after -->
+                <p class="post-subtitle"><i class="fa-solid fa-spoon"></i>  {{ recipe.author }} | {{ recipe.created_on |date:"Y-m-d" }}</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <!-- The ingredients go inside the card-text. -->
+                <!-- Use the | safe filter inside the template tags -->
+                <p class="card-text">
+                    <span>{{ recipe.prep_time }} minutes</span><span>  {{ recipe.cook_time }} minutes</span> 
+                    <span>{{recipe.total_time}}minutes</span>
+                    <article>{{ recipe.ingredients | safe }}</article>
+                   <article> {{ recipe.instructions | safe }} </article>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

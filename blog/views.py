@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.db.models import Avg
 from django.views import generic
@@ -21,5 +21,28 @@ from .models import Recipe
 #     })
 class RecipeList(generic.ListView):
     queryset = Recipe.objects.all()
-    template_name = 'blog/home.html'  # Pointing to home.html instead of recipe_list.html
-    context_object_name = 'recipes'  # This is the name you can use in the template
+    template_name = 'blog/home.html'  
+    context_object_name = 'recipes'  
+
+def recipe_detail(request, slug):
+    """
+    Display an individual :model:`blog.Recipe`.
+
+    **Context**
+
+    ``recipe``
+        An instance of :model:`blog.Recipe`.
+
+    **Template:**
+
+    :template:`blog/recipe_detail.html`
+    """
+
+    queryset = Recipe.objects.filter(status=1)
+    recipe = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "blog/recipe_detail.html",
+        {"recipe": recipe},
+    )

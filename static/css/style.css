@@ -57,18 +57,14 @@ button, .btn-primary {
 }
 .carousel {
     position: relative;
-    width: 90vw;  /* 100% of the viewport width */
+    width: 90vw; 
     height: 90vh; 
     margin: 50px 50px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-/* .carousel-slide img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.5s ease-in-out;
-} */
+
 .carousel-item {
     position:relative;
 }
@@ -80,7 +76,7 @@ button, .btn-primary {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    z-index: 10; /* Ensures the text appears above the image */
+    z-index: 10; 
     font-size: 2rem;
 }
 
@@ -91,18 +87,7 @@ button, .btn-primary {
     background-color: #f8f4e6; /* Warm Beige */
    
 }
-/* Ensure navbar-toggler-icon is visible */
-/* .navbar-toggler-icon {
-    background-color: #333; /* Change to match your design */
-    /* width: 30px;
-    height: 3px;
-    border-radius: 2px;
-} */ 
 
-/* When the navbar is collapsed and the icon is clicked, ensure the icon shows */
-/* .navbar-toggler.collapsed .navbar-toggler-icon {
-    background-color: #333; /* Keep icon color visible when toggled */
-/* }  */
 .navbar a {
     color: #388e3c; /* Rich Dark Green for nav links */
 }
@@ -116,15 +101,12 @@ button, .btn-primary {
 }
 
 /* Logo size adjustment */
-.logo img {
-    max-width: 120px; /* Adjust the size of the logo */
-    height:100px;     /* Keep the aspect ratio */
-}
+
 
 /* Ensure that the profile picture is inside the navbar and positioned on the right */
 .profile-pic-container {
     position: relative;
-    margin-left: auto; /* This will push the profile picture to the far right */
+    margin-left: auto; 
 }
 
 /* Profile picture styling */
@@ -143,11 +125,11 @@ button, .btn-primary {
 
 /* Dropdown Menu */
 .dropdown-menu {
-    min-width: 200px;  /* Optional: controls the width of the dropdown */
+    min-width: 200px;  
 }
 
 .dropdown-item:hover {
-    background-color: #f8f8f8;  /* Optional: adds hover effect to dropdown items */
+    background-color: #f8f8f8; 
 }
 /*******************************Footer ******************************/
 footer {
@@ -158,11 +140,11 @@ footer {
 }
 
 footer a {
-    color: #ff6f61; /* Coral for links in footer */
+    color: #ff6f61; 
 }
 
 footer a:hover {
-    color: white; /* White on hover */
+    color: white; 
 }
 
 .brand {
@@ -209,6 +191,8 @@ footer a:hover {
 .scale {
     width: 100%;
     height: auto;
+    border-radius: 50%;
+    
 }
 
 .author {
@@ -217,39 +201,51 @@ footer a:hover {
     text-transform: uppercase;
 }
 
-.masthead {
+/* .masthead {
     margin-top: 10px;
     overflow: hidden;
     position: relative;
     display: inline-block;
     height: 33vh;
     width: 100%;
+} */
+/* Make the image round */
+.masthead-image img {
+    width: 100%;        /* Make the image responsive */
+    max-width: 200px;   /* Set a max width for the image */
+    height: 200px;      /* Set a fixed height to maintain the circular shape */
+    object-fit: cover;  /* Ensure the image covers the entire circle */
+    border-radius: 50%; /* Makes the image round */
+    margin-bottom: 20px; /* Add space between the image and the recipe name */
 }
 
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
+/* Style for the card */
+.card {
+    border: 1px solid #ccc; /* Adds a border to the card */
+    border-radius: 10px; /* Rounds the corners of the card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+    display: flex; /* Activate flexbox */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: center; /* Vertically center the content */
+    align-items: center; /* Horizontally center the content */
+    text-align: center; /* Ensure text is centered */
+    height: 100%; /* Make sure the card has enough height to center content properly */
+    padding: 50px; /* Add padding inside the card */
 }
 
-.masthead-image {
-    position: relative;
-    overflow: hidden;
+/* Ensure recipe name appears nicely under the image */
+.post-title {
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: bold; /* Make the title bold */
+    margin-top: 20px; /* Space between image and title */
 }
 
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
+/* Adjust the layout of the ingredients and instructions */
+.card-text {
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    line-height: 1.6; /* Add some line spacing */
 }
+
 
 .post-link {
     text-decoration: none;
@@ -261,10 +257,7 @@ footer a:hover {
     color: #E84610;
 }
 
-.post-title {
-    margin-top: 10%;
-    margin-left: 5%;
-}
+
 
 .post-subtitle {
     margin-left: 5%;
@@ -334,5 +327,12 @@ footer a:hover {
 
     .flavour-button {
         font-size: 14px;  /* Make button text smaller for smaller screens */
+    }
+}
+/* Optional: Make the card text responsive for small screens */
+@media (max-width: 768px) {
+    .masthead-image img {
+        max-width: 150px; /* Resize the image for smaller screens */
+        height: 150px;
     }
 }
