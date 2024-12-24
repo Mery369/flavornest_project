@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+<!-- signin.html content starts here -->
+<!-- Hero section  -->
+<!-- <div class="hero">
+    <div class="container text-white py-5">
+        <h1 class="display-3">Welcome to the Flavour Nest Recipe Book!</h1>
+        <p class="lead">Explore, share, and create delicious helathy recipes with our community.</p>
+        <a href="#" class="btn btn-light btn-lg">Join Flavour Nest</a>
+    </div>
+</div> -->
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{% static 'images/pan1.png' %}" class="img-fluid rounded-start" alt="Healthy stir fry">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Register</h5>
+          <p class="card-text">Welcome to Flavour Nest! Please enter your details to register, and join our recipe-sharing community! </p>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="firstname" class="form-label"> First Name </label>
+                <input type="text" class="form-control" id="first_name" required>
+            </div>
+            <div class="mb-3">
+              <label for="lastname" class="form-label"> Surname </label>
+              <input type="text" class="form-control" id="last_name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label"> Email Address </label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+           <div class="mb-3">
+                <label for="location" class="form-label">Location </label>
+                <input type="text" class="form-control" id="location" >
+            </div>
+            <div class="mb-3">
+              <label for="bio" class="form-label"> 🥳 Spill the Beans! Tell us something awesome about YOU! 🌟 </label>
+              <input type="text" class="form-control" id="bio" >
+          </div>
+          <div class="mb-3">
+            <label for="profilepic" class="form-label"> Add Your Profile Picture </label>
+            <input type="file" class="form-control" id="profilepic" name="profilepic">
+        </div>
+            <div class="mb-3">
+                <label for="password" class="form-label"> Password </label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirmpassword" class="form-label"> Confirm Password </label>
+              <input type="password" class="form-control" id="confirmpassword" required>
+          </div>
+            <button type="submit" class="btn btn-primary">Start Cooking Your Story!</button>
+        </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- signin.html content ends here -->
+{% endblock %}

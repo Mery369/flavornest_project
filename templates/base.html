@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'home' as home_url %}
 {% url 'signin' as signin_url %}
+{% url 'signup' as signup_url %}
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
@@ -47,7 +48,7 @@
                 <ul class="navbar-nav mb-2 mb-lg-0">
 
                     <li class="login-out" id="register-button">
-                        <a class="nav-link " href="/accounts/signup/">Register</a>
+                        <a class="nav-link " href="{% url 'accounts:signup' %}">Register</a>
                     </li>
                     <li class="login-out" id="login-button">
                         <a class="nav-link " href="{% url 'accounts:signin' %}">Login</a>
