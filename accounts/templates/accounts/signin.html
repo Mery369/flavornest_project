@@ -31,7 +31,12 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" required>
             </div>
+            <div>
             <button type="submit" class="btn btn-primary">Log In</button>
+            </div>
+            <div>
+              Not registered Yet ? <a href="{% url 'accounts:signup' %}" class="link-primary">Register</a>
+            </div>
         </form>
           
         </div>
