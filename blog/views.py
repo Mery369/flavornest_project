@@ -44,5 +44,9 @@ def recipe_detail(request, slug):
     return render(
         request,
         "blog/recipe_detail.html",
-        {"recipe": recipe},
+        {"recipe": recipe,
+        'title' :'Recipe Details'},
+         
     )
+
+

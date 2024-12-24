@@ -1,45 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %} {{title}} {% endblock %}
 {% block content %}
 
 <!-- home.html content starts here -->
-<!-- Carousel -->
-
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <!-- First Carousel Item (Active) -->
-        <div class="carousel-item active" data-bs-interval="10000">
-            <img src="{% static 'images/veggies.jpg' %}" class="d-block w-100 img-fluid" alt="colourful_vegetables">
-            <div class="carousel-text">
-                <h2>Love Healthy Cooking?</h2>
-                <a href="#" class="flavour-button">Hop Into the Flavour Nest!</a>
-                <p>Become Part of a Recipe Revolution!
-                     Share, Create, Enjoy!</p>
-            </div>
-        </div>
-
-        <!-- Second Carousel Item -->
-        <div class="carousel-item" data-bs-interval="2000">
-            <img src="{% static 'images/family-recipes.jpg' %}" class="d-block w-100" alt="family recipes">
-        </div>
-
-        <!-- Third Carousel Item -->
-        <div class="carousel-item">
-            <img src="{% static 'images/mediteranian.jpg' %}" class="d-block w-100" alt="Mediterranean recipes">
-        </div>
+<!-- Hero section  -->
+<div class="hero">
+    <div class="container text-white py-5">
+        <h1 class="display-3">Welcome to the Flavour Nest Recipe Book!</h1>
+        <p class="lead">Explore, share, and create delicious helathy recipes with our community.</p>
+        <a href="#" class="btn btn-light btn-lg">Join Flavour Nest</a>
     </div>
-
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
 </div>
 
+<!-- Recipes List -->
 <div class="container">
     <div class="row">
 

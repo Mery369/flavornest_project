@@ -1,34 +1,11 @@
 /* General Body */
 body {
-    background-color: #d4edda; /* Soft Light Green */
-    color: #6c757d; /* Soft Gray text */
+    background-color: #270425; /* Soft Light Green */
+    /* color: #6c757d; Soft Gray text */
     font-family: 'Roboto', sans-serif; /* Clean, readable font */
 }
 
-
-
 /* Buttons */
-button, .btn-primary {
-    background-color: #388e3c; /* Rich Dark Green */
-    color: white;
-    border: none;
-}
-/************Carousel******************************************/
-.carousel-text {
-    text-align: center;
-    padding: 20px;
-    /* background-color: #474747;  */
-    border-radius: 10px;
-    max-width: 500px;
-    margin: auto; 
-}
-
-.carousel-text h2 {
-    font-size: 36px;
-    color: #f8f4e6;
-    margin-bottom: 20px;
-}
-
 .flavour-button {
     display: inline-block;
     background-color: #388e3c;
@@ -49,37 +26,28 @@ button, .btn-primary {
     transition: transform 0.3s ease;
 }
 
-.carousel-text p {
-    font-size: 16px;
-    color: #f8f4e6;
-    line-height: 1.5;
-    margin-top: 20px; 
-}
-.carousel {
-    position: relative;
-    width: 90vw; 
-    height: 90vh; 
-    margin: 50px 50px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+/************Hero section******************************************/
 
-.carousel-item {
-    position:relative;
-}
-
-.carousel-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+.hero {
+    background-image: url("{% static 'images/mediteranian.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;  /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    z-index: 10; 
-    font-size: 2rem;
+    color: #9e0a65;
 }
 
+.hero .container {
+    position: relative; /* Keeps content over the image */
+    z-index: 2;
+}
+.btn-light:hover {
+    background-color: #f8f9fa; /* A light gray color */
+    color: #9e0a65; /* Darker text color for better contrast */
+}
 
 
 /******************************************** Navbar ****************************** */
@@ -88,16 +56,24 @@ button, .btn-primary {
    
 }
 
-.navbar a {
-    color: #388e3c; /* Rich Dark Green for nav links */
+.navbar a:hover {
+    color: #0fdf4e; /* Soft Coral hover effect */
 }
 
-.navbar a:hover {
-    color: #ff6f61; /* Soft Coral hover effect */
+/* Add this CSS to style the nav links on hover */
+.navbar-nav .nav-link {
+    font-size: 1rem; /* Default font size */
+    transition: color 0.3s ease, font-size 0.3s ease; /* Smooth transition for color and size */
 }
-.navbar-brand {
-    display: flex;
-    align-items: center; /* Vertically center logo */
+
+.navbar-nav .nav-link:hover {
+    color: #FF69B4; /* Change the color to your desired hover color (e.g., pink) */
+    font-size: 1.1rem; /* Slightly increase the font size on hover */
+}
+
+/* Optional: You can also change the background color on hover for the navbar */
+.navbar-nav .nav-item:hover {
+    background-color: rgba(255, 105, 180, 0.2); /* Light pink background on hover */
 }
 
 /* Logo size adjustment */
@@ -147,7 +123,7 @@ footer a:hover {
     color: white; 
 }
 
-.brand {
+/* .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
@@ -201,49 +177,48 @@ footer a:hover {
     text-transform: uppercase;
 }
 
-/* .masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-} */
-/* Make the image round */
+
+.masthead-image {
+    display: flex;                 
+    justify-content: center;       
+    align-items: center;           
+    height: 200px;         
+}
+
 .masthead-image img {
-    width: 100%;        /* Make the image responsive */
-    max-width: 200px;   /* Set a max width for the image */
-    height: 200px;      /* Set a fixed height to maintain the circular shape */
-    object-fit: cover;  /* Ensure the image covers the entire circle */
-    border-radius: 50%; /* Makes the image round */
-    margin-bottom: 20px; /* Add space between the image and the recipe name */
-}
-
+    width: 100%;                  
+    max-width: 200px;              
+    height: 200px;                 
+    object-fit: cover;             
+    border-radius: 50%;           
+    margin-bottom: 20px;           
+} */
 /* Style for the card */
-.card {
-    border: 1px solid #ccc; /* Adds a border to the card */
-    border-radius: 10px; /* Rounds the corners of the card */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
-    display: flex; /* Activate flexbox */
-    flex-direction: column; /* Stack child elements vertically */
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
-    text-align: center; /* Ensure text is centered */
-    height: 100%; /* Make sure the card has enough height to center content properly */
-    padding: 50px; /* Add padding inside the card */
-}
+/* .card {
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    height: 100%; 
+    padding: 50px; 
+} */
 
-/* Ensure recipe name appears nicely under the image */
-.post-title {
-    font-size: 1.5rem; /* Adjust font size */
-    font-weight: bold; /* Make the title bold */
-    margin-top: 20px; /* Space between image and title */
-}
+
+/* .post-title {
+    font-size: 2rem; 
+    font-weight: bold; 
+    margin-top: 20px; 
+    color: #445261;
+} */
 
 /* Adjust the layout of the ingredients and instructions */
-.card-text {
-    font-size: 1.1rem; /* Slightly larger text for readability */
-    line-height: 1.6; /* Add some line spacing */
+/* .card-text {
+    font-size: 1.1rem; 
+    line-height: 1.6; 
 }
 
 
@@ -311,28 +286,26 @@ footer a:hover {
 
 .approval {
     color: rgb(222, 146, 168);
-}
+} */
 
 
 /***********************Media Query*************************/
 
 @media (max-width: 768px) {
     .carousel-text h2 {
-        font-size: 1.5rem;  /* Adjust font size for smaller screens */
+        font-size: 1.5rem;  
     }
 
     .carousel-text p {
-        font-size: 1rem;  /* Adjust paragraph font size for smaller screens */
+        font-size: 1rem;  
     }
 
     .flavour-button {
-        font-size: 14px;  /* Make button text smaller for smaller screens */
+        font-size: 14px;  
     }
 }
-/* Optional: Make the card text responsive for small screens */
-@media (max-width: 768px) {
+
     .masthead-image img {
-        max-width: 150px; /* Resize the image for smaller screens */
+        max-width: 150px; 
         height: 150px;
     }
-}

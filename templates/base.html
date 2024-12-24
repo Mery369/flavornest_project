@@ -1,11 +1,11 @@
 {% load static %}
 {% url 'home' as home_url %}
-
+{% url 'signin' as signin_url %}
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
 <head>
-    <title>FlavorNest</title>
+    <title>{%block title %} {% endblock %}| Flavour Nest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Fonts CSS -->
@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/" aria-label="Click statement beauty logo to go to home page"><span
+            <a class="navbar-brand" href="/" aria-label="Click flavour nest logo to go to home page"><span
                     class="brand">Flavour<span class="thin-pink">Nest</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@
                         <a class="nav-link " href="/accounts/signup/">Register</a>
                     </li>
                     <li class="login-out" id="login-button">
-                        <a class="nav-link " href="/accounts/login/">Login</a>
+                        <a class="nav-link " href="{% url 'accounts:signin' %}">Login</a>
                     </li>
 
                 </ul>
