@@ -5,11 +5,18 @@
 
 <!-- home.html content starts here -->
 <!-- Hero section  -->
-<div class="hero">
-    <div class="container text-white py-5">
-        <h1 class="display-3">Welcome to the Flavour Nest Recipe Book!</h1>
-        <p class="lead">Explore, share, and create delicious helathy recipes with our community.</p>
-        <a href="{% url 'accounts:signup' %}" class="btn btn-light btn-lg">Join Flavour Nest</a>
+<div class="">
+    <div class="container text-white py-5 hero">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-3">Welcome to the Flavour Nest Recipe Book!</h1>
+                <p class="lead">Explore, share, and create delicious healthy recipes with our community.</p>
+                <a href="{% url 'accounts:signup' %}" class="btn btn-light btn-lg">Join Flavour Nest</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'images/veggies.jpg' %}" class="img-fluid rounded float-end" alt="Healthy Vegetables">
+            </div>
+        </div>
     </div>
 </div>
 

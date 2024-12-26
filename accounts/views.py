@@ -15,11 +15,19 @@ def signup(request):
     
 
 def user_profile(request):
-    # Fetch the user's profile and their recipes
-    user_profile = request.user.profile
-    recipes = Recipe.objects.filter(author=request.user)
     
-    return render(request, 'accounts/profile.html', {
-        'user': request.user,
-        'recipes': recipes,
+    # Fetch the current logged-in user
+    user = request.user
+    
+    # Get the associated profile using the related_name 'profile' from the User model
+    user_profile = user.profile
+    
+    # Optionally, you can also fetch the user's recipes if needed
+    recipes = user.recipes.all()
+    
+    # Return the context to the template
+    return render(request, 'accounts/userprofile.html', {
+        'user': user,
+        'user_profile': user_profile,
+        'recipes': recipes
     })

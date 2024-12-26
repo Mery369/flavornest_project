@@ -20,16 +20,16 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">Log In</h5>
-          <p class="card-text">Welcome back! Please enter your credentials to access your account. </p>
-          <form method="POST">
+          <p class="card-text">Welcome back! Please enter your details to access your account. </p>
+          <form method="POST" action="{% url 'accounts:signin' %}">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" required>
+                <input type="email" class="form-control" id="login_email" required placeholder="john.smith@gmail.com">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
+                <input type="password" class="form-control" id="login_password" required placeholder="******">
             </div>
             <div>
             <button type="submit" class="btn btn-primary">Log In</button>

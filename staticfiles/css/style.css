@@ -1,34 +1,11 @@
 /* General Body */
 body {
-    background-color: #d4edda; /* Soft Light Green */
-    color: #6c757d; /* Soft Gray text */
+    /* background-color: #270425;  */
+    /* color: #6c757d; Soft Gray text */
     font-family: 'Roboto', sans-serif; /* Clean, readable font */
 }
 
-
-
 /* Buttons */
-button, .btn-primary {
-    background-color: #388e3c; /* Rich Dark Green */
-    color: white;
-    border: none;
-}
-/************Carousel******************************************/
-.carousel-text {
-    text-align: center;
-    padding: 20px;
-    /* background-color: #474747;  */
-    border-radius: 10px;
-    max-width: 500px;
-    margin: auto; 
-}
-
-.carousel-text h2 {
-    font-size: 36px;
-    color: #f8f4e6;
-    margin-bottom: 20px;
-}
-
 .flavour-button {
     display: inline-block;
     background-color: #388e3c;
@@ -49,41 +26,28 @@ button, .btn-primary {
     transition: transform 0.3s ease;
 }
 
-.carousel-text p {
-    font-size: 16px;
-    color: #f8f4e6;
-    line-height: 1.5;
-    margin-top: 20px; 
-}
-.carousel {
-    position: relative;
-    width: 90vw;  /* 100% of the viewport width */
-    height: 90vh; 
-    margin: 50px 50px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-/* .carousel-slide img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.5s ease-in-out;
-} */
-.carousel-item {
-    position:relative;
-}
+/************Hero section******************************************/
 
-.carousel-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+.hero {
+    background-image: url("{% static 'images/BG.png' %}");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;  /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    z-index: 10; /* Ensures the text appears above the image */
-    font-size: 2rem;
+    color: #9e0a65;
 }
 
+.hero .container {
+    position: relative; /* Keeps content over the image */
+    z-index: 2;
+}
+.btn-light:hover {
+    background-color: #f8f9fa; /* A light gray color */
+    color: #9e0a65; /* Darker text color for better contrast */
+}
 
 
 /******************************************** Navbar ****************************** */
@@ -91,40 +55,34 @@ button, .btn-primary {
     background-color: #f8f4e6; /* Warm Beige */
    
 }
-/* Ensure navbar-toggler-icon is visible */
-/* .navbar-toggler-icon {
-    background-color: #333; /* Change to match your design */
-    /* width: 30px;
-    height: 3px;
-    border-radius: 2px;
-} */ 
-
-/* When the navbar is collapsed and the icon is clicked, ensure the icon shows */
-/* .navbar-toggler.collapsed .navbar-toggler-icon {
-    background-color: #333; /* Keep icon color visible when toggled */
-/* }  */
-.navbar a {
-    color: #388e3c; /* Rich Dark Green for nav links */
-}
 
 .navbar a:hover {
-    color: #ff6f61; /* Soft Coral hover effect */
+    color: #0fdf4e; /* Soft Coral hover effect */
 }
-.navbar-brand {
-    display: flex;
-    align-items: center; /* Vertically center logo */
+
+/* Add this CSS to style the nav links on hover */
+.navbar-nav .nav-link {
+    font-size: 1rem; /* Default font size */
+    transition: color 0.3s ease, font-size 0.3s ease; /* Smooth transition for color and size */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FF69B4; /* Change the color to your desired hover color (e.g., pink) */
+    font-size: 1.1rem; /* Slightly increase the font size on hover */
+}
+
+/* Optional: You can also change the background color on hover for the navbar */
+.navbar-nav .nav-item:hover {
+    background-color: rgba(255, 105, 180, 0.2); /* Light pink background on hover */
 }
 
 /* Logo size adjustment */
-.logo img {
-    max-width: 120px; /* Adjust the size of the logo */
-    height:100px;     /* Keep the aspect ratio */
-}
+
 
 /* Ensure that the profile picture is inside the navbar and positioned on the right */
 .profile-pic-container {
     position: relative;
-    margin-left: auto; /* This will push the profile picture to the far right */
+    margin-left: auto; 
 }
 
 /* Profile picture styling */
@@ -143,11 +101,11 @@ button, .btn-primary {
 
 /* Dropdown Menu */
 .dropdown-menu {
-    min-width: 200px;  /* Optional: controls the width of the dropdown */
+    min-width: 200px;  
 }
 
 .dropdown-item:hover {
-    background-color: #f8f8f8;  /* Optional: adds hover effect to dropdown items */
+    background-color: #f8f8f8; 
 }
 /*******************************Footer ******************************/
 footer {
@@ -158,14 +116,14 @@ footer {
 }
 
 footer a {
-    color: #ff6f61; /* Coral for links in footer */
+    color: #ff6f61; 
 }
 
 footer a:hover {
-    color: white; /* White on hover */
+    color: white; 
 }
 
-.brand {
+/* .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
@@ -209,6 +167,8 @@ footer a:hover {
 .scale {
     width: 100%;
     height: auto;
+    border-radius: 50%;
+    
 }
 
 .author {
@@ -217,39 +177,50 @@ footer a:hover {
     text-transform: uppercase;
 }
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
 
 .masthead-image {
-    position: relative;
-    overflow: hidden;
+    display: flex;                 
+    justify-content: center;       
+    align-items: center;           
+    height: 200px;         
 }
 
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
+.masthead-image img {
+    width: 100%;                  
+    max-width: 200px;              
+    height: 200px;                 
+    object-fit: cover;             
+    border-radius: 50%;           
+    margin-bottom: 20px;           
+} */
+/* Style for the card */
+/* .card {
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    height: 100%; 
+    padding: 50px; 
+} */
+
+
+/* .post-title {
+    font-size: 2rem; 
+    font-weight: bold; 
+    margin-top: 20px; 
+    color: #445261;
+} */
+
+/* Adjust the layout of the ingredients and instructions */
+/* .card-text {
+    font-size: 1.1rem; 
+    line-height: 1.6; 
 }
+
 
 .post-link {
     text-decoration: none;
@@ -261,10 +232,7 @@ footer a:hover {
     color: #E84610;
 }
 
-.post-title {
-    margin-top: 10%;
-    margin-left: 5%;
-}
+
 
 .post-subtitle {
     margin-left: 5%;
@@ -318,21 +286,26 @@ footer a:hover {
 
 .approval {
     color: rgb(222, 146, 168);
-}
+} */
 
 
 /***********************Media Query*************************/
 
 @media (max-width: 768px) {
     .carousel-text h2 {
-        font-size: 1.5rem;  /* Adjust font size for smaller screens */
+        font-size: 1.5rem;  
     }
 
     .carousel-text p {
-        font-size: 1rem;  /* Adjust paragraph font size for smaller screens */
+        font-size: 1rem;  
     }
 
     .flavour-button {
-        font-size: 14px;  /* Make button text smaller for smaller screens */
+        font-size: 14px;  
     }
 }
+
+    .masthead-image img {
+        max-width: 150px; 
+        height: 150px;
+    }
