@@ -9,8 +9,8 @@ class UserProfile(models.Model):
     This model contains additional fields like profile image, bio, location, and name.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    first_name = models.CharField(max_length=100, null=True, blank=True)
-    last_name = models.CharField(max_length=100, null=True, blank=True)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     profile_image = CloudinaryField('image', default='placeholder')
     bio = models.TextField(null=True, blank=True)
     location = models.CharField(max_length=100, null=True, blank=True)

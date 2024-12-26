@@ -1,7 +1,10 @@
 {% load static %}
 {% url 'home' as home_url %}
+{% url 'account_logout' as logout_url %}
 {% url 'signin' as signin_url %}
 {% url 'signup' as signup_url %}
+
+
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
@@ -41,22 +44,24 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="/about/">About</a>
+                        <a class="nav-link " href="{% url 'pages:page_diet' %}">The Mediterranean Diet</a>
                     </li>
-
+            
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
 
-                    <li class="login-out" id="register-button">
+                    <li class="sign_up" id="register-button">
                         <a class="nav-link " href="{% url 'accounts:signup' %}">Register</a>
                     </li>
-                    <li class="login-out" id="login-button">
+                    <li class="login-in" id="login-button">
                         <a class="nav-link " href="{% url 'accounts:signin' %}">Login</a>
                     </li>
 
                 </ul>
-                <!-- Profile Picture with Dropdown Menu -->
-                <span class="dropdown profile-pic-container">
+            </div>
+            <!-- Profile Picture with Dropdown Menu -->
+            <div class="dropdown profile-pic-container">
+                
                     <img src="{% static 'images/nobody.jpg' %}" alt="Profile Picture" class="profile-pic"
                         data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -64,9 +69,10 @@
                         <li><a class="dropdown-item" href="#">My Recipes</a></li>
                         <li><a class="dropdown-item" href="#">Log Out</a></li>
                     </ul>
-                </span>
+                
+            </div>
         </div>
-        </div>
+
     </nav>
 
 
