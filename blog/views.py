@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 from django.db.models import Avg
 from django.views import generic
 from .models import Recipe
@@ -49,4 +50,22 @@ def recipe_detail(request, slug):
          
     )
 
+def home(request):
+    search_query = request.GET.get('q', '')
 
+    # If there is a search query, filter recipes based on the query
+    if search_query:
+        recipes = Recipe.objects.filter(recipe_name__icontains=search_query)
+    else:
+        recipes = Recipe.objects.all()
+
+    # Pagination logic
+    paginator = Paginator(recipes, 6)  # Show 6 recipes per page
+    page_number = request.GET.get('page')  # Get the page number from the query params
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'home.html', {
+        'recipes': page_obj,
+        'is_paginated': page_obj.has_other_pages(),
+        'page_obj': page_obj,
+    })

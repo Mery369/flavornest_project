@@ -1,6 +1,6 @@
 {% load static %}
 {% url 'home' as home_url %}
-{% url 'account_logout' as logout_url %}
+{% url 'signout' as signout_url %}
 {% url 'signin' as signin_url %}
 {% url 'signup' as signup_url %}
 
@@ -58,8 +58,8 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">My Profile</a></li>
-                            <li><a class="dropdown-item" href="#">My Recipes</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+                            <li><a class="dropdown-item" href="">My Recipes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'accounts:signout' %}">Log Out</a></li>
                         </ul>
                     </li>
                     {% else %}
@@ -131,6 +131,7 @@
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
         <script src="https://kit.fontawesome.com/b205b6285d.js" crossorigin="anonymous"></script>
+        <script src="{% static 'js/script.js' %}"></script>
     </footer>
 </body>
 
