@@ -27,8 +27,8 @@ def signin(request):
 
             if user is not None:
                 login(request, user)
-                # Redirect to profile or home page after successful login
-                return redirect('accounts:profile')  # Or replace with another URL like 'home'
+                messages.success(request , 'Login successful. Welcome back!')
+                return redirect('accounts:profile') 
 
             else:
                 # Invalid credentials - show an error message
@@ -83,8 +83,8 @@ def signup(request):
                 # Log the user in after successful creation
                 login(request, user)
 
-                messages.success(request, "Account successfully created!")
-                return redirect('accounts:profile')  # Redirect to the profile page
+                messages.success(request, "Account successfully created! Welcome to our community")
+                return redirect('accounts:profile') 
 
         else:
             messages.error(request, "Passwords do not match.")
@@ -93,15 +93,12 @@ def signup(request):
     return render(request, 'accounts/signup.html')
 
 
-def signout(request):
-    if request.method == "POST":
-        # If POST request, log the user out
-        logout(request)
-        messages.success(request, "You have been successfully logged out.")
-        return redirect('home')  # Redirect to homepage after logout
-    else:
-        # If GET request, show the sign out confirmation page
-        return render(request, 'accounts/signout.html') 
+# def signout(request):
+    
+#         auth.logout(request)
+#         messages.success(request, "You have been successfully logged out.")
+#         return redirect('home')  
+    
 
         
 @login_required

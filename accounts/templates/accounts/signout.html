@@ -1,31 +1,29 @@
-
 {% extends "base.html" %}
-{% load static %}
+
 {% load i18n %}
-{% block title %} {% trans "Sign Out" %} {% endblock %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h3>{% trans "Sign Out" %}</h3>
 
-<!-- Sign Out Modal -->
-
-
-<h1>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h1>
-<div class="modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Sign out ? </h5>
-          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            <p>{% trans 'Are you sure you want to sign out?' %}</p>
         </div>
-        <div class="modal-body">
-          <p>Are you sure You want to sign out ?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="signout_btn">Sign out</button>
-          <button type="button" class="btn btn-primary">Cancel</button>
-        </div>
-      </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
 
-  {% endblock %}
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-signup right" type="submit">{% trans 'Sign Out' %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

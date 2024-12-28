@@ -1,6 +1,6 @@
 /* General Body */
 body {
-    background-color: #270425; 
+    background-color: #e0ebd6; 
     color: #080808; 
     font-family: 'Roboto', sans-serif; 
 }
@@ -109,7 +109,14 @@ body {
     margin-top: 3rem;
 }
 
+/******Comments ************************/
+.faded {
+    color: rgb(172, 175, 175);
+}
 
+.approval {
+    color: rgb(222, 146, 168);
+} 
 /* Ensure that the profile picture is inside the navbar and positioned on the right */
 .profile-pic-container {
     position: relative;

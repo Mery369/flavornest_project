@@ -102,4 +102,4 @@ class Comment(models.Model):
         """
         Returns a string representation of the comment, including user and recipe name.
         """
-        return f"Comment by User {self.user_id} on {self.recipe.name}"
+        return f"Comment by User {self.author} on {self.recipe.recipe_name}"

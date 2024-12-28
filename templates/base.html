@@ -1,6 +1,6 @@
 {% load static %}
 {% url 'home' as home_url %}
-{% url 'signout' as signout_url %}
+{% url 'account_logout' %}
 {% url 'signin' as signin_url %}
 {% url 'signup' as signup_url %}
 
@@ -59,7 +59,7 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">My Profile</a></li>
                             <li><a class="dropdown-item" href="">My Recipes</a></li>
-                            <li><a class="dropdown-item" href="{% url 'accounts:signout' %}">Log Out</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
                         </ul>
                     </li>
                     {% else %}
