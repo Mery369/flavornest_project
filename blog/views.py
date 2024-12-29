@@ -58,6 +58,13 @@ def recipe_detail(request, slug):
          
     )
 
+
+def recipe_list(request):
+    # Fetching all recipes, ordered by creation date (most recent first)
+    recipes = Recipe.objects.all().order_by('-created_on')  
+    return render(request, 'blog/recipe_list.html', {'recipes': recipes})
+
+
 def home(request):
     search_query = request.GET.get('q', '')
 

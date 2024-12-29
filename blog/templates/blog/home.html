@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <h1 class="display-3">Welcome to the Flavour Nest Recipe Book!</h1>
                 <p class="lead">Explore, share, and create delicious healthy recipes with our community.</p>
-                 <form method="GET" action="{% url 'home' %}">
+                 <form method="GET" action="#">
                     <div class="input-group mt-3">
                         <input type="text" name="q" class="form-control" placeholder="Search for recipes..." value="{{ request.GET.q }}">
                         <button class="btn btn-light" type="submit">
@@ -43,7 +43,7 @@
                                     <p class="author">Made By: {{ recipe.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+                            <a href="{% url 'blog:recipe_detail' recipe.slug %}" class="post-link">
                                 <h2 class="card-title">{{ recipe.recipe_name }}</h2>
                             </a>
 

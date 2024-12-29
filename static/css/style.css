@@ -69,16 +69,30 @@ body {
 
 /* Log out page*/
 /* Optional custom styling */
-.card {
-    border-radius: 12px; /* Rounded card corners */
-    border: none; /* No border */
+/* .card {
+    border-radius: 12px; 
+    border: none; 
 }
 
 .card-body {
-    background-color: #fff;
+    background-color: #eaf7b0;
     padding: 2rem;
+} */
+/* Ensure all cards have the same height */
+.card {
+    height: 100%;
 }
 
+/* Optional: Add a little spacing between the cards */
+.card-body {
+    padding: 20px;
+}
+
+/* Optional: You can tweak the image sizes to be consistent */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;  /* Ensures the image is cropped uniformly */
+}
 .btn {
     padding: 0.75rem;
     font-size: 1rem;
@@ -115,7 +129,8 @@ body {
 }
 
 .approval {
-    color: rgb(222, 146, 168);
+    color: rgb(12, 12, 12);
+    font-weight: bold;
 } 
 /* Ensure that the profile picture is inside the navbar and positioned on the right */
 .profile-pic-container {

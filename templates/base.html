@@ -40,7 +40,7 @@
             <div class="navbar-collapse collapse show" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link " aria-current="page" href="{% url 'blog:recipe_list' %}">All recipes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'pages:page_diet' %}">The Mediterranean Diet</a>
@@ -54,7 +54,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{% static 'images/nobody.jpg' %}" alt="Profile Picture" class="profile-pic">
+                            <img src="{{user.profile.profile_image.url }}" alt="Profile Picture" class="profile-pic">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">My Profile</a></li>
