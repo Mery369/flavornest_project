@@ -114,11 +114,20 @@ def user_profile(request):
         messages.error(request, "You don't have a profile. Please complete your profile setup.")
         return redirect('accounts:signup')  
 
-    #  fetch the user's recipes if needed
+    #  fetch the user's recipes 
     recipes = user.recipes.all()
+    #  fetch the user's comments
+    comments = user.commenter.all()
+      # Fetching all other registered users for the friend suggestion
+    suggested_users = User.objects.exclude(id=user.id)  # Exclude the logged-in user
+
+    # Ensure that you fetch UserProfile objects along with User
+    suggested_users_with_profile = UserProfile.objects.filter(user__in=suggested_users)
 
     return render(request, 'accounts/userprofile.html', {
         'user': user,
         'user_profile': user_profile,
-        'recipes': recipes
+        'recipes': recipes,
+        'comments': comments,
+        'suggested_users': suggested_users_with_profile,
     })

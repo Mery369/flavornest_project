@@ -25,3 +25,12 @@ class UserProfile(models.Model):
             str: The username of the associated user, followed by the word 'Profile'.
         """
         return f"{self.user.first_name} {self.last_name}'s Profile"
+
+class CollaborateRequest(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    message = models.TextField()
+    read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Collaboration request from {self.name}"

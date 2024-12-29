@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.db.models import Avg
 from django.views import generic
+from django.contrib import messages
 from .models import Recipe
+from .forms import CommentForm
+
 # Create your views here.
 
 
@@ -30,12 +33,27 @@ def recipe_detail(request, slug):
     recipe = get_object_or_404(queryset, slug=slug)
     comments = recipe.comments.all().order_by("-date_added")
     comment_count = recipe.comments.filter(approved=True).count()
+    if request.method == "POST":
+       comment_form = CommentForm(data=request.POST)
+       if comment_form.is_valid():
+           comment = comment_form.save(commit=False)
+           comment.author = request.user
+           comment.recipe = recipe
+           comment.save()
+           messages.add_message(
+           request, messages.SUCCESS,
+           'Comment submitted and awaiting approval'
+                                 )
+
+    comment_form = CommentForm()
+
     return render(
         request,
         "blog/recipe_detail.html",
         {"recipe": recipe,
         'title' :'Recipe Details',
-        "comment_count": comment_count
+        "comment_count": comment_count,
+        "comment_form": comment_form,
         },
          
     )
