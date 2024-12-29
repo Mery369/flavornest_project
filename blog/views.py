@@ -4,14 +4,14 @@ from django.core.paginator import Paginator
 from django.db.models import Avg
 from django.views import generic
 from django.contrib import messages
-from .models import Recipe
+from .models import Recipe,Category
 from .forms import CommentForm
 
 # Create your views here.
 
 
 class RecipeList(generic.ListView):
-    queryset = Recipe.objects.all()
+    queryset = Recipe.objects.all().order_by('-created_on')[:6]  # Get the 6 latest recipes, ordered by 'created_on'
     template_name = 'blog/home.html'  
     context_object_name = 'recipes'  
 
@@ -61,9 +61,18 @@ def recipe_detail(request, slug):
 
 def recipe_list(request):
     # Fetching all recipes, ordered by creation date (most recent first)
-    recipes = Recipe.objects.all().order_by('-created_on')  
-    return render(request, 'blog/recipe_list.html', {'recipes': recipes})
+    recipes = Recipe.objects.all().order_by('-created_on')[:6]
+    categories = Category.objects.all()
+    return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, })
 
+
+def category_recipes(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    recipes = category.recipe_set.all()  # This assumes a ForeignKey from Recipe to Category
+    return render(request, 'blog/category_recipes.html', {
+        'category': category,
+        'recipes': recipes,
+    })
 
 def home(request):
     search_query = request.GET.get('q', '')

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} {{ category.name }} Recipes {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h3>{{ category.name }} Recipes</h3>
+
+    {% if recipes %}
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ recipe.recipe_image.url }}" class="card-img-top" alt="{{ recipe.recipe_name }}">
+                <div class="card-body d-flex flex-column">
+                    <a href="{% url 'blog:recipe_detail' recipe.slug %}">
+                        <h5 class="card-title">{{ recipe.recipe_name }}</h5>
+                    </a>
+                    <p class="author text-muted">Made by: {{ recipe.author }}</p>
+                    <p class="text-muted">{{ recipe.created_on|date:"Y-m-d" }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No recipes available for this category.</p>
+    {% endif %}
+</div>
+{% endblock %}
