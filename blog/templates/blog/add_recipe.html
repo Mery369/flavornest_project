@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container mt-5">
+    <h2>Add a New Recipe</h2>
+    
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}  <!-- This renders the form with Bootstrap styling -->
+        
+        <button type="submit" class="btn btn-primary mt-3">Submit Recipe</button>
+    </form>
+</div>
+
+{% endblock %}

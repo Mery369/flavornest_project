@@ -27,32 +27,40 @@
           <button onclick="window.print()" class="btn btn-primary mb-3">Print Recipe</button>
       </div>
   </div>
-  <!-- Rating Form  -->
+  <!-- Rating Form -->
   <div class="mt-4">
     <h4>Rate this Recipe:</h4>
     {% if user.is_authenticated %}
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <!-- Render the rating field with stars -->
+            <div class="star-rating">
+                {% for radio in rating_form.rating %}
+                    <label class="star">
+                        <input type="radio" name="rating" value="{{ radio.choice_value }}" 
+                               id="rating_{{ forloop.counter }}" {% if radio.field.value == radio.choice_value %}checked{% endif %}>
+                        <span class="star-icon">★</span>
+                    </label>
+                {% endfor %}
+            </div>
+            
+            <!-- Submit button for the rating -->
             <button type="submit" class="btn btn-primary">Submit Rating</button>
         </form>
     {% else %}
         <p>You need to <a href="{% url 'accounts:signin' %}">log in</a> to rate this recipe.</p>
     {% endif %}
 </div>
- <!-- Display existing rating (if any) -->
- <div class="mt-4">
-  <h4>Average Rating:</h4>
-  <p>
-      {% if avg_rating %}
-          {% for i in stars %}
-              <span class="star {% if i <= avg_rating %}filled{% endif %}">★</span>
-          {% endfor %}
-          <span>{{ avg_rating|floatformat:1 }} / 5</span>
-      {% else %}
-          <p>No ratings yet.</p>
-      {% endif %}
-  </p>
+
+<!-- Display average rating (stars) -->
+<div class="mt-4">
+    <h4>Rating:</h4>
+    <div class="star-rating">
+        {% for i in stars %}
+            <span class="star {% if i <= avg_rating %}filled{% endif %}">★</span>
+        {% endfor %}
+    </div>
+    <span>{{ avg_rating|floatformat:1 }} </span>
 </div>
 </div>
 
@@ -72,18 +80,7 @@
             </div>
         </div>
     </div>
-     <!-- Display Average Rating (5 stars display) -->
-     <div class="row">
-      <div class="col-12">
-          <h4>Average Rating: </h4>
-          <div class="stars">
-              {% for i in range(1, 6) %}
-                  <i class="fa fa-star {% if i <= average_rating|floatformat:1 %}filled{% endif %}"></i>
-              {% endfor %}
-          </div>
-          <p>{{ average_rating|floatformat:1 }} / 5</p>
-      </div>
-  </div>
+    
     <!-- Displaying count of comments -->
   <div class="row">
     <div class="col-12">
@@ -109,17 +106,21 @@
           <p class="font-weight-bold">
             {{ comment.author }}
             <span class="font-weight-normal">
-              {{ comment.created_on }}
+              {{ comment.date_added|date:"Y-m-d" }}
             </span> wrote:
           </p>
           <div id="comment{{ comment.id }}">
-            {{ comment.body | linebreaks }}
+            {{ comment.comment_text | linebreaks }}
           </div>
           {% if not comment.approved and comment.author == user %}
           <p class="approval">
             This comment is awaiting approval
           </p>
           {% endif %}
+          {% if user.is_authenticated and comment.author == user %}
+  <button class="btn btn-edit"
+    comment_id="{{ comment.id }}">Edit</button>
+  {% endif %}
         </div>
         <!-- Our for loop ends here -->
         {% endfor %}
@@ -147,3 +148,6 @@
 </div>
 
 {% endblock content %}
+<!-- {% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %} -->

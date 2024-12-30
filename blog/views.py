@@ -1,11 +1,12 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.http import HttpResponse,HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.db.models import Avg
+from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
 from .models import Recipe,Category,Rating
-from .forms import CommentForm
+from .forms import CommentForm,RatingForm,RecipeForm
 
 # Create your views here.
 
@@ -23,7 +24,10 @@ def recipe_detail(request, slug):
 
     ``recipe``
         An instance of :model:`blog.Recipe`.
-
+    `comment_form``
+        An instance of :forms:`CommentForm`.
+    `rating_form``
+        An instance of :rating_form:`RatingForm`.
     **Template:**
 
     :template:`blog/recipe_detail.html`
@@ -39,6 +43,7 @@ def recipe_detail(request, slug):
 
     if request.method == "POST":
        comment_form = CommentForm(data=request.POST)
+       rating_form = RatingForm(request.POST)
        if comment_form.is_valid():
            comment = comment_form.save(commit=False)
            comment.author = request.user
@@ -46,23 +51,34 @@ def recipe_detail(request, slug):
            comment.save()
            messages.add_message(
            request, messages.SUCCESS,
-           'Comment submitted and awaiting approval'
-                                 )
+           'Comment submitted and awaiting approval')
+         # Handling rating form submission
+       if rating_form.is_valid():
+            rating = rating_form.save(commit=False)
+            rating.recipe = recipe
+            rating.user = request.user
+            rating.save()
+            messages.success(request, 'Your rating has been submitted successfully!')
+            return redirect('recipe_detail', slug=slug)
 
+    # Initialize the forms
     comment_form = CommentForm()
-    if request.user.is_authenticated:
-        existing_rating = Rating.objects.filter(recipe=recipe, user=request.user).first()
-    else:
-        existing_rating = None
+    rating_form = RatingForm()
+                            
+
+  
+    
     return render(
         request,
         "blog/recipe_detail.html",
         {"recipe": recipe,
         'title' :'Recipe Details',
+        "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
          'avg_rating': avg_rating,
-        'existing_rating': existing_rating,
+        "stars": stars,
+        "rating_form": rating_form,
         },
          
     )
@@ -70,7 +86,7 @@ def recipe_detail(request, slug):
 
 def recipe_list(request):
     # Fetching all recipes, ordered by creation date (most recent first)
-    recipes = Recipe.objects.all().order_by('-created_on')[:6]
+    recipes = Recipe.objects.filter(status=1).order_by('-created_on')[:6]
     categories = Category.objects.all()
     return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, })
 
@@ -150,3 +166,73 @@ def rate_recipe(request, recipe_slug):
         form = RatingForm(instance=existing_rating)
 
     return render(request, 'recipes/rate_recipe.html', {'form': form, 'recipe': recipe})
+
+@login_required
+def add_recipe(request):
+    """
+    Handles the creation of a new recipe.
+    If the recipe is successfully created, it is awaiting approval.
+    """
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Save the form without committing to the database
+            recipe = form.save(commit=False)
+            # Associate the recipe with the logged-in user
+            recipe.author = request.user
+            # Set the recipe's status to draft (awaiting approval)
+            recipe.status = 0  # "Draft"
+            recipe.save()
+
+            # Show a success message
+            messages.success(request, "Recipe successfully added and is awaiting approval.")
+            return redirect('recipe_detail', slug=recipe.slug)
+    else:
+        form = RecipeForm()
+
+    return render(request, 'blog/add_recipe.html', {'form': form})
+
+
+def comment_edit(request, slug, comment_id):
+    """
+    view to edit comments
+    """
+    if request.method == "POST":
+
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+# def recipe_edit(request, slug):
+#     """
+#     view to edit recipe
+#     """
+#     if request.method == "POST":
+
+#         queryset = Recipe.objects.filter(status=1)
+#         recipe = get_object_or_404(queryset, slug=slug)
+#         comment = get_object_or_404(Comment, pk=comment_id)
+#         comment_form = CommentForm(data=request.POST, instance=comment)
+
+#         if comment_form.is_valid() and comment.author == request.user:
+#             comment = comment_form.save(commit=False)
+#             comment.post = post
+#             comment.approved = False
+#             comment.save()
+#             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+#         else:
+#             messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+#     return HttpResponseRedirect(reverse('post_detail', args=[slug]))

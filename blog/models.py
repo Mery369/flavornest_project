@@ -80,7 +80,7 @@ class Rating(models.Model):
         """
         Returns a string representation of the rating, showing user and rating value.
         """
-        return f"Rating for {self.recipe_name} by {self.user.first_name} - {self.rating} stars"
+        return f"Rating for {self.recipe.recipe_name} by {self.user.first_name} - {self.rating} stars"
 
 
 

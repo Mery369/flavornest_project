@@ -312,6 +312,32 @@ footer a:hover {
 .image-container {
     position: relative;
 }
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 5px; /* Space between stars */
+}
+.star {
+    color: gold;
+    font-size: 30px;
+}
+.star input[type="radio"] {
+    display: none; /* Hide the default radio button */
+}
+
+.star span.star-icon {
+    font-size: 30px;
+    color: grey;
+    cursor: pointer;
+}
+
+.star input[type="radio"]:checked ~ .star-icon {
+    color: gold; /* Change color when selected */
+}
+
+.star input[type="radio"]:hover ~ .star-icon {
+    color: gold; /* Change color on hover */
+}
 /* Adjust the layout of the ingredients and instructions */
 /* .card-text {
     font-size: 1.1rem; 
@@ -372,19 +398,7 @@ footer a:hover {
 
 
 /***********************Media Query*************************/
-.star {
-    color: #ccc;
-    font-size: 20px;
-}
 
-.star.filled {
-    color: gold;
-}
-
-.star:hover {
-    cursor: pointer;
-    color: orange;
-}
 
 @media (max-width: 768px) {
     .carousel-text h2 {
