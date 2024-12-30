@@ -7,6 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from accounts.models import UserProfile 
 from blog.models import Recipe
 from django.contrib import messages
+from .forms import CollaborateForm
 
 # Create your views here.
 
@@ -131,3 +132,25 @@ def user_profile(request):
         'comments': comments,
         'suggested_users': suggested_users_with_profile,
     })
+
+def collab_form(request):
+    
+    if request.method == "POST":
+        collaborate_form = CollaborateForm(data=request.POST)
+        if collaborate_form.is_valid():
+            collaborate_form.save()
+            messages.add_message(request, messages.SUCCESS,
+             "Collaboration request Sent Successfully!")
+
+    else:
+        # For GET request, initialize an empty form
+        collaborate_form = CollaborateForm()
+
+    return render(
+        request,
+        "accounts/collaborate_form.html",
+        {
+            
+            "collaborate_form": collaborate_form
+        },
+    )

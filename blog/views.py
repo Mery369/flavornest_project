@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.db.models import Avg
 from django.views import generic
 from django.contrib import messages
-from .models import Recipe,Category
+from .models import Recipe,Category,Rating
 from .forms import CommentForm
 
 # Create your views here.
@@ -33,6 +33,10 @@ def recipe_detail(request, slug):
     recipe = get_object_or_404(queryset, slug=slug)
     comments = recipe.comments.all().order_by("-date_added")
     comment_count = recipe.comments.filter(approved=True).count()
+    # Calculate the average rating of the recipe
+    avg_rating = recipe.ratings.aggregate(Avg('rating'))['rating__avg']
+    stars = range(1, 6)
+
     if request.method == "POST":
        comment_form = CommentForm(data=request.POST)
        if comment_form.is_valid():
@@ -46,7 +50,10 @@ def recipe_detail(request, slug):
                                  )
 
     comment_form = CommentForm()
-
+    if request.user.is_authenticated:
+        existing_rating = Rating.objects.filter(recipe=recipe, user=request.user).first()
+    else:
+        existing_rating = None
     return render(
         request,
         "blog/recipe_detail.html",
@@ -54,6 +61,8 @@ def recipe_detail(request, slug):
         'title' :'Recipe Details',
         "comment_count": comment_count,
         "comment_form": comment_form,
+         'avg_rating': avg_rating,
+        'existing_rating': existing_rating,
         },
          
     )
@@ -109,3 +118,35 @@ def home(request):
         'page_obj': page_obj,
         'search_query': search_query,
     })
+
+def rate_recipe(request, recipe_slug):
+    recipe = get_object_or_404(Recipe, slug=recipe_slug)
+
+    # Check if the user is logged in
+    if not request.user.is_authenticated:
+        messages.error(request, "You need to be logged in to rate this recipe.")
+        return redirect('login')  # Redirect to the login page or any other page you'd like
+
+    # If the user has already rated this recipe, retrieve their existing rating
+    existing_rating = Rating.objects.filter(recipe=recipe, user=request.user).first()
+
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            # If a rating already exists, update it; otherwise, create a new one
+            if existing_rating:
+                existing_rating.rating = form.cleaned_data['rating']
+                existing_rating.save()
+                messages.success(request, "Your rating has been updated.")
+            else:
+                Rating.objects.create(
+                    recipe=recipe,
+                    user=request.user,
+                    rating=form.cleaned_data['rating']
+                )
+                messages.success(request, "Your rating has been submitted.")
+            return redirect('recipe_detail', recipe_slug=recipe.slug)
+    else:
+        form = RatingForm(instance=existing_rating)
+
+    return render(request, 'recipes/rate_recipe.html', {'form': form, 'recipe': recipe})

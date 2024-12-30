@@ -6,6 +6,7 @@ app_name = 'accounts'
 
 urlpatterns = [
     # path('signout/', views.signout, name='signout'),
+    path('collab/', views.collab_form , name ="collaborate_form"),
     path('signin/', views.signin, name="signin"),  
     path('signup/', views.signup, name="signup"),
     path('profile/', views.user_profile, name='profile'),

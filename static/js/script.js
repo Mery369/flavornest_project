@@ -11,3 +11,16 @@
 //         });
 //     }
 // });
+
+// This function will trigger the print dialog when called
+function printRecipe() {
+    window.print();
+}
+
+// Add an event listener to the "Print Recipe" button when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+    const printButton = document.getElementById('printButton');
+    if (printButton) {
+        printButton.addEventListener('click', printRecipe);
+    }
+});

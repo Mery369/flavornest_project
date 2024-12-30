@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -18,6 +19,42 @@
         </div>
     </div>
 </div>
+<!-- Add a print button -->
+<div class="container">
+  <div class="row">
+      <div class="col-12 text-right">
+          <!-- Print button -->
+          <button onclick="window.print()" class="btn btn-primary mb-3">Print Recipe</button>
+      </div>
+  </div>
+  <!-- Rating Form  -->
+  <div class="mt-4">
+    <h4>Rate this Recipe:</h4>
+    {% if user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit Rating</button>
+        </form>
+    {% else %}
+        <p>You need to <a href="{% url 'accounts:signin' %}">log in</a> to rate this recipe.</p>
+    {% endif %}
+</div>
+ <!-- Display existing rating (if any) -->
+ <div class="mt-4">
+  <h4>Average Rating:</h4>
+  <p>
+      {% if avg_rating %}
+          {% for i in stars %}
+              <span class="star {% if i <= avg_rating %}filled{% endif %}">★</span>
+          {% endfor %}
+          <span>{{ avg_rating|floatformat:1 }} / 5</span>
+      {% else %}
+          <p>No ratings yet.</p>
+      {% endif %}
+  </p>
+</div>
+</div>
 
 <div class="container">
     <div class="row">
@@ -35,6 +72,18 @@
             </div>
         </div>
     </div>
+     <!-- Display Average Rating (5 stars display) -->
+     <div class="row">
+      <div class="col-12">
+          <h4>Average Rating: </h4>
+          <div class="stars">
+              {% for i in range(1, 6) %}
+                  <i class="fa fa-star {% if i <= average_rating|floatformat:1 %}filled{% endif %}"></i>
+              {% endfor %}
+          </div>
+          <p>{{ average_rating|floatformat:1 }} / 5</p>
+      </div>
+  </div>
     <!-- Displaying count of comments -->
   <div class="row">
     <div class="col-12">

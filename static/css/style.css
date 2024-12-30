@@ -103,14 +103,6 @@ body {
     color: #e59572;
 }
 
-/* Log out page*/
-/* Optional custom styling */
-/* .card {
-    border-radius: 12px; 
-    border: none; 
-}
-
- */
 /* Ensure all cards have the same height */
 .card {
     height: 100%;
@@ -118,7 +110,7 @@ body {
 
 /* Optional: Add a little spacing between the cards */
 .card-body {
-    background-color: #0c0e05;
+    background-color: #fdc4b6;
     padding: 2rem;
     margin-bottom: 20px;
 }
@@ -209,18 +201,18 @@ body {
 }
 /*******************************Footer ******************************/
 footer {
-    background-color: #388e3c; /* Rich Dark Green */
-    color: white;
+    background-color: #7fcdff; 
+    color: rgb(8, 8, 8);
     padding: 1rem;
     text-align: center;
 }
 
 footer a {
-    color: #ff6f61; 
+    color: #004c4c; 
 }
 
 footer a:hover {
-    color: white; 
+    color: #e59572; 
 }
 
 /* .brand {
@@ -252,9 +244,7 @@ footer a:hover {
     background-color: transparent;
 }
 
-.image-container {
-    position: relative;
-}
+
 
 .image-flash {
     position: absolute;
@@ -294,18 +284,7 @@ footer a:hover {
     margin-bottom: 20px;           
 } */
 /* Style for the card */
-/* .card {
-    border: 1px solid #ccc; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    height: 100%; 
-    padding: 50px; 
-} */
+/*  */
 
 
 .post-title {
@@ -328,7 +307,10 @@ footer a:hover {
 
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: #2694ab;
+}
+.image-container {
+    position: relative;
 }
 /* Adjust the layout of the ingredients and instructions */
 /* .card-text {
@@ -390,6 +372,19 @@ footer a:hover {
 
 
 /***********************Media Query*************************/
+.star {
+    color: #ccc;
+    font-size: 20px;
+}
+
+.star.filled {
+    color: gold;
+}
+
+.star:hover {
+    cursor: pointer;
+    color: orange;
+}
 
 @media (max-width: 768px) {
     .carousel-text h2 {
@@ -409,3 +404,22 @@ footer a:hover {
         max-width: 150px; 
         height: 150px;
     }
+    @media print {
+        body {
+            font-size: 14px;
+            color: #000;
+        }
+    
+        .masthead, .masthead-image, .masthead-text {
+            display: none; /* Hide header image and text in print */
+        }
+    
+        .container {
+            width: 100%;
+        }
+    
+        .btn {
+            display: none; /* Hide the Print button itself */
+        }
+    }
+    

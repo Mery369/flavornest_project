@@ -65,8 +65,10 @@ class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE) 
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)],
-        help_text="Rating should be between 1 and 5"
+        help_text="Rating should be between 1 and 5",
+        default=3,
     )
+    created_at = models.DateTimeField(auto_now_add=True, help_text="The date and time the rating was created.")
       
 
     class Meta:
@@ -78,7 +80,7 @@ class Rating(models.Model):
         """
         Returns a string representation of the rating, showing user and rating value.
         """
-        return f"Rating for {self.recipe.name} by {self.user.first_name} - {self.rating} stars"
+        return f"Rating for {self.recipe_name} by {self.user.first_name} - {self.rating} stars"
 
 
 
