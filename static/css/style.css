@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'MagicBubble';
+    src: url("{% static 'fonts/MagicBubble-0v0Gr.ttf' %}") format('truetype');
+    font-weight: bold;
+    font-style:oblique;
+}
+
 /* General Body */
 body {
-    background-color: #e0ebd6; 
-    color: #080808; 
+    background-color: 	#7fcdff; 
+    color: #fafafa; 
     font-family: 'Roboto', sans-serif; 
 }
 
@@ -46,25 +53,54 @@ body {
 }
 
 .navbar a:hover {
-    color: #0fdf4e; /* Soft Coral hover effect */
+    color: #ea7070; /* Soft Coral hover effect */
 }
 
 /* Add this CSS to style the nav links on hover */
 .navbar-nav .nav-link {
     font-size: 1rem; 
-    font-weight: 100;
-    color: #388e3c;
-    transition: color 0.3s ease, font-size 0.3s ease; 
+    font-weight: 80;
+    color: 	#2694ab;
+    /* transition: color 0.3s ease, font-size 0.3s ease;  */
 }
 
 .navbar-nav .nav-link:hover {
-    color: #e98e3a; /* Change the color to your desired hover color (e.g., pink) */
-    font-size: 1.1rem; /* Slightly increase the font size on hover */
+    color: #e98e3a; 
+    font-size: 1.3rem; 
 }
 
+/* Navbar brand styles */
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title styling */
+.navbar-brand .brand {
+    font-family: 'MagicBubble', sans-serif;
+    font-size: 2rem; 
+    font-weight:200;
+    color: #ea7070;
+    margin-right: 70px;
+}
+
+.navbar-brand .thin-coral {
+    color: #e59572; 
+}
+
+/* Subtitle styling */
+.navbar-subtitle {
+    font-size: 0.9rem; 
+    color: #2694ab; 
+    margin-top: 5px; 
+    text-align: left;
+}
 /* Optional: You can also change the background color on hover for the navbar */
 .navbar-nav .nav-item:hover {
-    /* background-color: rgba(162, 235, 27, 0.2);  */
+    
+    font-size: large;
+    color: #e59572;
 }
 
 /* Log out page*/
@@ -74,10 +110,7 @@ body {
     border: none; 
 }
 
-.card-body {
-    background-color: #eaf7b0;
-    padding: 2rem;
-} */
+ */
 /* Ensure all cards have the same height */
 .card {
     height: 100%;
@@ -85,9 +118,10 @@ body {
 
 /* Optional: Add a little spacing between the cards */
 .card-body {
-    padding: 20px;
+    background-color: #0c0e05;
+    padding: 2rem;
+    margin-bottom: 20px;
 }
-
 /* Optional: You can tweak the image sizes to be consistent */
 .card-img-top {
     height: 200px;
@@ -97,16 +131,16 @@ body {
     padding: 0.75rem;
     font-size: 1rem;
     text-transform: uppercase;
-    border-radius: 30px; /* Rounded buttons like Facebook */
+    border-radius: 30px;
 }
 
 .btn-primary {
-    background-color: #1877f2; /* Facebook blue */
+    background-color: #1877f2; 
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #166fe5; /* Darker blue on hover */
+    background-color: #166fe5; 
 }
 
 .btn-secondary {
@@ -274,20 +308,12 @@ footer a:hover {
 } */
 
 
-/* .post-title {
+.post-title {
     font-size: 2rem; 
     font-weight: bold; 
     margin-top: 20px; 
     color: #445261;
-} */
-
-/* Adjust the layout of the ingredients and instructions */
-/* .card-text {
-    font-size: 1.1rem; 
-    line-height: 1.6; 
 }
-
-
 .post-link {
     text-decoration: none;
     color: #445261;
@@ -304,6 +330,14 @@ footer a:hover {
     margin-left: 5%;
     color: lightgray;
 }
+/* Adjust the layout of the ingredients and instructions */
+/* .card-text {
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+}
+
+
+
 
 .btn-signup,
 .btn-edit {

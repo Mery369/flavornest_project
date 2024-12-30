@@ -75,21 +75,37 @@ def category_recipes(request, category_id):
     })
 
 def home(request):
-    search_query = request.GET.get('q', '')
+    search_query = request.GET.get('q', '')  # Get the search query for recipes
 
-    # If there is a search query, filter recipes based on the query
+    # Get all categories (optional, if you want to show category names in the search results)
+    categories = Category.objects.all()
+
+    # Filter recipes based on the search query, including category names
+    recipes = Recipe.objects.all()
+
     if search_query:
-        recipes = Recipe.objects.filter(recipe_name__icontains=search_query)
-    else:
-        recipes = Recipe.objects.all()
+        # First, try searching for recipe names
+        recipes = recipes.filter(recipe_name__icontains=search_query)
+        
+        # Then, try searching for category names (if the query matches any category name)
+        categories = categories.filter(name__icontains=search_query)
+        
+        # If a matching category is found, filter recipes by that category
+        if categories.exists():
+            category_ids = categories.values_list('id', flat=True)
+            recipes = recipes.filter(category__id__in=category_ids)
 
-    # Pagination logic
-    paginator = Paginator(recipes, 6)  # Show 6 recipes per page
-    page_number = request.GET.get('page')  # Get the page number from the query params
-    page_obj = paginator.get_page(page_number)
+    # Pagination (optional)
+    recipes = recipes.order_by('-created_on')  # You can also order them based on creation date, if you prefer
+
+    # Pagination setup
+    is_paginated = recipes.paginator.num_pages > 1
+    page_obj = recipes
 
     return render(request, 'home.html', {
-        'recipes': page_obj,
-        'is_paginated': page_obj.has_other_pages(),
+        'recipes': recipes,
+        'categories': categories,
+        'is_paginated': is_paginated,
         'page_obj': page_obj,
+        'search_query': search_query,
     })
