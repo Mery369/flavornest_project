@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.db.models import Avg
+from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
@@ -12,7 +13,7 @@ from .forms import CommentForm,RatingForm,RecipeForm
 
 
 class RecipeList(generic.ListView):
-    queryset = Recipe.objects.all().order_by('-created_on')[:6]  # Get the 6 latest recipes, ordered by 'created_on'
+    queryset = Recipe.objects.filter(status=1).order_by('-created_on')[:6]  # Get the 6 latest recipes, ordered by 'created_on'
     template_name = 'blog/home.html'  
     context_object_name = 'recipes'  
 
@@ -93,7 +94,7 @@ def recipe_list(request):
 
 def category_recipes(request, category_id):
     category = get_object_or_404(Category, id=category_id)
-    recipes = category.recipe_set.all()  # This assumes a ForeignKey from Recipe to Category
+    recipes = category.recipe_set.filter(status=1).order_by('-created_on')
     return render(request, 'blog/category_recipes.html', {
         'category': category,
         'recipes': recipes,
@@ -178,6 +179,8 @@ def add_recipe(request):
         if form.is_valid():
             # Save the form without committing to the database
             recipe = form.save(commit=False)
+            # Automatically generate the slug from the recipe name
+            recipe.slug = slugify(recipe.recipe_name)
             # Associate the recipe with the logged-in user
             recipe.author = request.user
             # Set the recipe's status to draft (awaiting approval)
@@ -186,53 +189,38 @@ def add_recipe(request):
 
             # Show a success message
             messages.success(request, "Recipe successfully added and is awaiting approval.")
-            return redirect('recipe_detail', slug=recipe.slug)
+            return redirect('accounts:profile', slug=recipe.slug)
     else:
         form = RecipeForm()
 
     return render(request, 'blog/add_recipe.html', {'form': form})
 
-
-def comment_edit(request, slug, comment_id):
-    """
-    view to edit comments
-    """
-    if request.method == "POST":
-
-        queryset = Recipe.objects.filter(status=1)
-        recipe = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Comment, pk=comment_id)
-        comment_form = CommentForm(data=request.POST, instance=comment)
-
-        if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.recipe = recipe
-            comment.approved = False
-            comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+@login_required
+def edit_recipe(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug, author=request.user)
+    
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Recipe updated successfully!")
+            return redirect('blog:recipe_detail', slug=recipe.slug)
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.error(request, "There was an error updating your recipe. Please try again.")
+    else:
+        form = RecipeForm(instance=recipe)
+    
+    return render(request, 'blog/edit_recipe.html', {'form': form, 'recipe': recipe})
 
-    return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
-# def recipe_edit(request, slug):
-#     """
-#     view to edit recipe
-#     """
-#     if request.method == "POST":
+@login_required
+def delete_recipe(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug, author=request.user)
+    
+    if request.method == 'POST':
+        recipe.delete()
+        messages.success(request, "Recipe deleted successfully!")
+        return redirect('accounts:profile')  
+    
+    return render(request, 'blog/delete_recipe_confirmation.html', {'recipe': recipe})
 
-#         queryset = Recipe.objects.filter(status=1)
-#         recipe = get_object_or_404(queryset, slug=slug)
-#         comment = get_object_or_404(Comment, pk=comment_id)
-#         comment_form = CommentForm(data=request.POST, instance=comment)
-
-#         if comment_form.is_valid() and comment.author == request.user:
-#             comment = comment_form.save(commit=False)
-#             comment.post = post
-#             comment.approved = False
-#             comment.save()
-#             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-#         else:
-#             messages.add_message(request, messages.ERROR, 'Error updating comment!')
-
-#     return HttpResponseRedirect(reverse('post_detail', args=[slug]))

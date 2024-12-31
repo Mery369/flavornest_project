@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -44,6 +44,13 @@ def signin(request):
 
       return render(request, 'accounts/signin.html', {'form': form})
 
+
+def custom_logout(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect('blog:home')  # Redirect to the homepage after logging out
+
+    return render(request, 'accounts/signout.html')  
 
 def signup(request):
     if request.method == 'POST':

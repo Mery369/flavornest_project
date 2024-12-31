@@ -5,9 +5,10 @@ from django.contrib.auth import views as auth_views
 app_name = 'accounts'
 
 urlpatterns = [
-    # path('signout/', views.signout, name='signout'),
+   
     path('collab/', views.collab_form , name ="collaborate_form"),
     path('signin/', views.signin, name="signin"),  
+    path('logout/', views.custom_logout, name='account_logout'),
     path('signup/', views.signup, name="signup"),
     path('profile/', views.user_profile, name='profile'),
     

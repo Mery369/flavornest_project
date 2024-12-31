@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<div class="container mt-5">
+    <h2>Are you sure you want to delete this recipe?</h2>
+    <p><strong>{{ recipe.recipe_name }}</strong></p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'accounts:profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

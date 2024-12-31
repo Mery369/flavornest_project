@@ -21,8 +21,11 @@ class RatingForm(forms.ModelForm):
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ['recipe_name', 'slug', 'ingredients', 'instructions', 'prep_time', 'cook_time', 'recipe_image', 'category']
-
+        fields = ['recipe_name','ingredients', 'instructions', 'prep_time', 'cook_time', 'recipe_image', 'category']
+        widgets = {
+            'ingredients': forms.Textarea(attrs={'rows': 5, 'cols': 40}),  
+            'instructions': forms.Textarea(attrs={'rows': 5, 'cols': 40}),
+        }
     # Customizing the form fields (optional)
     # def __init__(self, *args, **kwargs):
     #     super(RecipeForm, self).__init__(*args, **kwargs)
