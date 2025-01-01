@@ -7,7 +7,7 @@
 <div class="container mt-5">
     <!-- Recipes List -->
      <div class="col-12">
-            <h4>FalvourNest - a large and diverse database of Mediterranean recipes </h4>
+            <h2 class="recipe-header" >FalvourNest - a large and diverse database of Mediterranean recipes </h2>
         </div>
 
     <div class="row">
@@ -16,7 +16,7 @@
             <div class="card h-100 shadow-sm">
                 <img src="{{ recipe.recipe_image.url }}" class="card-img-top" alt="{{ recipe.recipe_name }}">
                 <div class="card-body d-flex flex-column">
-                    <a href="{% url 'blog:recipe_detail' recipe.slug %}"><h5 class="card-title" >{{ recipe.recipe_name }}</h5></a>
+                    <h5 class="card-title"><a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">{{ recipe.recipe_name }}</a></h5>
                     <p class="author text-muted">Made by: {{ recipe.author }}</p>
                     <p class="text-muted">{{ recipe.created_on|date:"Y-m-d" }}</p>
                     
@@ -45,7 +45,7 @@
     <!-- Categories Section -->
     <div class="row mt-5">
         <div class="col-12">
-            <h4>Recipes by Category</h4>
+            <h2 class="recipe-header">Recipes by Category</h2>
         </div>
         {% for category in categories %}
             {% if category.recipe_set.all %}

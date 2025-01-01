@@ -1,87 +1,110 @@
-@font-face {
-    font-family: 'MagicBubble';
-    src: url("{% static 'fonts/MagicBubble-0v0Gr.ttf' %}") format('truetype');
-    font-weight: bold;
-    font-style:oblique;
-}
 
 /* General Body */
 body {
-    background-color: 	#7fcdff; 
-    color: #fafafa; 
+    background-color: 	#fefefe; 
+    color: #000; 
     font-family: 'Roboto', sans-serif; 
 }
-
+.recipe-header {
+    
+    font-weight: bold;                 /* Makes the text bold */
+    margin-top: 20px;                  /* Adds space above the h2 */
+    margin-bottom: 15px;               /* Adds space below the h2 */
+    line-height: 1.4;                  /* Adjusts the space between lines */
+    text-transform: uppercase;         /* Makes the text uppercase */
+    letter-spacing: 2px;               /* Adds space between letters */
+  }
 /* Buttons */
 
 /************Hero section******************************************/
+#hero-outer {
+    position: relative;
+}
 
-.hero {
-    
+.hero-image-container {
+    position: relative;
     width: 100%;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0px 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* background-size: cover;
-    background-position: center;
-    height: 50vh;  
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 70vh; 
+    overflow: hidden;
+    margin-bottom: 70px;
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.cover-text {
+    position: absolute;
+    top: 30%; 
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    z-index: 10; 
     text-align: center;
-    color: #9e0a65; */
 }
 
-.hero .container {
-    position: relative; /* Keeps content over the image */
-    z-index: 2;
-}
-.btn-light:hover {
-    background-color: #f8f9fa; /* A light gray color */
-    color: #9e0a65; /* Darker text color for better contrast */
+.cover-text h2 {
+    font-size: 3rem; /* Adjust as needed */
+    margin-bottom: 10px;
 }
 
+.cover-text p {
+    font-size: 1.5rem; /* Adjust as needed */
+    margin-bottom: 20px;
+}
+
+.cover-text .btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #e59572;
+}
+
+.cover-text .btn:hover {
+    background-color: #fefefe;
+}
 
 /******************************************** Navbar ****************************** */
 .navbar {
-    background-color: #f8f4e6; /* Warm Beige */
+    background-color: #006666;
    
 }
 
 .navbar a:hover {
     color: #ea7070; /* Soft Coral hover effect */
+    
 }
 
 /* Add this CSS to style the nav links on hover */
 .navbar-nav .nav-link {
-    font-size: 1rem; 
-    font-weight: 80;
+    font-size: 1.2rem; 
+    font-weight: bold;
     color: 	#2694ab;
-    /* transition: color 0.3s ease, font-size 0.3s ease;  */
 }
 
-.navbar-nav .nav-link:hover {
-    color: #e98e3a; 
-    font-size: 1.3rem; 
-}
+/* .navbar-nav .nav-link:hover {
+    color: #188181; 
+    
+} */
 
 /* Navbar brand styles */
 .navbar-brand {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 /* Title styling */
 .navbar-brand .brand {
-    font-family: 'MagicBubble', sans-serif;
+    
     font-size: 2rem; 
     font-weight:200;
-    color: #ea7070;
+    color: #2694ab;
     margin-right: 70px;
 }
 
@@ -99,10 +122,13 @@ body {
 /* Optional: You can also change the background color on hover for the navbar */
 .navbar-nav .nav-item:hover {
     
-    font-size: large;
-    color: #e59572;
+    text-decoration: underline;
+    color: #e04b0a;
 }
-
+/* **************Title base.html */
+.title {
+    background-color: #006666;
+}
 /* Ensure all cards have the same height */
 .card {
     height: 100%;
@@ -111,7 +137,7 @@ body {
 
 /* Optional: Add a little spacing between the cards */
 .card-body {
-    background-color: #fdc4b6;
+    background-color: #f0e7e5;
     padding: 2rem;
     margin-bottom: 20px;
 }
@@ -120,6 +146,21 @@ body {
     height: 200px;
     object-fit: cover;  /* Ensures the image is cropped uniformly */
 }
+.masthead-image {
+    display: flex;                 
+    justify-content: center;       
+    align-items: center;           
+    height: 200px;         
+}
+
+.masthead-image img {
+    width: 100%;                  
+    max-width: 200px;              
+    height: 200px;                 
+    object-fit: cover;             
+    border-radius: 50%;           
+    margin-bottom: 20px;           
+} 
 .btn {
     padding: 0.75rem;
     font-size: 1rem;
@@ -202,14 +243,14 @@ body {
 }
 /*******************************Footer ******************************/
 footer {
-    background-color: #7fcdff; 
-    color: rgb(8, 8, 8);
+    background-color: #006666; 
+    color: #fefefe;
     padding: 1rem;
     text-align: center;
 }
 
 footer a {
-    color: #004c4c; 
+    color: #fefefe; 
 }
 
 footer a:hover {
@@ -268,45 +309,30 @@ footer a:hover {
     text-transform: uppercase;
 }
 
-
-.masthead-image {
-    display: flex;                 
-    justify-content: center;       
-    align-items: center;           
-    height: 200px;         
-}
-
-.masthead-image img {
-    width: 100%;                  
-    max-width: 200px;              
-    height: 200px;                 
-    object-fit: cover;             
-    border-radius: 50%;           
-    margin-bottom: 20px;           
-} */
-/* Style for the card */
 /*  */
 
+/* Style for the card */
 
-.post-title {
+
+.recipe-title {
     font-size: 2rem; 
     font-weight: bold; 
     margin-top: 20px; 
     color: #445261;
 }
-.post-link {
+.recipe-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
+.recipe-link:hover,
 .page-link {
     color: #E84610;
 }
 
 
 
-.post-subtitle {
+.recipe-subtitle {
     margin-left: 5%;
     color: #2694ab;
 }
@@ -319,7 +345,7 @@ footer a:hover {
     gap: 5px; /* Space between stars */
 }
 .star {
-    color: gold;
+    color: rgb(0, 102, 70);
     font-size: 30px;
 }
 .star input[type="radio"] {
@@ -333,18 +359,12 @@ footer a:hover {
 }
 
 .star input[type="radio"]:checked ~ .star-icon {
-    color: gold; /* Change color when selected */
+    color: rgb(0, 102, 70); 
 }
 
 .star input[type="radio"]:hover ~ .star-icon {
-    color: gold; /* Change color on hover */
+    color: rgb(0, 102, 70); 
 }
-/* Adjust the layout of the ingredients and instructions */
-/* .card-text {
-    font-size: 1.1rem; 
-    line-height: 1.6; 
-}
-
 
 
 
@@ -401,7 +421,7 @@ footer a:hover {
 /***********************Media Query*************************/
 
 
-@media (max-width: 768px) {
+@media(max-width: 768px) {
     .carousel-text h2 {
         font-size: 1.5rem;  
     }

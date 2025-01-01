@@ -11,9 +11,9 @@
                     <img src="{{ recipe.recipe_image.url }}" class="scale" alt="placeholder">
                 </div>
                 <!-- Recipe name goes in these h1 tags -->
-                <h1 class="post-title">{{ recipe.recipe_name }}</h1>
-                <!-- Recipe author goes before the | the post's created date goes after -->
-                <p class="post-subtitle"><i class="fa-solid fa-spoon"></i>  {{ recipe.author }} | {{ recipe.created_on |date:"Y-m-d" }}</p>
+                <h1 class="recipe-title">{{ recipe.recipe_name }}</h1>
+                <!-- Recipe author goes before the | the recipe's created date goes after -->
+                <p class="recipe-subtitle"><i class="fa-solid fa-spoon"></i>  {{ recipe.author }} | {{ recipe.created_on |date:"Y-m-d" }}</p>
             </div>
             
         </div>
