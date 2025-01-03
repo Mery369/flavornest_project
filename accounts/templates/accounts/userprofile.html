@@ -55,14 +55,14 @@
                             <div class="card-body">
                                 {% if recipe.approved %}
         <!-- If the recipe is approved, make the name clickable -->
-        <h5 class="card-title"><a href="{% url 'blog:recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a></h5>
+        <h5 class="card-title"><a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">{{ recipe.recipe_name }}</a></h5>
     {% else %}
         <!-- If the recipe is not approved, display the recipe name as plain text (unclickable) -->
         <h5 class="card-title">{{ recipe.recipe_name }}</h5>
         <p class="text-warning">This recipe is awaiting approval.</p>
     {% endif %}
         
-                                <p class="card-text">{{ recipe.ingredients|slice:":10" | safe }}...</p>
+                                <p class="card-text">{{ recipe.ingredients|slice:":0" | safe }}</p>
 
                                 
                             </div>

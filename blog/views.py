@@ -189,7 +189,8 @@ def add_recipe(request):
 
             # Show a success message
             messages.success(request, "Recipe successfully added and is awaiting approval.")
-            return redirect('accounts:profile', slug=recipe.slug)
+            # , slug=recipe.slug
+            return redirect('accounts:profile')
     else:
         form = RecipeForm()
 
