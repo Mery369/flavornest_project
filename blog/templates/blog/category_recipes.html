@@ -10,7 +10,7 @@
     <div class="row">
         {% for recipe in recipes %}
         <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+            <div class="card ">
                 <img src="{{ recipe.recipe_image.url }}" class="card-img-top" alt="{{ recipe.recipe_name }}">
                 <div class="card-body d-flex flex-column">
                     <p class="author text-muted">Made by: {{ recipe.author }}</p>
