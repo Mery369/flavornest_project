@@ -4,26 +4,37 @@
 {% block title %} All Recipes {% endblock %}
 
 {% block content %}
+
 <div class="container mt-5">
+    <hr />
     <!-- Recipes List -->
-     <div class="col-12">
-            <h2 class="recipe-header" >FalvourNest - a large and diverse database of Mediterranean recipes </h2>
-        </div>
+    <div class="col-12">
+        <h2 class="recipe-header">FalvourNest - a large and diverse database of Mediterranean recipes </h2>
+    </div>
 
     <div class="row">
         {% for recipe in recipes %}
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ recipe.recipe_image.url }}" class="card-img-top" alt="{{ recipe.recipe_name }}">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title"><a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">{{ recipe.recipe_name }}</a></h5>
-                    <p class="author text-muted">Made by: {{ recipe.author }}</p>
-                    <p class="text-muted">{{ recipe.created_on|date:"Y-m-d" }}</p>
-                    
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="image-container">
+                        
+                        <img src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}" class="card-img-top">
+                        <div class="image-flash">
+                            <p class="author">Made By: {{ recipe.author }}</p>
+                        </div>
+                    </div>
+                    <a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">
+                        <h2 class="card-title">{{ recipe.recipe_name }}</h2>
+                    </a>
+
+                    <hr />
+                    <p class="card-text text-muted h6">{{ recipe.created_on|date:"Y-m-d"}}
+                    </p>
                 </div>
             </div>
         </div>
-        {% if forloop.counter|divisibleby:3 %}
+        {% if forloop.counter|divisibleby:4 %}
     </div>
     <div class="row">
         {% endif %}
@@ -43,34 +54,34 @@
     </nav>
     {% endif %}
     <!-- Categories Section -->
+     <hr/>
     <div class="row mt-5">
         <div class="col-12">
             <h2 class="recipe-header">Recipes by Category</h2>
         </div>
         {% for category in categories %}
-            {% if category.recipe_set.all %}
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <img src="{% static 'images/hats.jpg' %}" class="card-img-top" alt="{{ category.name }}">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{ category.name }}</h5>
-                        <a href="{% url 'blog:category_recipes' category.id %}" class="btn btn-primary">View Recipes</a>
-                    </div>
+        {% if category.recipe_set.all %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="{% static 'images/fruit-juice.avif' %}" class="card-img-top" alt="{{ category.name }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ category.name }}</h5>
+                    <a href="{% url 'blog:category_recipes' category.id %}" class="btn btn-primary">View Recipes</a>
                 </div>
             </div>
-            {% else %}
-            <!-- You can optionally display a message if the category has no recipes -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{ category.name }}</h5>
-                        <p class="text-muted">No recipes available yet.</p>
-                    </div>
+        </div>
+        {% else %}
+        <!-- You can optionally display a message if the category has no recipes -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ category.name }}</h5>
+                    <p class="text-muted">No recipes available yet.</p>
                 </div>
             </div>
-            {% endif %}
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
 {% endblock %}
-

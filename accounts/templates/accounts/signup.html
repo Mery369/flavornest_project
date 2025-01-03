@@ -4,69 +4,89 @@
 {% block content %}
 
 <!-- signup.html content starts here -->
+<div class="container mt-5">
+  <!-- Center the card in the middle of the screen -->
+  <div class="row justify-content-center">
+    
+          <!-- Form Column -->
+          <div class="col-md-6">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+              <h4 class="text-center mb-4 sign">Register</h4>
+              <p class="card-text text-center mb-4">Welcome to Flavour Nest! Please enter your details to register, and join our recipe-sharing community!</p>
+              <form method="POST" enctype="multipart/form-data" class="w-100">
+                {% csrf_token %}
+                
+                <!-- First Name -->
+                <div class="mb-3">
+                  <label for="firstname" class="form-label">First Name</label>
+                  <input type="text" class="form-control" name="first_name" id="first_name" required placeholder="John">
+                </div>
 
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{% static 'images/pan1.png' %}" class="img-fluid rounded-start" alt="Healthy stir fry">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Register</h5>
-        <p class="card-text">Welcome to Flavour Nest! Please enter your details to register, and join our recipe-sharing
-          community! </p>
-        <form method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          <div class="mb-3">
-            <label for="firstname" class="form-label"> First Name </label>
-            <input type="text" class="form-control" name="first_name" id="first_name" required placeholder="John">
-          </div>
-          <div class="mb-3">
-            <label for="lastname" class="form-label"> Surname </label>
-            <input type="text" class="form-control" name="last_name" id="last_name" required placeholder="Smith">
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label"> Email Address </label>
-            <input type="email" class="form-control" name="email" id="email" required placeholder="john.smith@gmail.com">
-          </div>
-          <div class="mb-3">
-            <label for="username" class="form-label"> Username </label>
-            <input type="text" class="form-control" name="username" id="username" required placeholder="john_smith">
-          </div>
-          <div class="mb-3">
-            <label for="location" class="form-label">Location </label>
-            <input type="text" class="form-control"  name="location" id="location" placeholder="Finland">
-          </div>
-          <div class="mb-3">
-            <label for="bio" class="form-label"> 🥳 Spill the Beans! Tell us something awesome about YOU! 🌟 </label>
-            <textarea class="form-control" id="bio" rows="3" name="bio"
-              placeholder="Share why cooking healthy makes you feel amazing and energized! 🍳🥑"></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="profilepic" class="form-label"> Add Your Profile Picture </label>
-            <input type="file" class="form-control" id="profilepic" name="profilepic">
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label"> Password </label>
-            <input type="password" class="form-control" name="password" id="password" required placeholder="*******">
-          </div>
-          <div class="mb-3">
-            <label for="confirmpassword" class="form-label"> Confirm Password </label>
-            <input type="password" class="form-control" name="confirmpassword" id="confirmpassword" required placeholder="*******">
-          </div>
-          <div>
-            <button type="submit" class="btn btn-primary">Start Cooking Your Story!</button>
-          </div>
-          <div>
-            Already registered ? <a href="{% url 'accounts:signin' %}" class="link-primary">Log In</a>
-          </div>
-        </form>
+                <!-- Last Name -->
+                <div class="mb-3">
+                  <label for="lastname" class="form-label">Surname</label>
+                  <input type="text" class="form-control" name="last_name" id="last_name" required placeholder="Smith">
+                </div>
 
-      </div>
+                <!-- Email Address -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" name="email" id="email" required placeholder="john.smith@gmail.com">
+                </div>
+
+                <!-- Username -->
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" name="username" id="username" required placeholder="john_smith">
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" class="form-control" name="location" id="location" placeholder="Finland">
+                </div>
+
+                <!-- Bio -->
+                <div class="mb-3">
+                  <label for="bio" class="form-label">🥳 Spill the Beans! Tell us something awesome about YOU! 🌟</label>
+                  <textarea class="form-control" id="bio" rows="3" name="bio" placeholder="Share why cooking healthy makes you feel amazing and energized! 🍳🥑"></textarea>
+                </div>
+
+                <!-- Profile Picture -->
+                <div class="mb-3">
+                  <label for="profilepic" class="form-label">Add Your Profile Picture</label>
+                  <input type="file" class="form-control" id="profilepic" name="profilepic">
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" id="password" required placeholder="*******">
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                  <label for="confirmpassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" name="confirmpassword" id="confirmpassword" required placeholder="*******">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Start Cooking Your Story!</button>
+                </div>
+                
+                <!-- Login Link -->
+                <div class="text-center mt-3">
+                  Already registered? <a href="{% url 'accounts:signin' %}" class="link-primary">Log In</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      
     </div>
   </div>
 </div>
-
 
 <!-- signup.html content ends here -->
 {% endblock %}

@@ -13,10 +13,12 @@
             <div class="card h-100 shadow-sm">
                 <img src="{{ recipe.recipe_image.url }}" class="card-img-top" alt="{{ recipe.recipe_name }}">
                 <div class="card-body d-flex flex-column">
-                    <a href="{% url 'blog:recipe_detail' recipe.slug %}">
+                    <p class="author text-muted">Made by: {{ recipe.author }}</p>
+                    <a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">
                         <h5 class="card-title">{{ recipe.recipe_name }}</h5>
                     </a>
-                    <p class="author text-muted">Made by: {{ recipe.author }}</p>
+                    <hr />
+                    
                     <p class="text-muted">{{ recipe.created_on|date:"Y-m-d" }}</p>
                 </div>
             </div>

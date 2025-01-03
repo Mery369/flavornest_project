@@ -87,7 +87,7 @@ def recipe_detail(request, slug):
 
 def recipe_list(request):
     # Fetching all recipes, ordered by creation date (most recent first)
-    recipes = Recipe.objects.filter(status=1).order_by('-created_on')[:6]
+    recipes = Recipe.objects.filter(status=1).order_by('-created_on')
     categories = Category.objects.all()
     return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, })
 
