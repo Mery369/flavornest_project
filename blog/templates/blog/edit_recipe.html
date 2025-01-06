@@ -3,26 +3,25 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<h2>Edit Recipe: {{ recipe.title }}</h2>
+<div class="container">
+  <!-- Centering the content using Bootstrap's grid and utility classes -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mb-4 "> {{ recipe.recipe_name }}</h2>
 
-{% if messages %}
-  <ul>
-    {% for message in messages %}
-      <li class="{{ message.tags }}">{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+      <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Use crispy_forms for styled form rendering -->
+        {{ form|crispy }}
+        
+        <button type="submit" class="btn btn-primary w-100 mt-3">Update Recipe</button>
+      </form>
 
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  
-  <!-- Use crispy_forms for styled form rendering -->
-  {{ form|crispy}}
-  
-  <button type="submit" class="btn btn-primary">Update Recipe</button>
-</form>
-
-<!-- Link back to the recipe detail view -->
-<a href="{% url 'blog:recipe_detail' slug=recipe.slug %}" class="btn btn-secondary">Cancel</a>
+      <!-- Link back to the recipe detail view -->
+      <a href="{% url 'blog:recipe_detail' slug=recipe.slug %}" class="btn btn-secondary w-100 mt-3">Cancel</a>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

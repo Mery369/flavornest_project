@@ -142,7 +142,7 @@ def rate_recipe(request, recipe_slug):
     # Check if the user is logged in
     if not request.user.is_authenticated:
         messages.error(request, "You need to be logged in to rate this recipe.")
-        return redirect('login')  # Redirect to the login page or any other page you'd like
+        return redirect('login') 
 
     # If the user has already rated this recipe, retrieve their existing rating
     existing_rating = Rating.objects.filter(recipe=recipe, user=request.user).first()

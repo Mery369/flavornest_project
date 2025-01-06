@@ -139,9 +139,7 @@ body {
 }
 
 /* Print, Edit, and Delete buttons inline */
-.btn {
-    margin-right: 10px; /* Space between the buttons */
-}
+
 
 /* Prep time, cook time, total time styles */
 .font-weight-bold {
@@ -164,26 +162,37 @@ body {
 /* .title {
     background-color: #006666;
 } */
-/* Ensure all cards have the same height */
+
 hr {
     color: #e59572;
 }
 .card {
-    /* height: 100%; */
+    height: 100%;
     background-color: transparent;
     border: none;
+   
 }
-
-/* Optional: Add a little spacing between the cards */
+.author {
+    color: black;
+    margin: 4px;
+    text-transform: uppercase;
+}
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #e59572;
+}
 .card-body {
-    background-color: #f8f9fa;
+    
     padding: 2rem;
     margin-bottom: 20px;
 }
-/* Optional: You can tweak the image sizes to be consistent */
+
 .card-img-top {
-    height: 200px;
-    object-fit: cover;  /* Ensures the image is cropped uniformly */
+    
+    object-fit: cover; 
 }
 .masthead-image {
     display: flex;                 
@@ -194,12 +203,15 @@ hr {
 
 .masthead-image img {
     width: 100%;                  
-    max-width: 200px;              
-    height: 200px;                 
+    max-width: 300px;              
+    height: 300px;                 
     object-fit: cover;             
-    border-radius: 50%;           
+    /* border-radius: 50%;            */
     margin-bottom: 20px;           
 } 
+.alert {
+    background-color: #d1f8ac;
+}
 .btn {
     padding: 0.75rem;
     font-size: 1rem;
@@ -399,33 +411,49 @@ footer a:hover {
 .image-container {
     position: relative;
 }
+
+/**********************************Rating************************************/
 .star-rating {
-    display: flex;
-    justify-content: center;
-    gap: 5px; /* Space between stars */
+    display: inline-block;
+    /* justify-content: center; */
+    gap: 5px; 
+    border: 0;
 }
-.star {
+.star-rating > input {
+    display: none;
+}
+.star-rating > label::before {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: FontAwesome;
+    content: "\f005";
+    cursor: pointer;
+}
+/* .star {
     color: rgb(0, 102, 70);
     font-size: 30px;
 }
 .star input[type="radio"] {
     display: none; /* Hide the default radio button */
-}
+/* }  */
 
-.star span.star-icon {
+/* .star span.star-icon {
     font-size: 30px;
     color: grey;
     cursor: pointer;
-}
+} */
 
-.star input[type="radio"]:checked ~ .star-icon {
+/* .star input[type="radio"]:checked ~ .star-icon {
     color: rgb(0, 102, 70); 
-}
+} */
 
-.star input[type="radio"]:hover ~ .star-icon {
+/* .star input[type="radio"]:hover ~ .star-icon {
     color: rgb(0, 102, 70); 
-}
+} */
 
+
+
+/*******************************Buttons*********************************************************/
 
 
 .btn-signup,

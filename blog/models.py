@@ -63,13 +63,10 @@ class Rating(models.Model):
     """
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ratings")  
     user = models.ForeignKey(User, on_delete=models.CASCADE) 
-    rating = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],
-        help_text="Rating should be between 1 and 5",
-        default=3,
-    )
+    rating = models.IntegerField()
+    review = models.TextField(max_length=500 , blank=True)
     created_at = models.DateTimeField(auto_now_add=True, help_text="The date and time the rating was created.")
-      
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         # Ensure a user can only rate a recipe once

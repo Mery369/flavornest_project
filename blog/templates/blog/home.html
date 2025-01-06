@@ -46,10 +46,10 @@
                                 {% if recipe.recipe_image %}
                                 <img src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}" class="card-img-top">
                             {% else %}
-                                <img src="{% static 'images/hats.jpg' %}" alt="Placeholder image" class="card-img-top">
+                                <img src="{% static 'images/hats.jpg' %}" alt="Local Placeholder image" class="card-img-top">
                             {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Made By: {{ recipe.author }}</p>
+                                    <p class="author"><i class="fa-solid fa-spoon"></i>  {{ recipe.author }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">
@@ -57,7 +57,7 @@
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">{{ recipe.created_on|date:"Y-m-d"}}
+                            <p class="card-text text-muted h6">{{ recipe.created_on|date:"F j, Y"}}
                             </p>
                         </div>
                     </div>
