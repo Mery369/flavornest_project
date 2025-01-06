@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load static %}
+{% block content %}
+
 {% load crispy_forms_tags %}
 
 <div class="masthead">
@@ -64,6 +65,29 @@
       </div>
     </div>
   </div>
+   <!-- Displaying Ratings -->
+   <div class="row">
+    <div class="col-md-8 card mb-4  mt-3">
+      <h3>Reviews:</h3>
+      <div class="card-body">
+        {% for review in reviews %}
+        <div class="p-2 reviews
+          {% if not review.author == user %}
+          ">
+          <p class="font-weight-bold">
+            {{ review.user.username }}
+            </span> wrote:
+          </p>
+          <div id="review{{ review.id }}">
+            {{ review.review | linebreaks }}
+          </div>
+          <span class="font-weight-normal">
+            {{ review.created_at|date:"Y-m-d" }}
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
 <!-- Rating Form -->
 <div class="mt-4">
   <h4>Write a review :</h4>
@@ -73,18 +97,21 @@
           <div class="star-rating">
               <!-- {% for radio in rating_form.rating %} -->
                   <!-- <label class="star"> -->
-                      <input type="radio" name="rating" id="rating5" value="5" required><label for="rating5" title="5"></label>
-                      <input type="radio" name="rating" id="rating4" value="4" required><label for="rating4" title="4"></label>
-                      <input type="radio" name="rating" id="rating3" value="3" required><label for="rating3" title="3"></label>
-                      <input type="radio" name="rating" id="rating2" value="2" required><label for="rating2" title="2"></label>
+                     
                       <input type="radio" name="rating" id="rating1" value="1" required><label for="rating1" title="1"></label>
+                      <input type="radio" name="rating" id="rating2" value="2" required><label for="rating2" title="2"></label>
+                      <input type="radio" name="rating" id="rating3" value="3" required><label for="rating3" title="3"></label>
+                      <input type="radio" name="rating" id="rating4" value="4" required><label for="rating4" title="4"></label>
+                      <input type="radio" name="rating" id="rating5" value="5" required><label for="rating5" title="5"></label>
+                      
                       <!-- <span class="star-icon">★</span> -->
                   <!-- </label> -->
               <!-- {% endfor %} -->
           </div>
+        </br>
           Review :
         </br> 
-          <textarea name="review" rows="2"></textarea>
+          <textarea name="review" rows="3" cols="100"></textarea>
       </br>
           <button type="submit" class="btn btn-primary">Submit Review</button>
       </form>
@@ -104,37 +131,7 @@
     </div>
   </div> -->
 
-  <!-- Displaying Comments -->
-  <!-- <div class="row">
-    <div class="col-md-8 card mb-4  mt-3">
-      <h3>Comments:</h3>
-      <div class="card-body">
-        {% for comment in comments %}
-        <div class="p-2 comments
-          {% if not comment.approved and comment.author == user %}
-          faded{% elif not comment.approved %} d-none{% endif %}">
-          <p class="font-weight-bold">
-            {{ comment.author }}
-            <span class="font-weight-normal">
-              {{ comment.date_added|date:"Y-m-d" }}
-            </span> wrote:
-          </p>
-          <div id="comment{{ comment.id }}">
-            {{ comment.comment_text | linebreaks }}
-          </div>
-          {% if not comment.approved and comment.author == user %}
-          <p class="approval">
-            This comment is awaiting approval
-          </p>
-          {% endif %}
-          {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-edit"
-            comment_id="{{ comment.id }}">Edit</button>
-          {% endif %}
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+ 
 
     <!-- Creating New Comments -->
     <!-- <div class="col-md-4 card mb-4 mt-3">

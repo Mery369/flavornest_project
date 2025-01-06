@@ -191,7 +191,7 @@ hr {
 }
 
 .card-img-top {
-    
+    width: 100%;
     object-fit: cover; 
 }
 .masthead-image {
@@ -418,10 +418,15 @@ footer a:hover {
     /* justify-content: center; */
     gap: 5px; 
     border: 0;
+    
 }
-.star-rating > input {
+.star-rating > label{
+    float: right;
+}
+.star-rating input[type="radio"] {
     display: none;
 }
+
 .star-rating > label::before {
     display: inline-block;
     font-size: 1.1rem;
@@ -429,30 +434,15 @@ footer a:hover {
     content: "\f005";
     cursor: pointer;
 }
-/* .star {
-    color: rgb(0, 102, 70);
-    font-size: 30px;
+
+input:checked ~ label, label:hover ~ label {
+    color: #ffb503;
 }
-.star input[type="radio"] {
-    display: none; /* Hide the default radio button */
-/* }  */
 
-/* .star span.star-icon {
-    font-size: 30px;
-    color: grey;
-    cursor: pointer;
-} */
-
-/* .star input[type="radio"]:checked ~ .star-icon {
-    color: rgb(0, 102, 70); 
-} */
-
-/* .star input[type="radio"]:hover ~ .star-icon {
-    color: rgb(0, 102, 70); 
-} */
-
-
-
+input :checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~label {
+    color: #cc9000;
+}
 /*******************************Buttons*********************************************************/
 
 

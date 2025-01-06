@@ -13,10 +13,7 @@ class RatingForm(forms.ModelForm):
         model = Rating
         fields = ['rating','review']
 
-    # def __init__(self, *args, **kwargs):
-    #     super(RatingForm, self).__init__(*args, **kwargs)
-    #     self.fields['rating'].widget = forms.RadioSelect(choices=[(i, '★') for i in range(1, 6)])
-        # self.fields['rating'].widget.attrs.update({'class': 'rating-stars'})  # Optional for styling
+   
 
 class RecipeForm(forms.ModelForm):
     class Meta:

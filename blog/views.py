@@ -37,6 +37,7 @@ def recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
     comments = recipe.comments.all().order_by("-date_added")
+    reviews = recipe.ratings.all().order_by("-created_at")
     comment_count = recipe.comments.filter(approved=True).count()
     # Calculate the average rating of the recipe
     avg_rating = recipe.ratings.aggregate(Avg('rating'))['rating__avg']
@@ -44,7 +45,7 @@ def recipe_detail(request, slug):
 
     if request.method == "POST":
        comment_form = CommentForm(data=request.POST)
-       rating_form = RatingForm(request.POST)
+       rating_form = RatingForm(data=request.POST)
        if comment_form.is_valid():
            comment = comment_form.save(commit=False)
            comment.author = request.user
@@ -60,7 +61,7 @@ def recipe_detail(request, slug):
             rating.user = request.user
             rating.save()
             messages.success(request, 'Your rating has been submitted successfully!')
-            return redirect('recipe_detail', slug=slug)
+            return redirect('blog:recipe_detail', slug=slug)
 
     # Initialize the forms
     comment_form = CommentForm()
@@ -79,6 +80,7 @@ def recipe_detail(request, slug):
         "comment_form": comment_form,
          'avg_rating': avg_rating,
         "stars": stars,
+        "reviews": reviews,
         "rating_form": rating_form,
         },
          
