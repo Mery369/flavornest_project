@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<h2>Edit Profile</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+          <!-- <h2 class="text-center mb-4 "> {{ recipe.recipe_name }}</h2> -->
+    
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- Use crispy_forms for styled form rendering -->
+            {{ form|crispy }}
+            
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+    
+          
+          
+          <a href="{% url 'accounts:profile' %}">Cancel</a>
+          <a href="{% url 'accounts:delete_profile' %}">Delete Profile</a>
+
+        </div>
+      </div>
+      
+    </div>
+<!-- <form method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <div class="row mb-3">
+        <div class="col-md-6">
+            {{ form.first_name|crispy }}
+        </div>
+        <div class="col-md-6">
+            {{ form.last_name|crispy }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            {{ form.email|crispy }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            {{ form.profile_image|crispy }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            {{ form.bio|crispy }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            {{ form.location|crispy }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+</div>
+<br>
+<a href="{% url 'accounts:profile' %}">Cancel</a>
+<a href="{% url 'accounts:delete_profile' %}">Delete Profile</a> -->
+
+{% endblock %}

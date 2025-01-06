@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from accounts.models import UserProfile 
-from blog.models import Recipe
+from blog.models import Recipe,Rating
 from django.contrib import messages
-from .forms import CollaborateForm
+from .forms import CollaborateForm, EditProfileForm
 
 # Create your views here.
 
@@ -124,19 +124,19 @@ def user_profile(request):
 
     #  fetch the user's recipes 
     recipes = user.recipes.all()
-    #  fetch the user's comments
-    comments = user.commenter.all()
+    #  fetch the user's reviews
+    reviews = Rating.objects.filter(user=user)
       # Fetching all other registered users for the friend suggestion
     suggested_users = User.objects.exclude(id=user.id)  # Exclude the logged-in user
 
-    # Ensure that you fetch UserProfile objects along with User
+    # Ensure fetching UserProfile objects along with User
     suggested_users_with_profile = UserProfile.objects.filter(user__in=suggested_users)
 
     return render(request, 'accounts/userprofile.html', {
         'user': user,
         'user_profile': user_profile,
         'recipes': recipes,
-        'comments': comments,
+        'reviews': reviews,
         'suggested_users': suggested_users_with_profile,
     })
 
@@ -161,3 +161,31 @@ def collab_form(request):
             "collaborate_form": collaborate_form
         },
     )
+
+# Edit profile View
+@login_required
+def edit_profile(request):
+    user_profile = request.user.profile  # Assuming you have a related UserProfile model
+
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated successfully!')
+            return redirect('accounts:profile')  # Redirect to profile page after success
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = EditProfileForm(instance=user_profile)
+
+    return render(request, 'accounts/edit_profile.html', {'form': form})
+
+# Delete account view
+@login_required
+def delete_profile(request):
+    user = request.user.profile
+    if request.method == 'POST':
+        user.delete()
+        messages.success(request, 'Your account has been deleted.')
+        return redirect('accounts:signup')  # Redirect to signup page after deletion
+    return render(request, 'accounts/delete_profile.html')  # Show a confirmation page

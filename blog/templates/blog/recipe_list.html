@@ -18,10 +18,14 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="image-container">
-                        
+                        {% if "placeholder" in recipe.recipe_image.url %}
+                        <img src="{% static 'images/recipe-placeholder.jpg' %}" class="card-img-top" alt="placeholder image">
+                        {% else %}
                         <img src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}" class="card-img-top">
+                        {% endif %}
                         <div class="image-flash">
-                            <p class="author"><i class="fa-solid fa-spoon"></i>  {{ recipe.author }}</p>
+                         
+                            <p class="author"><i class="fa-solid fa-spoon"></i> {{ recipe.author }}</p>
                         </div>
                     </div>
                     <a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">
@@ -54,7 +58,7 @@
     </nav>
     {% endif %}
     <!-- Categories Section -->
-     <hr/>
+    <hr />
     <div class="row mt-5">
         <div class="col-12">
             <h2 class="recipe-header">Recipes by Category</h2>

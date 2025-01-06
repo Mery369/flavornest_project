@@ -44,16 +44,9 @@ def recipe_detail(request, slug):
     stars = range(1, 6)
 
     if request.method == "POST":
-       comment_form = CommentForm(data=request.POST)
+       
        rating_form = RatingForm(data=request.POST)
-       if comment_form.is_valid():
-           comment = comment_form.save(commit=False)
-           comment.author = request.user
-           comment.recipe = recipe
-           comment.save()
-           messages.add_message(
-           request, messages.SUCCESS,
-           'Comment submitted and awaiting approval')
+       
          # Handling rating form submission
        if rating_form.is_valid():
             rating = rating_form.save(commit=False)
@@ -63,8 +56,8 @@ def recipe_detail(request, slug):
             messages.success(request, 'Your rating has been submitted successfully!')
             return redirect('blog:recipe_detail', slug=slug)
 
-    # Initialize the forms
-    comment_form = CommentForm()
+    # Initialize the form
+    
     rating_form = RatingForm()
                             
 
@@ -75,9 +68,6 @@ def recipe_detail(request, slug):
         "blog/recipe_detail.html",
         {"recipe": recipe,
         'title' :'Recipe Details',
-        "comments": comments,
-        "comment_count": comment_count,
-        "comment_form": comment_form,
          'avg_rating': avg_rating,
         "stars": stars,
         "reviews": reviews,
