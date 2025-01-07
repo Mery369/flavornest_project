@@ -45,12 +45,7 @@ def signin(request):
       return render(request, 'accounts/signin.html', {'form': form})
 
 
-def custom_logout(request):
-    if request.method == "POST":
-        logout(request)
-        return redirect('blog:home')  # Redirect to the homepage after logging out
 
-    return render(request, 'accounts/signout.html')  
 
 def signup(request):
     if request.method == 'POST':
@@ -101,11 +96,11 @@ def signup(request):
     return render(request, 'accounts/signup.html')
 
 
-# def signout(request):
+def signout(request):
     
-#         auth.logout(request)
-#         messages.success(request, "You have been successfully logged out.")
-#         return redirect('home')  
+    logout(request)  
+    messages.success(request, "You have been successfully logged out.")  
+    return redirect('blog:home')  
     
 
         

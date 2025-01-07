@@ -1,16 +1,15 @@
 {% load static %}
 {% url 'home' as home_url %}
-<!-- {% url 'account_logout' %} -->
+<!-- {% url 'logout' as logout_url %}
 {% url 'signin' as signin_url %}
-{% url 'signup' as signup_url %}
+{% url 'signup' as signup_url %} -->
 
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
 <head>
-    <title class="title">  Flavour Nest 
-         <span class="text-center"> Mediterranean Diet Recipe Collection</span></title>
+    <title class="title">  Flavour Nest | Mediterranean Diet Recipe Collection</title>
     <!-- Favicon -->
     <link rel="icon" href="{% static 'images/NestLogo.jpg' %}" type="image">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -68,7 +67,7 @@
                             <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">My Profile</a></li>
                             <li><a class="dropdown-item" href="{% url 'accounts:edit_profile' %}">Settings</a>
                             </li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+                            <li><a class="dropdown-item" href="{% url 'accounts:signout' %}">Log Out</a></li>
                         </ul>
                     </li>
                     {% else %}

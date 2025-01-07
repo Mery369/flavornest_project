@@ -1,9 +1,11 @@
 
 
-FlavorNest
-FlavorNest target audience  includes a wide range of individuals who are interested in cooking, food, and sharing culinary experiences. The blog is designed to cater to different skill levels, from beginners to experienced chefs, and offers content that appeals to various dietary preferences and cooking styles.
+FlavourNest
+FlavourNest is designed to appeal to a diverse audience of food enthusiasts, from beginners to seasoned chefs, who share a passion for Mediterranean cuisine. Whether you're just starting to explore this vibrant culinary tradition or you're an experienced cook looking for fresh inspiration, our blog offers a wealth of recipes and tips suited to all skill levels. We cater to a wide range of dietary preferences and cooking styles, ensuring that everyone can enjoy and share the rich flavors of the Mediterranean.
 
-Here's my deployed site : FlavorNest
+
+
+Here's my deployed site : [FlavorNest](https://flavornest-7cb17784f79b.herokuapp.com/)
 
 image
 

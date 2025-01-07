@@ -24,7 +24,7 @@ body {
 .hero-image-container {
     position: relative;
     width: 100%;
-    height: 80vh; 
+    height: 60vh; 
     overflow: hidden;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 .cover-text {
     position: absolute;
-    top: 50%; 
+    top: 20%; 
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -101,7 +101,8 @@ body {
 }
 
 /* Title styling */
-.navbar-brand .brand {
+
+/* .navbar-brand .brand {
     
     font-size: 2rem; 
     font-weight:200;
@@ -114,11 +115,43 @@ body {
 }
 
 /* Subtitle styling */
-.navbar-subtitle {
+/* .navbar-subtitle {
     font-size: 0.9rem; 
     color: #2694ab; 
     margin-top: 5px; 
     text-align: left;
+}  */
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    background-color: transparent;
+}
+
+.navbar-brand .brand {
+    font-size: 3rem;
+    font-family: 'Mea Culpa';
+    font-weight: 700;
+    color: #2694ab;
+    letter-spacing: 3px;
+    /* text-transform: uppercase; */
+    margin-bottom: 10px;
+}
+
+.navbar-brand .thin-coral {
+    color: #e59572;
+    font-weight: 300;
+}
+
+.navbar-subtitle {
+    font-size: 1rem;
+    color: #2694ab;
+    letter-spacing: 2px;
+    /* text-transform: uppercase; */
+    font-weight: 300;
+    
 }
 /* Optional: You can also change the background color on hover for the navbar */
 .navbar-nav .nav-item:hover {
@@ -224,6 +257,7 @@ hr {
 .btn-primary {
     background-color: #e59572; 
     border: none;
+    margin-bottom: 20px;
 }
 
 .btn-primary:hover {
@@ -522,6 +556,7 @@ label:hover ~ input:checked ~label {
     }
     .cover-text p {
         font-size: 1.2rem;
+        display: none;
     }
     .cover-text .btn {
         font-size: 0.9rem;
@@ -536,10 +571,12 @@ label:hover ~ input:checked ~label {
         padding-bottom: 10px; /* Reduce padding for very small screens */
     }
     .cover-text h2 {
+        margin-top: 5px;
         font-size: 1.5rem;
     }
     .cover-text p {
         font-size: 1rem;
+        display: none;
     }
     .cover-text .btn {
         font-size: 0.8rem;

@@ -100,41 +100,6 @@ def category_recipes(request, category_id):
         'recipes': recipes,
     })
 
-def home(request):
-    search_query = request.GET.get('q', '')  # Get the search query for recipes
-
-    # Get all categories (optional, if you want to show category names in the search results)
-    categories = Category.objects.all()
-
-    # Filter recipes based on the search query, including category names
-    recipes = Recipe.objects.all()
-
-    if search_query:
-        # First, try searching for recipe names
-        recipes = recipes.filter(recipe_name__icontains=search_query)
-        
-        # Then, try searching for category names (if the query matches any category name)
-        categories = categories.filter(name__icontains=search_query)
-        
-        # If a matching category is found, filter recipes by that category
-        if categories.exists():
-            category_ids = categories.values_list('id', flat=True)
-            recipes = recipes.filter(category__id__in=category_ids)
-
-    # Pagination (optional)
-    recipes = recipes.order_by('-created_on')  # You can also order them based on creation date, if you prefer
-
-    # Pagination setup
-    is_paginated = recipes.paginator.num_pages > 1
-    page_obj = recipes
-
-    return render(request, 'home.html', {
-        'recipes': recipes,
-        'categories': categories,
-        'is_paginated': is_paginated,
-        'page_obj': page_obj,
-        'search_query': search_query,
-    })
 
 def rate_recipe(request, recipe_slug):
     recipe = get_object_or_404(Recipe, slug=recipe_slug)
