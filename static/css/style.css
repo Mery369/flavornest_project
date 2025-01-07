@@ -518,8 +518,14 @@ label:hover ~ input:checked ~label {
         padding-bottom: 20px; /* Adjust padding to prevent too much space at the bottom */
     }
     .cover-text h2 {
-        font-size: 2rem; /* Smaller font size for medium screens */
-        width: 80%; /* Reduce the width on smaller screens */
+        font-size: 2rem;
+    }
+    .cover-text p {
+        font-size: 1.2rem;
+    }
+    .cover-text .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
     }
 }
 
@@ -529,34 +535,14 @@ label:hover ~ input:checked ~label {
         height: auto; /* Ensure no excessive height */
         padding-bottom: 10px; /* Reduce padding for very small screens */
     }
-    cover-text h2 {
-        font-size: 1.5rem; /* Even smaller font size for mobile screens */
-        width: 90%; /* Ensure text still doesn't overflow */
+    .cover-text h2 {
+        font-size: 1.5rem;
+    }
+    .cover-text p {
+        font-size: 1rem;
+    }
+    .cover-text .btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
     }
 }
-/* @media(max-width: 768px) {
-    
-
-    .masthead-image img {
-        max-width: 150px; 
-        height: 150px;
-    }
-    @media print {
-        body {
-            font-size: 14px;
-            color: #000;
-        }
-    
-        .masthead, .masthead-image, .masthead-text {
-            display: none; /* Hide header image and text in print */
-        /* }
-    
-        .container {
-            width: 100%;
-        }
-    
-        .btn {
-            display: none; /* Hide the Print button itself */
-        /* } */
-    /* } */ 
-     /* */ 

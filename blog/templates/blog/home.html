@@ -16,19 +16,7 @@
         </div>
     </div>
 </section>
-        <!-- Search Form over the image -->
-        <!-- <div class="col-md-6 position-absolute top-50 start-50 translate-middle-x text-center">
-            <form method="GET" action="blog:home" autocomplete="on">
-                <div class="input-group mt-3">
-                    <input type="text" name="q" class="form-control" placeholder="Search by recipe name, category..." value="{{ request.GET.q }}">
-                    <button class="btn btn-light" type="submit">
-                        <i class="bi bi-search"></i> Search
-                    </button>
-                </div>
-            </form>
-        </div> -->
-        
-<!-- Recipes List -->
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -42,14 +30,17 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                
-                                {% if recipe.recipe_image %}
-                                <img src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}" class="card-img-top">
-                            {% else %}
-                                <img src="{% static 'images/hats.jpg' %}" alt="Local Placeholder image" class="card-img-top">
-                            {% endif %}
+
+                                {% if "placeholder" in recipe.recipe_image.url %}
+                                <img src="{% static 'images/recipe-placeholder.jpg' %}" class="card-img-top"
+                                    alt="placeholder image">
+                                {% else %}
+                                <img src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}"
+                                    class="card-img-top">
+
+                                {% endif %}
                                 <div class="image-flash">
-                                    <p class="author"><i class="fa-solid fa-spoon"></i>  {{ recipe.author }}</p>
+                                    <p class="author"><i class="fa-solid fa-spoon"></i> {{ recipe.author }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'blog:recipe_detail' recipe.slug %}" class="recipe-link">
@@ -93,8 +84,10 @@
                 <img src="{% static 'images/fveg.jpg' %}" class="card-img-top" alt="Mediterranean Dish 1">
                 <div class="card-body">
                     <h5 class="card-title">A Month of Mediterranean Diet Dinner Recipes to Eat in January</h5>
-                    <p class="card-text">This month-long meal plan of Mediterranean diet dinner recipes will keep you feeling satisfied and healthy this January. </p>
-                    <a href="https://www.eatingwell.com/month-of-mediterranean-diet-dinner-recipes-january-2025-8764943" class="btn btn-primary">Read More</a>
+                    <p class="card-text">This month-long meal plan of Mediterranean diet dinner recipes will keep you
+                        feeling satisfied and healthy this January. </p>
+                    <a href="https://www.eatingwell.com/month-of-mediterranean-diet-dinner-recipes-january-2025-8764943"
+                        class="btn btn-primary">Read More</a>
                 </div>
             </div>
         </div>
@@ -102,9 +95,12 @@
             <div class="card mb-4">
                 <img src="{% static 'images/diet.jpg' %}" class="card-img-top" alt="Mediterranean Dish 2">
                 <div class="card-body">
-                    <h5 class="card-title">The Mediterranean Diet May Lower Type 2 Diabetes Risk by 17%, According to New Study</h5>
-                    <p class="card-text">Protein is an important macronutrient that keeps you strong and healthy. It’s made up of building blocks called amino acids, which are found in every cell in the body. </p>
-                    <a href="https://www.eatingwell.com/7-day-high-protein-mediterranean-diet-meal-plan-for-fall-8701604" class="btn btn-primary">Read More</a>
+                    <h5 class="card-title">The Mediterranean Diet May Lower Type 2 Diabetes Risk by 17%, According to
+                        New Study</h5>
+                    <p class="card-text">Protein is an important macronutrient that keeps you strong and healthy. It’s
+                        made up of building blocks called amino acids, which are found in every cell in the body. </p>
+                    <a href="https://www.eatingwell.com/7-day-high-protein-mediterranean-diet-meal-plan-for-fall-8701604"
+                        class="btn btn-primary">Read More</a>
                 </div>
             </div>
         </div>
@@ -112,9 +108,12 @@
             <div class="card mb-4">
                 <img src="{% static 'images/weight-loss.jpg' %}" class="card-img-top" alt="Mediterranean Dish 3">
                 <div class="card-body">
-                    <h5 class="card-title">7-Day High-Protein Mediterranean Diet Meal Plan for Weight Loss, Created by a Dietitian</h5>
-                    <p class="card-text">If you’re trying to lose weight, research indicates that the Mediterranean diet and a high-protein diet are two strategies that can help you achieve your goals.</p>
-                    <a href="https://www.eatingwell.com/7-day-high-protein-mediterranean-diet-meal-plan-weight-loss-8756883" class="btn btn-primary">Read More</a>
+                    <h5 class="card-title">7-Day High-Protein Mediterranean Diet Meal Plan for Weight Loss, Created by a
+                        Dietitian</h5>
+                    <p class="card-text">If you’re trying to lose weight, research indicates that the Mediterranean diet
+                        and a high-protein diet are two strategies that can help you achieve your goals.</p>
+                    <a href="https://www.eatingwell.com/7-day-high-protein-mediterranean-diet-meal-plan-weight-loss-8756883"
+                        class="btn btn-primary">Read More</a>
                 </div>
             </div>
         </div>
