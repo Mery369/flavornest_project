@@ -182,5 +182,5 @@ def delete_profile(request):
     if request.method == 'POST':
         user.delete()
         messages.success(request, 'Your account has been deleted.')
-        return redirect('accounts:signup')  # Redirect to signup page after deletion
-    return render(request, 'accounts/delete_profile.html')  # Show a confirmation page
+        return redirect('blog:home')  # Redirect to home page after deletion
+    return render(request, 'accounts/delete_profile.html')  
