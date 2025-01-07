@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
 from .models import Recipe,Category,Rating
-from .forms import CommentForm,RatingForm,RecipeForm
+from .forms import RatingForm,RecipeForm
 
 # Create your views here.
 
@@ -25,8 +25,6 @@ def recipe_detail(request, slug):
 
     ``recipe``
         An instance of :model:`blog.Recipe`.
-    `comment_form``
-        An instance of :forms:`CommentForm`.
     `rating_form``
         An instance of :rating_form:`RatingForm`.
     **Template:**
@@ -36,52 +34,62 @@ def recipe_detail(request, slug):
 
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
-    comments = recipe.comments.all().order_by("-date_added")
+    
     reviews = recipe.ratings.all().order_by("-created_at")
-    comment_count = recipe.comments.filter(approved=True).count()
+    rating_count = recipe.ratings.count()
     # Calculate the average rating of the recipe
-    avg_rating = recipe.ratings.aggregate(Avg('rating'))['rating__avg']
+    avg_rating = recipe.ratings.aggregate(Avg('rating'))['rating__avg'] or 0
     stars = range(1, 6)
+    user_rating = None
+    rating_form = None
 
-    if request.method == "POST":
-       
-       rating_form = RatingForm(data=request.POST)
-       
-         # Handling rating form submission
-       if rating_form.is_valid():
-            rating = rating_form.save(commit=False)
-            rating.recipe = recipe
-            rating.user = request.user
-            rating.save()
-            messages.success(request, 'Your rating has been submitted successfully!')
+    if request.user.is_authenticated:
+        user_rating = Rating.objects.filter(recipe=recipe, user=request.user).first()
+        
+        if request.method == "POST":
+            if user_rating:
+                messages.info(request, "You've already rated this recipe. You can't submit another review.")
+            else:
+                rating_form = RatingForm(data=request.POST)
+                if rating_form.is_valid():
+                    rating = rating_form.save(commit=False)
+                    rating.recipe = recipe
+                    rating.user = request.user
+                    rating.save()
+                    messages.success(request, 'Your rating has been submitted successfully!')
             return redirect('blog:recipe_detail', slug=slug)
+        else:
+            rating_form = RatingForm() if not user_rating else None
 
-    # Initialize the form
-    
-    rating_form = RatingForm()
-                            
-
-  
-    
     return render(
         request,
         "blog/recipe_detail.html",
-        {"recipe": recipe,
-        'title' :'Recipe Details',
-         'avg_rating': avg_rating,
-        "stars": stars,
-        "reviews": reviews,
-        "rating_form": rating_form,
+        {
+            "recipe": recipe,
+            'title': 'Recipe Details',
+            'avg_rating': avg_rating,
+            "stars": stars,
+            "reviews": reviews,
+            "rating_form": rating_form,
+            "user_rating": user_rating,
+            "rating_count": rating_count,
         },
-         
     )
-
 
 def recipe_list(request):
     # Fetching all recipes, ordered by creation date (most recent first)
     recipes = Recipe.objects.filter(status=1).order_by('-created_on')
     categories = Category.objects.all()
-    return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, })
+     # Set the number of recipes per page
+    paginator = Paginator(recipes, 8) 
+
+    # Get the page number from the request's GET parameters
+    page_number = request.GET.get('page')
+
+    # Get the Page object for the requested page number
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, 'page_obj': page_obj,})
 
 
 def category_recipes(request, category_id):

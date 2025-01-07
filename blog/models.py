@@ -81,25 +81,5 @@ class Rating(models.Model):
 
 
 
-class Comment(models.Model):
-    """
-    Represents a comment left by a user on a recipe.
-    Each comment is linked to a specific recipe and a user.
-    """
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name = "comments")  
-    author = models.ForeignKey(
-    User, on_delete=models.CASCADE, related_name="commenter"
-    )
-    comment_text = models.TextField()  
-    date_added = models.DateTimeField(auto_now_add=True)  
-    approved = models.BooleanField(default= False)
 
-    class Meta:
-        ordering = ["date_added"]
-
-    def __str__(self):
-        """
-        Returns a string representation of the comment, including user and recipe name.
-        """
-        return f"Comment by User {self.author} on {self.recipe.recipe_name}"
 

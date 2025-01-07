@@ -1,11 +1,7 @@
-from .models import Comment,Rating,Recipe
+from .models import Rating,Recipe
 from django import forms
  
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ('comment_text',)
 
 
 class RatingForm(forms.ModelForm):

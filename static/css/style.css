@@ -193,6 +193,7 @@ hr {
 
 .card-img-top {
     width: 100%;
+    height: 300px;
     object-fit: cover; 
 }
 .masthead-image {
@@ -414,6 +415,18 @@ footer a:hover {
 }
 
 /**********************************Rating************************************/
+/* display rating average */
+.star-rating .star {
+    color: #ddd; /* Empty star color */
+  }
+  .star-rating .star.filled {
+    color: #ffd700; /* Filled star color */
+  }
+  .star-rating .star.half-filled {
+    background: linear-gradient(90deg, #ffd700 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 .star-rating {
     display: inline-block;
     /* justify-content: center; */
