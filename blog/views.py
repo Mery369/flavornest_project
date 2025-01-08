@@ -92,7 +92,7 @@ def recipe_list(request):
     query = request.GET.get('query', '')
 
     if query:
-        recipes = recipes.filter(title__icontains=query) 
+        recipes = recipes.filter(recipe_name__icontains=query) 
     return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, 'page_obj': page_obj,'query': query,})
 
 

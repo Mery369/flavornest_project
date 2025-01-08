@@ -6,10 +6,20 @@
 {% block content %}
 
 <div class="container mt-5">
+    
+    <!-- Search Form -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <form method="GET" action="{% url 'blog:recipe_list' %}" class="d-flex ">
+                <input type="text" name="query" class="form-control w-50" placeholder="Search recipes..." value="{{ query }}">
+                <button type="submit" class="btn btn-search">Search</button>
+            </form>
+        </div>
+    </div>
     <hr />
     <!-- Recipes List -->
     <div class="col-12">
-        <h2 class="recipe-header">FlavourNest - a large and diverse database of Mediterranean recipes </h2>
+        <h2 class="recipe-header">FlavourNest - a large and diverse collection of Mediterranean recipes </h2>
     </div>
 
     <div class="row">
