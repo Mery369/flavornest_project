@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
 from .models import Recipe,Category,Rating
-from .forms import RatingForm,RecipeForm
+from .forms import RatingForm,RecipeForm, SearchForm
 
 # Create your views here.
 
@@ -88,8 +88,12 @@ def recipe_list(request):
 
     # Get the Page object for the requested page number
     page_obj = paginator.get_page(page_number)
+    # Check if there's a search query in the GET request
+    query = request.GET.get('query', '')
 
-    return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, 'page_obj': page_obj,})
+    if query:
+        recipes = recipes.filter(title__icontains=query) 
+    return render(request, 'blog/recipe_list.html', {'recipes': recipes,'categories': categories, 'page_obj': page_obj,'query': query,})
 
 
 def category_recipes(request, category_id):
@@ -189,4 +193,5 @@ def delete_recipe(request, slug):
         return redirect('accounts:profile')  
     
     return render(request, 'blog/delete_recipe_confirmation.html', {'recipe': recipe})
+
 

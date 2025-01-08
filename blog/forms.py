@@ -1,4 +1,4 @@
-from .models import Rating,Recipe
+from .models import Rating, Recipe
 from django import forms
  
 
@@ -20,3 +20,5 @@ class RecipeForm(forms.ModelForm):
             'instructions': forms.Textarea(attrs={'rows': 5, 'cols': 40}),
         }
     
+class SearchForm(forms.Form):
+    query = forms.CharField(max_length=100, required=False)
