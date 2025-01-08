@@ -1,6 +1,46 @@
+# FlavorNest - Milestone personal project
+
+ ***<p style="text-align:center;">HTML / CSS / JavaScript / Python</p>***
+
+ ***<p style="text-align:center;"> **| [Mery369](https://github.com/Mery369) |**  </p>***
+
+## Table of Contents
+
+ 1. [Overview](#overview)
+     - [Purpose](#purpose)
+     - [Target Audience](#target-audience)
+ 2. [User Stories](#user-stories)
+     - [Must-Have User Stories](#must-have-user-stories)
+     - [Should-Have User Stories](#should-have-user-stories)
+     - [Could-Have User Stories](#could-have-user-stories)
+ 3. [Design Decisions](#design-decisions)
+     - [Wireframes](#wireframes)
+     - [Colours](#colours)
+     - [Fonts](#fonts)
+ 4. [Features Implementation](#features-implementation)
+     - [Core Features (Must-Haves)](#core-features-must-haves)
+     - [Advanced Features (Should-Haves)](#advanced-features-should-haves)
+     - [Optional Features (Could-Haves)](#advanced-features-should-haves)
+ 5. [Testing and Validation](#testing-and-validation)
+     - [Testing Results](#testing-results)
+         - [Bug Fixes](#bug-fixes)
+         - [Responsiveness](#responsiveness)
+         - [Lighthouse Performance Test](#lighthouse-performance-test)
+     - [Validation](#validation)
+ 6. [Deployment](#deployment)
+     - [Deployment Process](#deployment-process)
+     - [File Structure](#file-structure)
+ 7. [AI Tools Usage](#ai-tools-usage)
+     - [ChatGPT](#chatgpt)
+ 8. [Reflection on Development Process](#reflection-on-development-process)
+ 9. [Code Attribution](#code-attribution)
+ 10. [Future Improvements](#future-improvements)
+
+## Overview
+
+### Purpose
 
 
-FlavourNest
 FlavourNest is designed to appeal to a diverse audience of food enthusiasts, from beginners to seasoned chefs, who share a passion for Mediterranean cuisine. Whether you're just starting to explore this vibrant culinary tradition or you're an experienced cook looking for fresh inspiration, our blog offers a wealth of recipes and tips suited to all skill levels. We cater to a wide range of dietary preferences and cooking styles, ensuring that everyone can enjoy and share the rich flavors of the Mediterranean.
 
 
@@ -12,9 +52,9 @@ image
 Am I Responsive
 
 UX
-For this recipe book blog site. The user is meant to feel the ownership of the site. There is an image whith photography reference on each page, with the landing page consisting of 3 photographers. A man and a young woman to show inclusivity of all genders and age groups. The login and signup forms have a retro camera inbedded to keep with the recurring theme.
+For this recipe book blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a cover picture to keep with the recurring theme.
 
-The site carrys a clean theme and the colors as nuetral as possible. One of the platform's main objectives is to share images. Images will have all different colors amnd composition therefore the need to reduce the noise and let the images be the focal point. The background body has been kept white with a dark footer to frame the content, the crispy green tone of the navbar is to provide freshness and subtle to give the content precidence.
+The site carrys a clean theme and the colors as nuetral as possible. One of the platform's main objectives is to share recipes with images. Images will have all different colors amnd composition therefore the need to reduce the noise and let the images be the focal point. The background body has been kept white with a blueish footer to frame the content, the crispy green tone of the navbar is to provide freshness and subtle to give the content precidence.
 
 Color Scheme
 #33, 37, 42- Raisin Black
