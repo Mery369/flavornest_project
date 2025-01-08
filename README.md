@@ -1,8 +1,5 @@
-# FlavorNest - Milestone personal project
+# FlavourNest - Milestone personal project
 
- ***<p style="text-align:center;">HTML / CSS / JavaScript / Python</p>***
-
- ***<p style="text-align:center;"> **| [Mery369](https://github.com/Mery369) |**  </p>***
 
 ## Table of Contents
 
@@ -41,71 +38,122 @@
 ### Purpose
 
 
-FlavourNest is designed to appeal to a diverse audience of food enthusiasts, from beginners to seasoned chefs, who share a passion for Mediterranean cuisine. Whether you're just starting to explore this vibrant culinary tradition or you're an experienced cook looking for fresh inspiration, our blog offers a wealth of recipes and tips suited to all skill levels. We cater to a wide range of dietary preferences and cooking styles, ensuring that everyone can enjoy and share the rich flavors of the Mediterranean.
+FlavourNest serves as a comprehensive destination for food lovers passionate about Mediterranean dishes. The website is designed with the following purposes in mind:
+<ul>
+<li>
+Sharing Mediterranean Recipes:  FlavourNest provides a variety of authentic Mediterranean recipes, from classic dishes to modern interpretations, catering to various dietary needs and preferences.
+</li>
+<li>
+Engaging Mediterranean Food Community:  to create a space where Mediterranean food lovers can interact, share their cooking experiences, rate recipes, contact each other and leave reviews to foster a community of food enthusiasts.
+</li>
+<li>
+Inspiration for All Skill Levels: Whether you’re a beginner or an experienced chef, FlavourNest offers easy-to-follow recipes and cooking tips that help users expand their cooking skills and knowledge of Mediterranean cuisine.
+</li>
+<li>
+Personalized User Experience: The website allows users to create personalized profiles and search recipes a tailored cooking experience.
+</li>
+<li>
+Dietary Inclusivity: We recognize the importance of catering to a variety of dietary preferences, and thus, FlavourNest ensures that every user can find recipes that suit their needs—whether they're vegetarian, gluten-free, or following any other dietary regimen.
+</li>
+<li>
+Responsive and Accessible: Designed with user experience in mind, FlavourNest is built to be fully responsive across all devices, ensuring that users can access recipes, tips, and the community on-the-go.
+</li>
+</ul>
+<br/>
+
+***Here's my deployed site :*** [FlavorNest](https://flavornest-7cb17784f79b.herokuapp.com/)
+
+***Am I Responsive***
+
+![IAMresponsivepic]( static/images/respo.jpg "flavournest")
 
 
 
-Here's my deployed site : [FlavorNest](https://flavornest-7cb17784f79b.herokuapp.com/)
 
-image
+**UX** :
+<br/>
+For this recipe blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with a picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a profile cover picture to keep up with the recurring theme.
 
-Am I Responsive
+FlavourNest colors are inspired by the ocean and the natural beauty of the Mediterranean. Ocean coral and ocean waves are perfect Mediterranean theme, as they evoke the feeling of the sea, fresh seafood, and coastal landscapes.
 
-UX
-For this recipe book blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a cover picture to keep with the recurring theme.
-
-The site carrys a clean theme and the colors as nuetral as possible. One of the platform's main objectives is to share recipes with images. Images will have all different colors amnd composition therefore the need to reduce the noise and let the images be the focal point. The background body has been kept white with a blueish footer to frame the content, the crispy green tone of the navbar is to provide freshness and subtle to give the content precidence.
+The site carrys a clean theme and the colors as nuetral as possible. One of the platform's main objectives is to share recipes with images. Images will have all different colors and composition therefore the need to reduce the noise and let the images be the focal point. The background body has been kept white with a blueish footer to frame the content, the crispy green tone of the navbar is to provide freshness and subtle to give the content precidence.
 
 Color Scheme
-#33, 37, 42- Raisin Black
-#99, 112, 227 - Neon Blue
-#193, 220, 207 - Ash Gray
-#255, 255, 255 - White
-Source :
+Hex: #FF6A3D -  Warm coral </br>
+Hex: #1F6F8B -  Deep blue of ocean waves </br>
+Hex:  #e59572 - Soft, earthy coral with hints of peach</br>
+Hex: #FFFFFF -  White
 
-COLOORS
+***Colours Palettes***
 
-image
+<figure>
+    <img src="static/images/ocean-pal.jpg"
+         alt="Ocean colours palette">
+    <figcaption>Ocean Waves Color Palette.</figcaption>
+</figure>
+<figure>
+    <img src="static/images/ocean-coral.jpg"
+         alt="Ocean colours palette">
+    <figcaption>Ocean Coral Color Palette Color Palette.</figcaption>
+</figure>
 
-Typography
-Bitter font with varying weight was used across the site. The font was imported from google fonts. Serif sans is the fall back font in the case of an import error
-Google Fonts
 
-The icons used where imported from Font Awesome
-Font Awesome
 
-The favicon used is from the following link
-Favicon.io
+***Typography***
 
-User Stories
-Site Users
-As a user I can view the articles so that **read and learn from the articles
-As a user I can review a peer article so that I can make a contribution to the blog article
-As a user I can create an article and post my image so that I can have feedback from other users
-As a user I can edit and or delete my articles so that I can manage my own content on the site
-As a user I can view the other reviews so that I can have a peer discussion for my learning
-As a user I can signup to the site so that I can post articles and read other people's articles
-As a user I can login to my account so that I see my previous posted articles
-As a user I can logout of my account so that I keep my account secure
-Site Admin
-As site admin I can access all the articles and reviews so that I can manage the site effectively
-As site admin I can share news in the photography industry so that users on the site ca stay informed
-Wireframes
-To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes. I've used Balsamiq to design my site wireframes
+<ol>
+<li>Primary Font:
+<ul>
+<li>The ***'Roboto'*** font is used for the body text, ensuring readability with a clean, modern sans-serif style. This is a versatile and legible font that works well for both short and long text, making it perfect for the content-heavy blog.</li>
+</ul>
+
+<li>Font Weight and Sizes:
+<ul>
+<li>Headings and important text elements (such as .recipe-header, .cover-text h2, and .navbar-brand .brand) feature bold and larger font sizes to create clear visual hierarchy. The bold weights help emphasize key content like recipe titles and blog highlights, making them stand out to the reader.
+</li>
+<li>Subheadings and smaller text (like .cover-text p, .navbar-subtitle, and .star-rating .star) are given a lighter weight to provide contrast and guide the reader’s eye without overwhelming the layout.</li>
+<li>Font sizes are adjusted responsively, scaling down for smaller screens, ensuring the design remains accessible and aesthetically pleasing across all devices.</li></ul>
+<li>Heading Style:
+<ul><li>
+The main headings such as .recipe-header and .navbar-brand .brand are designed to capture attention with large font sizes, bold weights, and unique styling (such as the gradient background in .recipe-header). This creates an inviting atmosphere and ensures the key sections of the page are immediately noticeable.
+</li></ul>
+<li>Special Fonts:
+<ul><li>
+***'Mea Culpa*** is used for the blog’s brand title, providing a unique and personalized touch, fitting for the cultural and culinary context of a Mediterranean food blog.</li>
+<li>The ***FontAwesome*** icon font is incorporated in the rating system (.star-rating), allowing for dynamic and interactive user elements such as stars for ratings.</li></ul>
+<li>Text Alignment and Spacing:
+<ul><il>
+Text elements like .recipe-header and .cover-text are centered, providing symmetry and balance in key sections. Additionally, line-height and margin properties improve the readability of the content, ensuring the text isn't too cramped or difficult to read.</il></ul>
+<li>Hover Effects:
+<ul><il>
+Links and buttons have interactive hover effects, changing color on interaction, such as in the .navbar a:hover and .btn:hover styles. These changes not only improve user experience but also create a dynamic visual flow as users navigate through the site.</il></ul>
+
+<li>The favicon I made it using canvas</li></ol>
+
+
+## User Stories
+In total , there is 12 user stories. 10 of them have been completed, while two couldn't be accomplished due to the lack of time.
+<figure>
+    <img src="static/images/board.jpg"
+         alt="board">
+    <figcaption>Project Board</figcaption>
+</figure>
+
+
+***Wireframes***
+
+<p>To follow best practice, using Bootstrap (which is mobile-first), I decided to create the mobile wireframe, and then scale it up for larger screens.</p>
 
 Balsamiq
 
 Mobile Wireframes
-Click here to see the Mobile Wireframes
-Desktop Wireframes
-Click here to see the Desktop Wireframes
-Tablet Wireframes
-Click here to see the Tablet Wireframes
-Features
-Existing Features
-Navigation Bar
+ <figure>
+    <img src="static/images/wireframe.png"
+         alt="Ocean colours palette">
+    <figcaption>Mobile WireFrame.</figcaption>
+</figure>
 
-The navigation bar is available on all 5 pages. It is fully responsive and provides links to all the areas of the website, some links based on whether the user is authenticated and logged in or not. Users are able to navigate on any size device with a burger menu with dropdown for small devices. users can easily click on the site logo to returnm back to the landing page.
+The navigation bar is available on all the website pages. It is fully responsive and provides links to all the areas of the website, some links based on whether the user is authenticated and logged in or not. Users are able to navigate on any size device with a burger menu with dropdown for small devices. users can easily click on the site logo to returnm back to the landing page.
 
 Desktop
 
