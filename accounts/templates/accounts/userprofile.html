@@ -127,7 +127,7 @@
                           <img src="{{ suggested_user.profile_image.url }}" class="rounded-circle border mb-2" alt="{{ suggested_user.user.first_name }} {{ suggested_user.user.last_name }}" width="60">
                           <h6 class="card-title">{{ suggested_user.user.first_name }} {{ suggested_user.user.last_name }}</h6>
                           <p class="card-text small text-muted">{{ suggested_user.location }}</p>
-                          <a href="{% url 'accounts:collaborate_form' %}" class="btn btn-outline-primary btn-sm">Contact</a>
+                          <a href="{% url 'accounts:collaborate_form'  %}" class="btn btn-outline-primary btn-sm">Contact</a>
                         </div>
                       </div>
                     </div>

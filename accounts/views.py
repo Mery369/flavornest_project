@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect, get_object_or_404
 from django.contrib.auth import authenticate, login,logout
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -140,17 +140,19 @@ def user_profile(request):
 @login_required
 def collab_form(request):
     
+    
     if request.method == "POST":
         collaborate_form = CollaborateForm(data=request.POST)
+        # the user filling out the form can be reference using request.user
         if collaborate_form.is_valid():
-            form.instance.recipient_email = recipient_email
+            
             collaborate_form.save()
             messages.add_message(request, messages.SUCCESS,
              "Collaboration request Sent Successfully!")
 
     else:
         # For GET request, initialize an empty form
-        collaborate_form = CollaborateForm(initial={'recipient_email': recipient_email})
+        collaborate_form = CollaborateForm()
 
     return render(
         request,

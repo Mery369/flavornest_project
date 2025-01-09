@@ -66,7 +66,7 @@ class Rating(models.Model):
     rating = models.IntegerField()
     review = models.TextField(max_length=500 , blank=True)
     created_at = models.DateTimeField(auto_now_add=True, help_text="The date and time the rating was created.")
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null= True)
 
     class Meta:
         # Ensure a user can only rate a recipe once
@@ -77,7 +77,7 @@ class Rating(models.Model):
         """
         Returns a string representation of the rating, showing user and rating value.
         """
-        return f"Rating for {self.recipe.recipe_name} by {self.user.first_name} - {self.rating} stars"
+        return f"Rating for {self.recipe.recipe_name} by {self.user.first_name} - {self.rating} stars : {self.updated_at}"
 
 
 

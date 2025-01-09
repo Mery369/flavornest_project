@@ -6,7 +6,7 @@ admin.site.register(UserProfile)
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
 
-    list_display = ('message', 'read',)
+    list_display = ('message',)
     
     # Restrict the queryset so only requests related to the logged-in user are visible
     # def get_queryset(self, request):
