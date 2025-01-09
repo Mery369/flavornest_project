@@ -70,7 +70,7 @@ Responsive and Accessible: Designed with user experience in mind, FlavourNest is
 
 
 
-**UX** :
+### UX ### :
 <br/>
 For this recipe blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with a picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a profile cover picture to keep up with the recurring theme.
 
@@ -78,7 +78,7 @@ FlavourNest colors are inspired by the ocean and the natural beauty of the Medit
 
 The site carrys a clean theme and the colors as nuetral as possible. One of the platform's main objectives is to share recipes with images. Images will have all different colors and composition therefore the need to reduce the noise and let the images be the focal point. The background body has been kept white with a blueish footer to frame the content, the crispy green tone of the navbar is to provide freshness and subtle to give the content precidence.
 
-Color Scheme
+### Color Scheme ###
 Hex: #FF6A3D -  Warm coral </br>
 Hex: #1F6F8B -  Deep blue of ocean waves </br>
 Hex:  #e59572 - Soft, earthy coral with hints of peach</br>
@@ -99,7 +99,7 @@ Hex: #FFFFFF -  White
 
 
 
-***Typography***
+### Typography ###
 
 <ol>
 <li>Primary Font:
@@ -139,7 +139,139 @@ In total , there is 12 user stories. 10 of them have been completed, while two c
     <figcaption>Project Board</figcaption>
 </figure>
 
+### Must Have user stories 
 
+ #### User Story name : Manage the Blog Posts
+As a Site user I can create, read, update and delete posts so that I can manage my profile content
+
+
+#### Acceptance Criteria 
+
+1. **Create a Post:**
+   - The Site user can create a new recipe post with a recipe_name, ingredients, image , instructions.
+   - The post is published and visible on the homepage once approved.
+   - The post can be categorized (e.g., breakfast, lunch, snacks).
+
+2. **Update a Post:**
+   - The Site user can update their posts, modifying the recipe_name, ingredients, image, or category.
+
+3. **Delete a Post:**
+   - The Site user can delete their post when necessary.
+
+#### Tasks
+
+##### 1. Design the Post Creation Form
+   - The form should include input fields for:
+     - Recipe Name
+     - Ingredients
+     - Instructions
+     - Recipe Image
+     - Cooking Time
+     - Preparation Time
+     - Category (e.g., Breakfast, Lunch, Vegan)
+   - Form should allow file upload for images and provide validation for required fields.
+
+### 2. Implement the Backend (Model)
+   - **Create Recipe Model:**
+     - Define a `Recipe` model with fields:
+       - `recipe_name` (CharField)
+       - `slug` (SlugField)
+       - `ingredients` (TextField)
+       - `instructions` (TextField)
+       - `recipe_image` (ImageField)
+       - `status` ((0, "Draft"), (1, "Published"))
+       - `category` (ForeignKey to Category model)
+       - `author` (ForeignKey to User)
+     - Define a `Category` model with categories like `breakfast`, `lunch`, `vegan`, etc.
+     - Add necessary relationships between models (e.g., Recipe-Category, Recipe-User).
+
+### 3. Create the View for Post Creation
+   - Handle both GET and POST requests for creating a post.
+   - On POST, the data is saved to the database, with a default status of 'not approved' until approved by an admin.
+   - Redirect to the post list page or show a success message after the post is saved.
+
+### 4. Display Posts on the Homepage
+   - **View to Fetch and Display Posts:**
+     - Show only posts where `status = 'published'` and are approved.
+     - Display posts with basic details: title, category, and a thumbnail image.
+
+### 5. Create Recipe Detail Page
+   - **View to Display Recipe Details:**
+     - Show full content of the post with recipe details like ingredients and instructions.
+     - Display the post image and show the author's name.
+
+### 6. Category Filter on Recipe Page
+   - **Category Filter:**
+     - Allow users to filter recipes by categories like `breakfast`, `lunch`, or `vegan`.
+     - This can be implemented using a dropdown or clickable category filters at the top of the recipes page.
+
+### 7. Implement Edit Recipe Form
+   - **Create Edit View:**
+     - If the logged-in user is the author of the post, they should have the option to edit the post.
+     - The form should pre-fill the current post’s data and allow editing of the title, content, image, and category.
+
+### 8. Add an Edit Button on Recipe Detail Page
+   - **Edit Button Visibility:**
+     - Display an "Edit" button only for the author of the post.
+
+### 9. Create a View to Handle Updating Recipes
+   - **Update Recipe View:**
+     - Allow the author to update their post using a form (pre-filled with current data).
+
+### 10. Add a Delete Button on the Recipe Detail Page
+   - **Delete Button Visibility:**
+     - Display a "Delete" button only for the author of the post.
+     - When clicked, the post should be deleted from the database.
+
+### 11. Post Default Status on Creation
+   - When a post is created, it is set to `draft` by default until it is approved by an admin.
+
+### 12. Admin Interface for Approval/Rejecting Posts
+   - Create an admin interface to approve or reject posts based on the admin's review.
+   - Admins can change the `status` of a post to `approved` or `rejected`.
+
+### 13. Design UI for Post Creation, Update, and Delete Pages
+   - Ensure that the pages for creating, editing, and deleting posts are intuitive and user-friendly.
+   - Provide clear forms with validation and appropriate success/error messages.
+
+### 14. Perform Manual Testing of the Entire Workflow
+   - Test the process of creating, reading, updating, and deleting posts from the perspective of a site user.
+   - Test admin approval/rejection process to ensure posts are correctly displayed when approved.
+   - Test category filtering to ensure users can view posts by specific categories.
+
+## User Story: "As a site user, I can click on a recipe name so that I can read the full recipe content"
+
+### Acceptance Criteria:
+- When a blog post recipe title is clicked on, a detailed view of the post is seen.
+- User can print the recipe.
+
+---
+
+### Tasks:
+
+1. **Create Recipe Detail View:**
+   - Implement a view in Django that fetches the full recipe based on the recipe ID or slug.
+
+2. **Design Recipe Detail Page:**
+   - Display the full content of the recipe:
+     - Title
+     - Ingredients
+     - Instructions
+     - Image
+     - Category
+
+3. **Add a Print Button:**
+   - Add a button or link on the recipe detail page to allow the user to print the recipe.
+
+4. **Ensure Proper URL Mapping:**
+   - Define a URL pattern for the recipe detail page, passing the recipe ID or slug in the URL to fetch the correct recipe.
+
+5. **Add Styling for Print-Friendly Version:**
+   - Implement a print-friendly layout that ensures the recipe is displayed properly when printed.
+
+6. **Test Recipe Detail and Print Functionality:**
+   - Verify that clicking on a recipe title redirects the user to the correct recipe detail page.
+   - Test the print button functionality to ensure the recipe can be printed correctly.
 ***Wireframes***
 
 <p>To follow best practice, using Bootstrap (which is mobile-first), I decided to create the mobile wireframe, and then scale it up for larger screens.</p>
