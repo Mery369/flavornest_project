@@ -4,6 +4,7 @@ body {
     background-color: 	#fefefe; 
     color: #000; 
     font-family: 'Roboto', sans-serif; 
+    ; 
 }
 .recipe-header {
     
@@ -12,7 +13,7 @@ body {
     margin-bottom: 1.5rem; 
     font-size: 2rem; 
     line-height: 1.4; 
-    background: linear-gradient(to right,#7eb9c5,#ffff); 
+    /* background: linear-gradient(to right,#7eb9c5,#ffff);  */
     color: rgb(14, 13, 13); 
     padding: 10px; 
     border-radius: 5px;            
@@ -21,9 +22,9 @@ body {
 
 /************Hero section******************************************/
 #hero-outer {
-    background-color: #f7f7f7; 
+    background: linear-gradient(to right,#7eb9c5,#ffff);
     padding: 50px 0; 
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .hero-image-container {
@@ -135,26 +136,20 @@ body {
     font-weight: 300;
     
 }
-/* Optional: You can also change the background color on hover for the navbar */
+
 .navbar-nav .nav-item:hover {
-    
-    /* text-decoration: underline; */
     color: #706f6f;
 }
-/* Recipe Image in the middle of the top border */
+/************** Recipe Image *************** */
 .recipe-image {
     position: absolute;
     top: 30;
     left: 50%;
     transform: translateX(-50%);
-    width: 150px; /* Adjust the size of the image */
+    width: 150px; 
     height: 150px;
-    /* border-radius: 50%; */
-    border: 5px solid #fff; /* Optional: add a border around the image */
+    border: 5px solid #fff; 
 }
-
-/* Print, Edit, and Delete buttons inline */
-
 
 /* Prep time, cook time, total time styles */
 .font-weight-bold {
@@ -170,13 +165,10 @@ body {
 }
 
 .me-4 {
-    margin-right: 1.5rem; /* Spacing between time items */
+    margin-right: 1.5rem; 
 }
 
-/* **************Title base.html */
-/* .title {
-    background-color: #006666;
-} */
+
 
 hr {
     color: #e59572;
@@ -223,7 +215,6 @@ hr {
     max-width: 300px;              
     height: 300px;                 
     object-fit: cover;             
-    /* border-radius: 50%;            */
     margin-bottom: 20px;           
 } 
 .alert {
@@ -240,6 +231,7 @@ hr {
     background-color: #e59572; 
     border: none;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 .btn-search{
     margin-left: 20px;
@@ -265,7 +257,7 @@ hr {
 .sign{
 font-family: "Argos", Palatino, serif;
 }
-/******Comments ************************/
+/******recipe approval ************************/
 .faded {
     color: rgb(172, 175, 175);
 }
@@ -278,7 +270,7 @@ font-family: "Argos", Palatino, serif;
 .cover-img {
     object-fit: cover; 
     height: 100%; 
-    /* width: 100%; */
+    
   }
   
   /* Adjust the margin on the card */
@@ -291,8 +283,9 @@ font-family: "Argos", Palatino, serif;
     max-width: 500px; 
     margin: 0 auto;  
   }
-
-
+  .form-out{
+   min-height: 100vh;
+  }
 /* Ensure that the profile picture is inside the navbar and positioned on the right */
 .profile-pic-container {
     position: relative;

@@ -141,8 +141,8 @@ In total , there is 12 user stories. 10 of them have been completed, while two c
 
 ### Must Have user stories 
 
- #### User Story name : Manage the Blog Posts
-As a Site user I can create, read, update and delete posts so that I can manage my profile content
+ #### User Story 1 : Manage the Blog Posts
+"As a Site user I can create, read, update and delete posts so that I can manage my profile content"
 
 
 #### Acceptance Criteria 
@@ -171,7 +171,7 @@ As a Site user I can create, read, update and delete posts so that I can manage 
      - Category (e.g., Breakfast, Lunch, Vegan)
    - Form should allow file upload for images and provide validation for required fields.
 
-### 2. Implement the Backend (Model)
+##### 2. Implement the Backend (Model)
    - **Create Recipe Model:**
      - Define a `Recipe` model with fields:
        - `recipe_name` (CharField)
@@ -185,61 +185,62 @@ As a Site user I can create, read, update and delete posts so that I can manage 
      - Define a `Category` model with categories like `breakfast`, `lunch`, `vegan`, etc.
      - Add necessary relationships between models (e.g., Recipe-Category, Recipe-User).
 
-### 3. Create the View for Post Creation
+##### 3. Create the View for Post Creation
    - Handle both GET and POST requests for creating a post.
    - On POST, the data is saved to the database, with a default status of 'not approved' until approved by an admin.
    - Redirect to the post list page or show a success message after the post is saved.
 
-### 4. Display Posts on the Homepage
+##### 4. Display Posts on the Homepage
    - **View to Fetch and Display Posts:**
      - Show only posts where `status = 'published'` and are approved.
      - Display posts with basic details: title, category, and a thumbnail image.
 
-### 5. Create Recipe Detail Page
+##### 5. Create Recipe Detail Page
    - **View to Display Recipe Details:**
      - Show full content of the post with recipe details like ingredients and instructions.
      - Display the post image and show the author's name.
 
-### 6. Category Filter on Recipe Page
+##### 6. Category Filter on Recipe Page
    - **Category Filter:**
      - Allow users to filter recipes by categories like `breakfast`, `lunch`, or `vegan`.
      - This can be implemented using a dropdown or clickable category filters at the top of the recipes page.
 
-### 7. Implement Edit Recipe Form
+##### 7. Implement Edit Recipe Form
    - **Create Edit View:**
      - If the logged-in user is the author of the post, they should have the option to edit the post.
      - The form should pre-fill the current post’s data and allow editing of the title, content, image, and category.
 
-### 8. Add an Edit Button on Recipe Detail Page
+##### 8. Add an Edit Button on Recipe Detail Page
    - **Edit Button Visibility:**
      - Display an "Edit" button only for the author of the post.
 
-### 9. Create a View to Handle Updating Recipes
+##### 9. Create a View to Handle Updating Recipes
    - **Update Recipe View:**
      - Allow the author to update their post using a form (pre-filled with current data).
 
-### 10. Add a Delete Button on the Recipe Detail Page
+##### 10. Add a Delete Button on the Recipe Detail Page
    - **Delete Button Visibility:**
      - Display a "Delete" button only for the author of the post.
      - When clicked, the post should be deleted from the database.
 
-### 11. Post Default Status on Creation
+##### 11. Post Default Status on Creation
    - When a post is created, it is set to `draft` by default until it is approved by an admin.
 
-### 12. Admin Interface for Approval/Rejecting Posts
+##### 12. Admin Interface for Approval/Rejecting Posts
    - Create an admin interface to approve or reject posts based on the admin's review.
    - Admins can change the `status` of a post to `approved` or `rejected`.
 
-### 13. Design UI for Post Creation, Update, and Delete Pages
+##### 13. Design UI for Post Creation, Update, and Delete Pages
    - Ensure that the pages for creating, editing, and deleting posts are intuitive and user-friendly.
    - Provide clear forms with validation and appropriate success/error messages.
 
-### 14. Perform Manual Testing of the Entire Workflow
+##### 14. Perform Manual Testing of the Entire Workflow
    - Test the process of creating, reading, updating, and deleting posts from the perspective of a site user.
    - Test admin approval/rejection process to ensure posts are correctly displayed when approved.
    - Test category filtering to ensure users can view posts by specific categories.
 
-## User Story: "As a site user, I can click on a recipe name so that I can read the full recipe content"
+#### User Story 2: Open a recipe post
+"As a site user, I can click on a recipe name so that I can read the full recipe content"
 
 ### Acceptance Criteria:
 - When a blog post recipe title is clicked on, a detailed view of the post is seen.
@@ -247,12 +248,12 @@ As a Site user I can create, read, update and delete posts so that I can manage 
 
 ---
 
-### Tasks:
+#### Tasks:
 
-1. **Create Recipe Detail View:**
+##### 1. **Create Recipe Detail View:**
    - Implement a view in Django that fetches the full recipe based on the recipe ID or slug.
 
-2. **Design Recipe Detail Page:**
+##### 2. **Design Recipe Detail Page:**
    - Display the full content of the recipe:
      - Title
      - Ingredients
@@ -260,19 +261,238 @@ As a Site user I can create, read, update and delete posts so that I can manage 
      - Image
      - Category
 
-3. **Add a Print Button:**
+##### 3. **Add a Print Button:**
    - Add a button or link on the recipe detail page to allow the user to print the recipe.
 
-4. **Ensure Proper URL Mapping:**
+##### 4. **Ensure Proper URL Mapping:**
    - Define a URL pattern for the recipe detail page, passing the recipe ID or slug in the URL to fetch the correct recipe.
 
-5. **Add Styling for Print-Friendly Version:**
+##### 5. **Add Styling for Print-Friendly Version:**
    - Implement a print-friendly layout that ensures the recipe is displayed properly when printed.
 
-6. **Test Recipe Detail and Print Functionality:**
+##### 6. **Test Recipe Detail and Print Functionality:**
    - Verify that clicking on a recipe title redirects the user to the correct recipe detail page.
    - Test the print button functionality to ensure the recipe can be printed correctly.
+
+#### User Story 3 :Edit or delete a post
+As a **Site User** I can **edit or delete a shared recipe** so that **I can manage my posts**
+
+
+#### Acceptance Criteria
+
+- Given a logged in user, they can modify their recipes
+- Given a logged in user, they can delete their recipes
+
+#### Tasks
+1. **Recipe Edit Functionality:**
+   - Create an edit form for recipes (pre-filled with current recipe data).
+   - Implement a view to handle the editing of recipes.
+   - Update the recipe in the database when the form is submitted.
+
+2. **Recipe Delete Functionality:**
+   - Implement a delete button on the recipe detail page.
+   - Show a confirmation dialog before deleting.
+   - Remove the recipe from the database upon confirmation.
+
+3. **Access Control:**
+   - Ensure that only the author of a recipe can modify or delete it.
+   - Display an "Edit" button and "Delete" button only for the logged-in user who created the recipe.
+
+4. **User Interface:**
+   - Design an intuitive UI for editing and deleting recipes.
+   - Provide feedback after the recipe has been edited or deleted.
+
+5. **Testing:**
+   - Test the editing process to ensure the changes are saved correctly.
+   - Test the delete functionality to ensure recipes are removed from the database.
+   - Test that unauthorized users cannot edit or delete recipes they do not own.
+
+#### User Story 4: User Registration and Post Interaction
+
+"As a Site User, I can register an account so that I can view, add, edit, comment, or rate a post."
+
+---
+
+#### **Acceptance Criteria**
+- A user can register an account with an email and password.
+- The user can log in after registering.
+- When logged in, the user can view, add, edit, delete, comment on, and rate posts.
+
+---
+
+#### **Tasks**
+1. **User Registration Form:**
+   - Implement the registration form for email, password, and confirmation.
+   - Handle form validation and user creation.
+
+2. **User Login:**
+   - Create login form for email and password authentication.
+   - Implement session management for logged-in users.
+
+3. **Post Management (View, Add, Edit, Delete):**
+   - Allow users to add, update, and delete posts they create.
+   - Ensure that users can only edit or delete their own posts.
+
+4. **Rating and Commenting:**
+   - Implement a rating system for posts.
+   - Allow users to add comments to posts.
+
+5. **Access Control:**
+   - Ensure that only logged-in users can interact with posts.
+   - Restrict editing and deleting to the post author only.
+
+6. **UI/UX Design:**
+   - Design interfaces for registration, login, and post interaction.
+   - Ensure ease of access to the post interaction features.
+
+7. **Testing:**
+   - Verify the registration, login, and post interaction functionalities.
+   - Test access control for post management.
+## User Story: View Reviews on an Individual Post
+
+### As a **Site User / Admin**, I can **view reviews on an individual post** so that **I can read the conversation**.
+
+---
+
+### **Acceptance Criteria**
+- Any user can view the reviews on any recipe.
+- A site user can read other users' reviews.
+- A user is allowed to rate a recipe once.
+
+---
+
+### **Tasks**
+- Implement a review section on the recipe detail page.
+- Ensure that users can see existing reviews for a recipe.
+- Create functionality to allow users to submit a review.
+- Limit each user to only one review per recipe.
+- Design UI for displaying reviews in a readable format.
+- Ensure that both site users and admins can view reviews.
+### Rating a Blog Post
+## User Story: Rate Blog Posts
+
+### As a **site user**, I can **rate blog posts** so that **I can give feedback on how helpful or enjoyable the content is**.
+
+---
+
+### **Acceptance Criteria**
+- As a logged-in user, they can rate a blog post on a scale from 1 to 5 stars.
+- The average rating for each blog post is displayed.
+- The user can only rate each blog post once.
+
+---
+
+### **Tasks**
+- Implement a star rating system for blog posts.
+- Store and update the ratings for each blog post.
+- Calculate and display the average rating for each blog post.
+- Prevent users from submitting more than one rating per blog post.
+- Design the UI for the rating system.
+### Searching for Blog Posts
+## User Story: Search for Recipes by Keyword
+
+### As a **site user**, I can **search for recipes by keyword** so that **I can easily find recipes**.
+
+---
+
+### **Acceptance Criteria**
+- The user can use a search bar to find posts by keywords.
+- Relevant results are displayed based on the search criteria.
+
+---
+
+### **Tasks**
+- Implement a search bar on the recipes page.
+- Integrate search functionality to filter posts based on keywords in the title, content, or category.
+- Display search results dynamically.
+- Ensure that results are relevant to the search query.
+## Approve Posts
+## User Story: Admin Approval or Disapproval of Posts
+
+### As a **site admin**, I can **approve or disapprove users' posts** so that **I can filter out objectionable posts**.
+
+---
+
+### **Acceptance Criteria**
+- The admin can approve a post.
+- The admin can disapprove a post.
+
+---
+
+### **Tasks**
+- Implement a post status field (approved, disapproved, pending) in the post model.
+- Create admin interface to approve or disapprove posts.
+- Display status of posts (approved/disapproved) in the admin dashboard.
+- Allow admin to filter posts by approval status.
+
+### Contact the User
+## User Story: Send Messages to Other Users
+
+### As a **user**, I can **send a message to other users** so that **we can have a conversation**.
+
+---
+
+### **Acceptance Criteria**
+- Only authenticated users can send messages to other users.
+- Logged-in users should have a form available to send messages to other users.
+- The user should be able to send a message and see a success message after submitting.
+- The system should display a list of registered users to choose from as recipients.
+
+---
+
+### **Tasks**
+- Implement a message model with fields for sender, recipient, and message content.
+- Create a form for logged-in users to send messages to other users.
+- Create a view to handle the message submission and display a success message.
+- Display a list of registered users to select as recipients for the message.
+- Ensure only authenticated users can access the message sending feature.
+
+### Manage my profile
+## User Story: Manage Profile
+
+### As a **user**, I can **manage my profile** so that **I can change it as I wish**.
+
+---
+
+### **Acceptance Criteria**
+- A logged-in user can see their profile.
+- A logged-in user can edit their profile.
+- A logged-in user can delete their profile.
+
+---
+
+### **Tasks**
+- Create a user profile page where the logged-in user can view their details.
+- Implement a form to allow users to edit their profile information.
+- Implement functionality to update the profile details in the database.
+- Create a delete profile feature that removes the user and their data.
+- Ensure the user can only edit or delete their own profile.
+
+### Add to my favorites
+## User Story: Add Recipes to Favorites
+
+### As a **site user**, I can **add recipes to my favorites** so that **I can get back to them**.
+
+---
+
+### **Acceptance Criteria**
+- A logged-in user can add posts to their favorites.
+
+### Share a recipe post externally
+## User Story: Share Posts with Friends and Family
+
+### As a **site user**, I can **share posts with my friends and family** so that **they can join the site**.
+
+---
+
+### **Acceptance Criteria**
+- The user can share recipe posts with their friends and family via a share link.
+- The shared link directs others to the post or the site for registration.
+- The system provides a way to easily share via social media, email, or direct link.
+
 ***Wireframes***
+
+
 
 <p>To follow best practice, using Bootstrap (which is mobile-first), I decided to create the mobile wireframe, and then scale it up for larger screens.</p>
 
