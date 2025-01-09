@@ -6,7 +6,7 @@ app_name = 'accounts'
 
 urlpatterns = [
    
-    path('collab/', views.collab_form , name ="collaborate_form"),
+    path('collab/<str:recipient_email>/', views.collab_form , name ="collaborate_form"),
     path('signin/', views.signin, name="signin"),  
     path('signout/', views.signout, name='signout'),
     path('signup/', views.signup, name="signup"),

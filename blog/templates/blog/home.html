@@ -5,18 +5,24 @@
 
 <!-- home.html content starts here -->
 <!-- Hero section  -->
+
 <section id="hero-outer">
     <!-- credit hero image, blue veg picture: https://img.freepik.com/free-photo/bright-display-different-citrus-fruits-sorted-by-color_157027-4422.jpg?t=st=1735852217~exp=1735855817~hmac=2d3d69ddd762deb27625a26b9d3533e64c0b02979b671aab8a2ce78e32a807f7&w=1800 -->
-    <div class="hero-image-container">
-        <img src="{% static 'images/hero2.jpg' %}" class="img-fluid" alt="Healthy Vegetables">
-        <div class="cover-text text-center">
-            <h2>Journey Through the Mediterranean !</h2>
-            <p class="lead">Discover, Share, and Craft Mouthwatering Healthy Recipes with the FlavourNest Tribe!</p>
-            <a href="{% url 'accounts:signup' %}" class="btn btn-lg">Join FlavourNest</a>
+    <div class="container d-flex align-items-center">
+        <div class="col-md-6">
+            <div class="cover-text">
+                <h2>Journey Through the Mediterranean!</h2>
+                <p class="lead">Discover, Share, and Craft Mouthwatering Mediterranean Healthy Recipes with the FlavourNest Tribe!</p>
+                <a href="{% url 'accounts:signup' %}" class="btn btn-lg btn-primary">Join FlavourNest</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="hero-image-container">
+                <img src="{% static 'images/medit-feast.jpg' %}" class="img-fluid rounded" alt="Mediterranean mezze">
+            </div>
         </div>
     </div>
 </section>
-
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -77,10 +83,12 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-12">
-            <h2 class="recipe-header">The Mediterranean Way: Health, Flavor, and Lifestyle</h2>
+            <h2 class="recipe-header">The Mediterranean Way: Health, Flavor, and Lifestyle</h2><br/>
         </div>
+        
         <div class="col-md-4">
             <div class="card mb-4">
+                
                 <img src="{% static 'images/fveg.jpg' %}" class="card-img-top" alt="Mediterranean Dish 1">
                 <div class="card-body">
                     <h5 class="card-title">A Month of Mediterranean Diet Dinner Recipes to Eat in January</h5>

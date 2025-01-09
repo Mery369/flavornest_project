@@ -7,7 +7,15 @@ from cloudinary.forms import CloudinaryFileField
 class CollaborateForm(forms.ModelForm):
     class Meta:
         model = CollaborateRequest
-        fields = ('name', 'email', 'message')
+        fields = ('name', 'email', 'message','recipient_email')
+    def __init__(self, *args, **kwargs):
+          super().__init__(*args, **kwargs)
+        # If 'recipient_email' is passed to the form, pre-fill it
+          if 'initial' in kwargs and 'recipient_email' in kwargs['initial']:
+            self.fields['recipient_email'].initial = kwargs['initial']['recipient_email']
+
+    # Optionally, you can hide the recipient_email field
+    recipient_email = forms.EmailField(widget=forms.HiddenInput())
 
 class EditProfileForm(forms.ModelForm):
     # Form fields to edit User model fields

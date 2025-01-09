@@ -9,8 +9,8 @@ body {
     
     text-align: center; 
     font-weight: bold;  
-    margin-bottom: 1.2rem; 
-    font-size: 2.5rem; 
+    margin-bottom: 1.5rem; 
+    font-size: 2rem; 
     line-height: 1.4; 
     background: linear-gradient(to right,#7eb9c5,#ffff); 
     color: rgb(14, 13, 13); 
@@ -21,54 +21,57 @@ body {
 
 /************Hero section******************************************/
 #hero-outer {
-    position: relative;
+    background-color: #f7f7f7; 
+    padding: 50px 0; 
+    margin-bottom: 20px;
 }
 
 .hero-image-container {
     position: relative;
-    width: 100%;
-    height: 60vh; 
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .hero-image-container img {
     width: 100%;
-    height: 80%;
+    height: 100%;
     object-fit: cover; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
+
 .cover-text {
-    position: absolute;
-    top: 20%; 
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    z-index: 10; 
-    text-align: center;
+    max-width: 100%; 
+    color: #333;
 }
 
 .cover-text h2 {
-    font-size: 2.5rem; 
+    font-size: 3rem;
     font-weight: bold;
-    color: #033030;
-}
-
-.cover-text p {
-    font-size: 1.5rem; 
-    font-weight: bold;
+    color: #2a2a2a;
     margin-bottom: 20px;
 }
 
+.cover-text p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #777;
+    margin-bottom: 30px;
+}
+
 .cover-text .btn {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 10px 10px;
-    background-color: #e59572;
+    font-size: 1.125rem;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    border-radius: 50px; 
+    background-color: #e59572; 
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .cover-text .btn:hover {
-    background-color: #fefefe;
+    background-color: #0056b3; 
+    text-decoration: none;
 }
-
 /******************************************** Navbar ****************************** */
 .navbar {
     background-color: #7fbbbb;
@@ -76,7 +79,7 @@ body {
 }
 
 .navbar a:hover {
-    color: #ea7070; /* Soft Coral hover effect */
+    color: #ea7070; 
     
 }
 
@@ -87,10 +90,6 @@ body {
     color: 	#2694ab;
 }
 
-/* .navbar-nav .nav-link:hover {
-    color: #188181; 
-    
-} */
 
 /* Navbar brand styles */
 .navbar-brand {
@@ -103,27 +102,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Title styling */
 
-/* .navbar-brand .brand {
-    
-    font-size: 2rem; 
-    font-weight:200;
-    color: #2694ab;
-    margin-right: 70px;
-}
-
-.navbar-brand .thin-coral {
-    color: #e59572; 
-}
-
-/* Subtitle styling */
-/* .navbar-subtitle {
-    font-size: 0.9rem; 
-    color: #2694ab; 
-    margin-top: 5px; 
-    text-align: left;
-}  */
 .navbar-brand {
     display: flex;
     flex-direction: column;

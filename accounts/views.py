@@ -97,10 +97,12 @@ def signup(request):
 
 
 def signout(request):
-    
-    logout(request)  
-    messages.success(request, "You have been successfully logged out.")  
-    return redirect('blog:home')  
+    if request.method == "POST":
+        logout(request)  
+        messages.success(request, "You have been successfully logged out.")  
+        return redirect('blog:home')
+    else:
+         return render(request, 'accounts/signout.html') 
     
 
         
@@ -135,18 +137,20 @@ def user_profile(request):
         'suggested_users': suggested_users_with_profile,
     })
 
+@login_required
 def collab_form(request):
     
     if request.method == "POST":
         collaborate_form = CollaborateForm(data=request.POST)
         if collaborate_form.is_valid():
+            form.instance.recipient_email = recipient_email
             collaborate_form.save()
             messages.add_message(request, messages.SUCCESS,
              "Collaboration request Sent Successfully!")
 
     else:
         # For GET request, initialize an empty form
-        collaborate_form = CollaborateForm()
+        collaborate_form = CollaborateForm(initial={'recipient_email': recipient_email})
 
     return render(
         request,
@@ -160,7 +164,7 @@ def collab_form(request):
 # Edit profile View
 @login_required
 def edit_profile(request):
-    user_profile = request.user.profile  # Assuming you have a related UserProfile model
+    user_profile = request.user.profile  
 
     if request.method == 'POST':
         form = EditProfileForm(request.POST, request.FILES, instance=user_profile)
@@ -181,6 +185,7 @@ def delete_profile(request):
     user = request.user.profile
     if request.method == 'POST':
         user.delete()
+        request.user.delete()
         messages.success(request, 'Your account has been deleted.')
         return redirect('blog:home')  # Redirect to home page after deletion
     return render(request, 'accounts/delete_profile.html')  
