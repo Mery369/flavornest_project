@@ -788,13 +788,43 @@ ChatGPT was used to provide both coding support and during the ideation phase. F
 
 ### Final Thoughts
 
-This Hackathon Project was not only the first time this team worked together on a web-based development project, it was also the first time the team worked together as such, some time was spent understanding each others personalities as well as their strengths and weaknesses in relation to coding. Arguably without this inital time spent together it would have been more difficult to understand how to collaborate and we know going forward, if we were to work in the same team, it would only become easier.
+As the development of **FlavourNest** progresses, the platform is poised to offer a comprehensive and engaging experience for users passionate about Mediterranean cuisine. By integrating a user-friendly interface, allowing for personalized interactions, and continuously improving the platform, **FlavourNest** aims to become a go-to destination for recipe enthusiasts and food lovers.
 
-In regards to the coding aspect, as this was our first collaborative project using gitHub, issues were faced when creating branches and merging, such that occassionally during a merge into the main, another team member's work was inadvertently affected. To ensure this was kept to a minimum, it was decided those working on similar parts of the code would complete a review of the pull request which may affect their work and any changes required would be notified in a constructive way. This resulted in reduced merge conflicts and inadvertant errors when coding as the project progressed.
+The outlined **core features** and **future improvements** will ensure that the site remains dynamic and adaptable to the evolving needs of its users. From advanced search capabilities and recipe recommendations to a more secure and optimized experience, FlavourNest is committed to providing valuable content and fostering a supportive community for both users and contributors.
 
-In regards to the final product created, this has incorporated all the must-have user stories and some of the should-have. With the time limit for this project being only 2.5 days, some features initially intended to be incorporated could not. However, the final product is functioning and does act as a fun, simple, educational tool as per the purpose and target audience of this project.
+Through ongoing development, the platform can cater to a diverse user base, providing tools for sharing, discovering, and engaging with recipes, while maintaining high-quality standards. This approach will lead to increased user satisfaction, retention, and growth over time.
+
+Ultimately, the vision for FlavourNest is to create a space where users can come together to celebrate the rich and diverse flavors of Mediterranean cuisine, share their own culinary creations, and discover new dishes to enjoy with friends and family.
+
+We are excited about the future of FlavourNest and look forward to continuously enhancing the platform to meet the needs of our growing community.
 
 ## Code Attribution
+During the development of **FlavourNest**, several third-party resources and libraries were used to enhance the functionality, performance, and user experience. Below is a list of key libraries, frameworks, and tools that were leveraged to build the platform.
+
+#### Front-End
+- **Bootstrap**: A popular open-source front-end framework used to design responsive web pages, ensuring that **FlavourNest** is accessible on all screen sizes and devices. ([https://getbootstrap.com](https://getbootstrap.com))
+- **FontAwesome**: Utilized for adding scalable vector icons for different sections of the website, including buttons, alerts, and navigation. ([https://fontawesome.com](https://fontawesome.com))
+
+#### Back-End
+- **Django**: The primary web framework used to build **FlavourNest**, providing features like ORM, URL routing, authentication, and more to handle the backend functionality. ([https://www.djangoproject.com](https://www.djangoproject.com))
+- **Django Allauth**: Integrated for handling user authentication and registration, making it easier to manage sign-up, log-in, and password recovery features. ([https://django-allauth.readthedocs.io](https://django-allauth.readthedocs.io))
+- **PostgreSQL**: A robust, open-source database used in production to ensure better scalability and performance for storing user and recipe data. ([https://www.postgresql.org](https://www.postgresql.org))
+
+#### Libraries & Tools
+- **django-crispy-forms**: A Django app used to format forms in a more user-friendly and customizable way. ([https://django-crispy-forms.readthedocs.io](https://django-crispy-forms.readthedocs.io))
+- **Cloudinary**: Used for handling image uploads and optimizations, ensuring a seamless experience for users to upload and manage recipe images. ([https://cloudinary.com](https://cloudinary.com))
+
+
+#### Design & User Interface
+
+- **Google Fonts**: Leveraged for custom typography, ensuring a consistent and appealing text style across the platform. ([https://fonts.google.com](https://fonts.google.com))
+
+
+#### Deployment
+- **Heroku**: Used as the cloud platform for hosting **FlavourNest** during both development and production stages. ([https://www.heroku.com](https://www.heroku.com))
+- **PostgreSQL**: A robust database used in production to ensure better scalability and performance over SQLite. ([https://www.postgresql.org](https://www.postgresql.org))
+
+We would like to thank the open-source communities and developers for their incredible work in providing these tools and resources. These tools played a vital role in helping us build a secure, scalable, and user-friendly platform for our community.
 
 ### Educational Sources
 There were many sources used for educational purposes during the course of this project to not only aid in refreshing previous content covered in HTML, CSS , Python but also provided a platform to enhance our knowledge further.
