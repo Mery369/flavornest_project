@@ -70,78 +70,26 @@ Responsive and Accessible: Designed with user experience in mind, FlavourNest is
 
 
 
-### UX ### :
-<br/>
-For this recipe blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with a picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a profile cover picture to keep up with the recurring theme.
-
-FlavourNest colors are inspired by the ocean and the natural beauty of the Mediterranean. Ocean coral and ocean waves are perfect Mediterranean theme, as they evoke the feeling of the sea, fresh seafood, and coastal landscapes.
-
-The site carrys a clean theme and the colors as nuetral as possible. One of the platform's main objectives is to share recipes with images. Images will have all different colors and composition therefore the need to reduce the noise and let the images be the focal point. The background body has been kept white with a blueish footer to frame the content, the crispy green tone of the navbar is to provide freshness and subtle to give the content precidence.
-
-### Color Scheme ###
-Hex: #FF6A3D -  Warm coral </br>
-Hex: #1F6F8B -  Deep blue of ocean waves </br>
-Hex:  #e59572 - Soft, earthy coral with hints of peach</br>
-Hex: #FFFFFF -  White
-
-***Colours Palettes***
-
-<figure>
-    <img src="static/images/ocean-pal.jpg"
-         alt="Ocean colours palette">
-    <figcaption>Ocean Waves Color Palette.</figcaption>
-</figure>
-<figure>
-    <img src="static/images/ocean-coral.jpg"
-         alt="Ocean colours palette">
-    <figcaption>Ocean Coral Color Palette Color Palette.</figcaption>
-</figure>
-
-
-
-### Typography ###
-
-<ol>
-<li>Primary Font:
-<ul>
-<li>The ***'Roboto'*** font is used for the body text, ensuring readability with a clean, modern sans-serif style. This is a versatile and legible font that works well for both short and long text, making it perfect for the content-heavy blog.</li>
-</ul>
-
-<li>Font Weight and Sizes:
-<ul>
-<li>Headings and important text elements (such as .recipe-header, .cover-text h2, and .navbar-brand .brand) feature bold and larger font sizes to create clear visual hierarchy. The bold weights help emphasize key content like recipe titles and blog highlights, making them stand out to the reader.
-</li>
-<li>Subheadings and smaller text (like .cover-text p, .navbar-subtitle, and .star-rating .star) are given a lighter weight to provide contrast and guide the reader’s eye without overwhelming the layout.</li>
-<li>Font sizes are adjusted responsively, scaling down for smaller screens, ensuring the design remains accessible and aesthetically pleasing across all devices.</li></ul>
-<li>Heading Style:
-<ul><li>
-The main headings such as .recipe-header and .navbar-brand .brand are designed to capture attention with large font sizes, bold weights, and unique styling (such as the gradient background in .recipe-header). This creates an inviting atmosphere and ensures the key sections of the page are immediately noticeable.
-</li></ul>
-<li>Special Fonts:
-<ul><li>
-***'Mea Culpa*** is used for the blog’s brand title, providing a unique and personalized touch, fitting for the cultural and culinary context of a Mediterranean food blog.</li>
-<li>The ***FontAwesome*** icon font is incorporated in the rating system (.star-rating), allowing for dynamic and interactive user elements such as stars for ratings.</li></ul>
-<li>Text Alignment and Spacing:
-<ul><il>
-Text elements like .recipe-header and .cover-text are centered, providing symmetry and balance in key sections. Additionally, line-height and margin properties improve the readability of the content, ensuring the text isn't too cramped or difficult to read.</il></ul>
-<li>Hover Effects:
-<ul><il>
-Links and buttons have interactive hover effects, changing color on interaction, such as in the .navbar a:hover and .btn:hover styles. These changes not only improve user experience but also create a dynamic visual flow as users navigate through the site.</il></ul>
-
-<li>The favicon I made it using canvas</li></ol>
-
-
 ## User Stories
 In total , there is 12 user stories. 10 of them have been completed, while two couldn't be accomplished due to the lack of time.
+Below is the project board and the project Table, illustrating all the user stories,that have been categorized into Must Have, Should Have, and Could Have,
+to prioritize features based on their importance and relevance to the project.
+ 
 <figure>
     <img src="static/images/board.jpg"
          alt="board">
     <figcaption>Project Board</figcaption>
 </figure>
 
-### Must Have user stories 
+
+<figure>
+    <img src="static/images/story_table.jpg"
+         alt="board">
+    <figcaption>Project Table</figcaption>
+</figure>
 
  #### User Story 1 : Manage the Blog Posts
+
 "As a Site user I can create, read, update and delete posts so that I can manage my profile content"
 
 
@@ -240,13 +188,13 @@ In total , there is 12 user stories. 10 of them have been completed, while two c
    - Test category filtering to ensure users can view posts by specific categories.
 
 #### User Story 2: Open a recipe post
+
 "As a site user, I can click on a recipe name so that I can read the full recipe content"
 
-### Acceptance Criteria:
+#### Acceptance Criteria:
+
 - When a blog post recipe title is clicked on, a detailed view of the post is seen.
 - User can print the recipe.
-
----
 
 #### Tasks:
 
@@ -311,14 +259,12 @@ As a **Site User** I can **edit or delete a shared recipe** so that **I can mana
 
 "As a Site User, I can register an account so that I can view, add, edit, comment, or rate a post."
 
----
 
 #### **Acceptance Criteria**
 - A user can register an account with an email and password.
 - The user can log in after registering.
 - When logged in, the user can view, add, edit, delete, comment on, and rate posts.
 
----
 
 #### **Tasks**
 1. **User Registration Form:**
@@ -348,147 +294,197 @@ As a **Site User** I can **edit or delete a shared recipe** so that **I can mana
 7. **Testing:**
    - Verify the registration, login, and post interaction functionalities.
    - Test access control for post management.
-## User Story: View Reviews on an Individual Post
 
-### As a **Site User / Admin**, I can **view reviews on an individual post** so that **I can read the conversation**.
 
----
+#### User Story 5: View Reviews on an Individual Post
 
-### **Acceptance Criteria**
+ As a **Site User / Admin**, I can **view reviews on an individual post** so that **I can read the conversation**.
+
+
+#### **Acceptance Criteria**
 - Any user can view the reviews on any recipe.
 - A site user can read other users' reviews.
 - A user is allowed to rate a recipe once.
 
----
 
-### **Tasks**
+#### **Tasks**
 - Implement a review section on the recipe detail page.
 - Ensure that users can see existing reviews for a recipe.
 - Create functionality to allow users to submit a review.
 - Limit each user to only one review per recipe.
 - Design UI for displaying reviews in a readable format.
 - Ensure that both site users and admins can view reviews.
-### Rating a Blog Post
-## User Story: Rate Blog Posts
 
-### As a **site user**, I can **rate blog posts** so that **I can give feedback on how helpful or enjoyable the content is**.
 
----
+#### User Story 6: Rate Blog Posts
 
-### **Acceptance Criteria**
+ As a **site user**, I can **rate blog posts** so that **I can give feedback on how helpful or enjoyable the content is**.
+
+
+#### **Acceptance Criteria**
 - As a logged-in user, they can rate a blog post on a scale from 1 to 5 stars.
 - The average rating for each blog post is displayed.
 - The user can only rate each blog post once.
 
----
 
-### **Tasks**
+#### **Tasks**
 - Implement a star rating system for blog posts.
 - Store and update the ratings for each blog post.
 - Calculate and display the average rating for each blog post.
 - Prevent users from submitting more than one rating per blog post.
 - Design the UI for the rating system.
-### Searching for Blog Posts
-## User Story: Search for Recipes by Keyword
 
-### As a **site user**, I can **search for recipes by keyword** so that **I can easily find recipes**.
+#### User Story 7 : Search for Recipes by Keyword
 
----
+ As a **site user**, I can **search for recipes by keyword** so that **I can easily find recipes**.
 
-### **Acceptance Criteria**
+
+#### **Acceptance Criteria**
 - The user can use a search bar to find posts by keywords.
 - Relevant results are displayed based on the search criteria.
 
----
 
-### **Tasks**
+#### **Tasks**
 - Implement a search bar on the recipes page.
 - Integrate search functionality to filter posts based on keywords in the title, content, or category.
 - Display search results dynamically.
 - Ensure that results are relevant to the search query.
-## Approve Posts
-## User Story: Admin Approval or Disapproval of Posts
 
-### As a **site admin**, I can **approve or disapprove users' posts** so that **I can filter out objectionable posts**.
+#### User Story 8 : Admin Approval or Disapproval of Posts
 
----
+ As a **site admin**, I can **approve or disapprove users' posts** so that **I can filter out objectionable posts**.
 
-### **Acceptance Criteria**
+#### **Acceptance Criteria**
 - The admin can approve a post.
 - The admin can disapprove a post.
 
----
 
-### **Tasks**
+#### **Tasks**
 - Implement a post status field (approved, disapproved, pending) in the post model.
 - Create admin interface to approve or disapprove posts.
 - Display status of posts (approved/disapproved) in the admin dashboard.
 - Allow admin to filter posts by approval status.
 
-### Contact the User
-## User Story: Send Messages to Other Users
+#### User Story 9 : Contact the Users
+ As a **user**, I can **send a message to other users** so that **we can have a conversation**.
 
-### As a **user**, I can **send a message to other users** so that **we can have a conversation**.
-
----
-
-### **Acceptance Criteria**
+#### **Acceptance Criteria**
 - Only authenticated users can send messages to other users.
 - Logged-in users should have a form available to send messages to other users.
 - The user should be able to send a message and see a success message after submitting.
 - The system should display a list of registered users to choose from as recipients.
 
----
 
-### **Tasks**
+#### **Tasks**
 - Implement a message model with fields for sender, recipient, and message content.
 - Create a form for logged-in users to send messages to other users.
 - Create a view to handle the message submission and display a success message.
 - Display a list of registered users to select as recipients for the message.
 - Ensure only authenticated users can access the message sending feature.
 
-### Manage my profile
-## User Story: Manage Profile
+#### User Story 10 : Manage Profile
 
-### As a **user**, I can **manage my profile** so that **I can change it as I wish**.
+ As a **user**, I can **manage my profile** so that **I can change it as I wish**.
 
----
-
-### **Acceptance Criteria**
+#### **Acceptance Criteria**
 - A logged-in user can see their profile.
 - A logged-in user can edit their profile.
 - A logged-in user can delete their profile.
 
----
 
-### **Tasks**
+#### **Tasks**
 - Create a user profile page where the logged-in user can view their details.
 - Implement a form to allow users to edit their profile information.
 - Implement functionality to update the profile details in the database.
 - Create a delete profile feature that removes the user and their data.
 - Ensure the user can only edit or delete their own profile.
 
-### Add to my favorites
-## User Story: Add Recipes to Favorites
 
-### As a **site user**, I can **add recipes to my favorites** so that **I can get back to them**.
+#### User Story 11: Add Recipes to Favorites
 
----
+As a **site user**, I can **add recipes to my favorites** so that **I can get back to them**.
 
-### **Acceptance Criteria**
+
+#### **Acceptance Criteria**
 - A logged-in user can add posts to their favorites.
 
-### Share a recipe post externally
-## User Story: Share Posts with Friends and Family
+#### User Story 12 : Share a recipe post externally
 
-### As a **site user**, I can **share posts with my friends and family** so that **they can join the site**.
+ As a **site user**, I can **share posts with my friends and family** so that **they can join the site**.
 
----
 
-### **Acceptance Criteria**
+#### **Acceptance Criteria**
 - The user can share recipe posts with their friends and family via a share link.
 - The shared link directs others to the post or the site for registration.
 - The system provides a way to easily share via social media, email, or direct link.
+
+#### **Tasks**
+- Implement a share button on recipe posts.
+- Allow users to share via social media platforms (Facebook, Twitter, etc.), email, or copyable link.
+- Ensure the shared link takes the recipient to the specific recipe post or sign-up page.
+- Optionally, track how often posts are shared for analytics purposes.
+## Design Decisions
+
+
+### UX ### :
+<br/>
+For this recipe blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with a picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a profile cover picture to keep up with the recurring theme.
+
+FlavourNest colors are inspired by the ocean and the natural beauty of the Mediterranean. Ocean coral and ocean waves are perfect Mediterranean theme, as they evoke the feeling of the sea, fresh seafood, and coastal landscapes.
+
+The site carrys a clean theme and the colors as nuetral as possible. One of the platform's main objectives is to share recipes with images. Images will have all different colors and composition therefore the need to reduce the noise and let the images be the focal point. The background body has been kept white with a blueish footer to frame the content, the crispy green tone of the navbar is to provide freshness and subtle to give the content precidence.
+
+### Color Scheme ###
+Hex: #FF6A3D -  Warm coral </br>
+Hex: #1F6F8B -  Deep blue of ocean waves </br>
+Hex:  #e59572 - Soft, earthy coral with hints of peach</br>
+Hex: #FFFFFF -  White
+
+***Colours Palettes***
+
+<figure>
+    <img src="static/images/ocean-pal.jpg"
+         alt="Ocean colours palette">
+    <figcaption>Ocean Waves Color Palette.</figcaption>
+</figure>
+<figure>
+    <img src="static/images/ocean-coral.jpg"
+         alt="Ocean colours palette">
+    <figcaption>Ocean Coral Color Palette Color Palette.</figcaption>
+</figure>
+
+
+
+### Typography ###
+
+<ol>
+<li>Primary Font:
+<ul>
+<li>The ***'Roboto'*** font is used for the body text, ensuring readability with a clean, modern sans-serif style. This is a versatile and legible font that works well for both short and long text, making it perfect for the content-heavy blog.</li>
+</ul>
+
+<li>Font Weight and Sizes:
+<ul>
+<li>Headings and important text elements (such as .recipe-header, .cover-text h2, and .navbar-brand .brand) feature bold and larger font sizes to create clear visual hierarchy. The bold weights help emphasize key content like recipe titles and blog highlights, making them stand out to the reader.
+</li>
+<li>Subheadings and smaller text (like .cover-text p, .navbar-subtitle, and .star-rating .star) are given a lighter weight to provide contrast and guide the reader’s eye without overwhelming the layout.</li>
+<li>Font sizes are adjusted responsively, scaling down for smaller screens, ensuring the design remains accessible and aesthetically pleasing across all devices.</li></ul>
+<li>Heading Style:
+<ul><li>
+The main headings such as .recipe-header and .navbar-brand .brand are designed to capture attention with large font sizes, bold weights, and unique styling (such as the gradient background in .recipe-header). This creates an inviting atmosphere and ensures the key sections of the page are immediately noticeable.
+</li></ul>
+<li>Special Fonts:
+<ul><li>
+***'Mea Culpa*** is used for the blog’s brand title, providing a unique and personalized touch, fitting for the cultural and culinary context of a Mediterranean food blog.</li>
+<li>The ***FontAwesome*** icon font is incorporated in the rating system (.star-rating), allowing for dynamic and interactive user elements such as stars for ratings.</li></ul>
+<li>Text Alignment and Spacing:
+<ul><il>
+Text elements like .recipe-header and .cover-text are centered, providing symmetry and balance in key sections. Additionally, line-height and margin properties improve the readability of the content, ensuring the text isn't too cramped or difficult to read.</il></ul>
+<li>Hover Effects:
+<ul><il>
+Links and buttons have interactive hover effects, changing color on interaction, such as in the .navbar a:hover and .btn:hover styles. These changes not only improve user experience but also create a dynamic visual flow as users navigate through the site.</il></ul>
+
+<li>The favicon I made it using canvas</li></ol>
 
 ***Wireframes***
 
@@ -505,6 +501,212 @@ Mobile Wireframes
     <figcaption>Mobile WireFrame.</figcaption>
 </figure>
 
+
+## Features Implementation
+
+### Core Features (Must-Haves)
+
+1. **User Authentication and Authorization**
+   - User registration and login system.
+   - Password reset functionality.
+   - User roles (Admin, Site User).
+   
+2. **User Profile Management**
+   - View and edit profile (username, email, password, and profile picture).
+   - Option to delete user profile.
+   
+3. **Recipe Management**
+   - Users can create, view, update, and delete recipes.
+   - Admins can approve or disapprove submitted recipes.
+   - Ability to categorize recipes (e.g., breakfast, lunch, vegan).
+   
+4. **Admin Panel**
+   - Admin can approve or reject submitted recipes.
+   - Admin has the ability to manage user accounts (e.g., delete or block users).
+5. **Responsive Design**
+    - The website is fully responsive, ensuring usability on both mobile and desktop.
+    - Optimized for quick loading and user-friendly interaction.
+
+### Advanced Features (Should-Haves)
+
+1. **Recipe Ratings and Reviews**
+   - Users can rate recipes (1 to 5 stars).
+   - Users can leave written reviews on recipes.
+   - Display average ratings and reviews for each recipe.
+2. **Search and Filter Recipes**
+   - Search recipes by keyword or ingredient.
+
+### Optional Features (Could-Haves)
+
+1. **Messaging System**
+   - Users can send messages to other users.
+   - Messaging system allows conversation between users.
+   
+2. **Post Sharing**
+   - Users can share recipes with friends and family via social media, email, or direct links.
+3. **Favorites System**
+   - Users can mark recipes as favorites.
+   - A list of favorite recipes is available for users to view at any time.
+
+## Testing and Validation
+
+### Testing Results
+#### Bug Fixes
+
+During the development of FlavourNest Mediterranean recipe blog, several bugs and issues were identified and fixed to ensure smooth functionality and a better user experience. Below is a summary of the key fixes made to the CSS, HTML, Database, and Python for the app.
+
+##### HTML Related
+
+1. **Responsive Design Fixes**
+   - Fixed issues where certain sections were not properly aligned on mobile devices.
+   - Ensured that images and text scale properly across various screen sizes.
+   - Added additional media queries for better responsiveness in header, footer, and content sections.
+
+2. **Form Alignment**
+   - Corrected misaligned form elements such as input fields, buttons, and labels in registration, login, and profile update forms.
+   - Ensured that the "Sign Out" and "Cancel" buttons were placed correctly side by side in the confirmation dialog.
+   - Ensured that "edit recipe" is properly populated with the original text instead of the HTML tag included.
+3. **Navigation Menu**
+   - Fixed the navigation bar to be fully responsive and ensure links are easily clickable on both desktop and mobile views.
+   - Corrected dropdown menu functionality, ensuring they expand/collapse correctly on smaller screens.
+
+4. **Buttons and Links**
+   - Adjusted the styling for buttons and links to ensure they appear correctly (hover effects, color consistency, etc.).
+   - Fixed broken links for profile, logout, and recipe pages.
+   - Made sure the "Sign Out" button was positioned in the center of the confirmation dialog.
+
+5. **Missing Images**
+   - Corrected the issue where certain images (e.g., profile pictures, recipe images) were not loading due to missing or incorrect file paths in the HTML.
+   - Added alt text for all images to improve accessibility.
+
+##### CSS Related
+
+1. **Fixed Layout Overflows**
+   - Resolved page overflow issues, especially in the "recipe detail" view where content was being cut off on smaller screens.
+   - Applied `overflow: hidden;` and adjusted width properties to ensure that content fits within its container.
+
+2. **Improved Form Styling**
+   - Improved the visual appearance of input fields, select dropdowns, and text areas to match the overall website design.
+   - Applied consistent padding, margins, and font sizes for a better user experience.
+
+3. **Hover Effects**
+   - Fixed hover effects on buttons and links to enhance interactivity.
+   - Ensured consistent hover states on buttons like "Sign Out" and "Share" buttons across various sections of the website.
+
+4. **Custom Scrollbars**
+   - Added custom scrollbars for better aesthetics and to match the website’s color scheme, especially in the recipe lists and message threads.
+
+5. **Typography Improvements**
+   - Adjusted font sizes for better readability across different devices, especially on mobile.
+   - Fixed issues with inconsistent font usage on some pages.
+
+##### Database Related
+
+1. **Recipe Database Schema Fixes**
+   - Resolved issues with recipe categorization, ensuring all recipes are correctly categorized and can be filtered.
+   - Fixed an issue with missing or incorrect foreign key relations between recipes, users, and categories.
+
+2. **Message System Bug**
+   - Addressed a bug where messages were not being stored in the database correctly.
+
+3. **User Profile Bug**
+   - Resolved issues with the user profile not saving changes properly, especially when updating profile images.
+   - Fixed errors related to empty profile fields after updates, ensuring that all profile changes are saved correctly.
+
+##### Python (Backend) Related
+
+1. **Recipe Approval Bug**
+   - Fixed the recipe approval process, ensuring that only admin users could approve or reject recipe submissions.
+   - Corrected issues where approved recipes were not displaying properly on the homepage.
+
+2. **Authentication Bug**
+   - Resolved an issue where logged-in users were occasionally redirected to the login page after performing certain actions, even if they were authenticated.
+   - Resolve an issue where a deleted account email was stored still in the user table .
+
+3. **Rating System**
+   - Fixed a bug where users were able to rate the same recipe multiple times. Now users can only rate each recipe once.
+   - Corrected the calculation of average ratings to ensure accurate data is shown on each recipe.
+
+4. **Search Functionality**
+   - Fixed search functionality to return relevant results based on keywords. The search now correctly filters recipes by title, ingredients, and category.
+   
+By addressing these bugs, we significantly improved the functionality, user experience, and overall performance of the FlavourNest Mediterranean recipe blog. These fixes ensure that users can seamlessly navigate, interact, and enjoy the platform.
+
+#### Lighthouse Performance Test
+
+![Lighthouse test](./assets/images/readme/lighthouse.png)
+
+### Validation
+
+#### HTML Validation
+HTML validation was achieved using the [W3C Validator](https://validator.w3.org/) which ensured the code met web standards.
+
+![HTML Validation](assets/images/readme/HTML-Validation.png)
+
+#### CSS Validation
+CSS validation was achieved using the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/) which ensured the code met web standards.
+
+![CSS Validation](assets/images/readme/CSS-validation.png)
+#### JavaScript Validation
+Although there was not a specific JavaScript validator for web standards, we used a version of [JSHint](https://mfs4711.github.io/jshint-api/) which was created during a walkthrough session in a previous Code Institute module. This suggested only one potential error when the code was input. A screenshot of this is shown below.
+
+![JS Validation](assets/images/readme/JS-validation.png)
+
+## Deployment
+
+### Deployment Process
+
+The project was deployed early in the process to GitHub Pages to ensure any issues encountered could be resolved quickly.
+Before deploying the project, We ensured to code the basic structure in HTML and CSS, and some basic JavaScript to ensure everything was working in unison.
+The project was deployed via GitHub Pages which was accessed via the settings in the project repository. 
+This involved publishing the main branch and root directory which took a few minutes before completing.
+The deployed project updated as required after each git push and few, if any, issues were encountered.
+
+### File Structure
+The root directory is structured in a way that is clear an organised. This is separated into an assets folder and the index.html file as well as this README.md file.
+
+In the assets folder, the images folder has been split into clear, logical folders, each enclosing images to be applied to the location of the folder name. This is particularly important as there are a large number of images used in the project and so having a single image file would make it difficult to read. Also, in this way, the relative image file paths, included in the html, can be followed easily.
+
+Further to this, as per convention, in the assets folder, along with the image folder, there is a styles folder, which contains all css stylesheets used. In this project there was only one used, however, if there were more these would be easily found here. The same is true for the scripts folder containing the javascript which is also found in the assets folder.
+
+This file structure allows for easy navigation and reading for anyone attempting to read the code. 
+
+## AI Tools Usage
+
+### ChatGPT
+ChatGPT was used to provide both coding support and during the ideation phase. First of all, it was used for brainstorming ideas and producing layout concepts. Further to this, it was used to generate many user stories which have been used in the development of this project. Furthermore, it was used, at times, to provide coding support to help identify the code which was causing a particular bug. Challenges with this AI software included the need to ask the right questions as it can take the topic in an unintended direction, therefore, it was important to keep on top of this. Further to this, ChatGPT can make mistakes which would be easy to overlook without knowledge of the coding concept. An example of this would be an issue faced when trying to pass information from one function into another. ChatGPT suggested calling a variable declared in one function in a different function which would not be possible as variables are block scoped. Therefore, whilst an AI tool such as this can provide great benefits in finding solutions to problems, it can just as easily confidently make mistakes which can be tough to catch.
+
+## Reflection on Development Process
+
+### Final Thoughts
+
+This Hackathon Project was not only the first time this team worked together on a web-based development project, it was also the first time the team worked together as such, some time was spent understanding each others personalities as well as their strengths and weaknesses in relation to coding. Arguably without this inital time spent together it would have been more difficult to understand how to collaborate and we know going forward, if we were to work in the same team, it would only become easier.
+
+In regards to the coding aspect, as this was our first collaborative project using gitHub, issues were faced when creating branches and merging, such that occassionally during a merge into the main, another team member's work was inadvertently affected. To ensure this was kept to a minimum, it was decided those working on similar parts of the code would complete a review of the pull request which may affect their work and any changes required would be notified in a constructive way. This resulted in reduced merge conflicts and inadvertant errors when coding as the project progressed.
+
+In regards to the final product created, this has incorporated all the must-have user stories and some of the should-have. With the time limit for this project being only 2.5 days, some features initially intended to be incorporated could not. However, the final product is functioning and does act as a fun, simple, educational tool as per the purpose and target audience of this project.
+
+## Code Attribution
+
+### Educational Sources
+There were many sources used for educational purposes during the course of this project to not only aid in refreshing previous content covered in HTML, CSS and JavaScript, but also provided a platform to enhance our knowledge further.
+
+Educational resources used include [Code Institute](https://codeinstitute.net/), [W3Schools](https://www.w3schools.com/) and [MDN Web Docs](https://developer.mozilla.org/en-US/).
+
+Use of ChatGPT supported clarification of coding issues faced as well as providing suggestions for improvement.
+
+### Image Sources
+The Bookshelf background image that we used for the first and last page was taken form [Unsplash](https://unsplash.com/) 
+The favIcon image used on the Mind Mingle pages was sourced from [freepik](https://www.freepik.com/photos/degree/) 
+The cubes image used for the quiz page was sourced from          [pngtree](https://pngtree.com/free-backgrounds-photos/purple-cube-pictures)
+
+### Icons/Styles
+- [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [Font Awesome](https://fontawesome.com/)
+
+## Future Improvements
+
+Due to time spent on bug and merge conflict fixes, we were unable to add some of the features related to the should-have user stories. This includes having a countdown timer for each question as well as creating a leaderboard. Further to this, it would have been fairly easy to add further categories and question types, however, these features, due to the issues experienced, could not feature in the product. Further to this, primarily due to a lack of the necessary skillset/experience in javascript, we were unable to add the personalisation aspect illustrated in the could-have user stories. 
 The navigation bar is available on all the website pages. It is fully responsive and provides links to all the areas of the website, some links based on whether the user is authenticated and logged in or not. Users are able to navigate on any size device with a burger menu with dropdown for small devices. users can easily click on the site logo to returnm back to the landing page.
 
 Desktop
