@@ -10,10 +10,11 @@
      - [Must-Have User Stories](#must-have-user-stories)
      - [Should-Have User Stories](#should-have-user-stories)
      - [Could-Have User Stories](#could-have-user-stories)
- 3. [Design Decisions](#design-decisions)
+ 3. [Design and Databse Decisions](#design-decisions)
      - [Wireframes](#wireframes)
      - [Colours](#colours)
      - [Fonts](#fonts)
+     - [Databse Design](#Database)
  4. [Features Implementation](#features-implementation)
      - [Core Features (Must-Haves)](#core-features-must-haves)
      - [Advanced Features (Should-Haves)](#advanced-features-should-haves)
@@ -23,11 +24,13 @@
          - [Bug Fixes](#bug-fixes)
          - [Responsiveness](#responsiveness)
          - [Lighthouse Performance Test](#lighthouse-performance-test)
+         - [User stories Testing](#user-story-test)
      - [Validation](#validation)
  6. [Deployment](#deployment)
      - [Deployment Process](#deployment-process)
      - [File Structure](#file-structure)
- 7. [AI Tools Usage](#ai-tools-usage)
+ 7. [ Tools Usage](#tools-usage)
+     - [Tools Used](#Tools)
      - [ChatGPT](#chatgpt)
  8. [Reflection on Development Process](#reflection-on-development-process)
  9. [Code Attribution](#code-attribution)
@@ -62,12 +65,6 @@ Responsive and Accessible: Designed with user experience in mind, FlavourNest is
 <br/>
 
 ***Here's my deployed site :*** [FlavorNest](https://flavornest-7cb17784f79b.herokuapp.com/)
-
-***Am I Responsive***
-
-![IAMresponsivepic]( static/images/respo.jpg "flavournest")
-
-
 
 
 ## User Stories
@@ -427,6 +424,7 @@ As a **site user**, I can **add recipes to my favorites** so that **I can get ba
 
 
 ### UX ### :
+
 <br/>
 For this recipe blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with a picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a profile cover picture to keep up with the recurring theme.
 
@@ -501,6 +499,13 @@ Mobile Wireframes
     <figcaption>Mobile WireFrame.</figcaption>
 </figure>
 
+
+ ***Database Design***
+Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
+Site used for ERD : </br>
+ [Lucidchart](https://www.lucidchart.com/) 
+
+![ERD](static/images/erd_diagram.jpeg)
 
 ## Features Implementation
 
@@ -632,44 +637,147 @@ During the development of FlavourNest Mediterranean recipe blog, several bugs an
    
 By addressing these bugs, we significantly improved the functionality, user experience, and overall performance of the FlavourNest Mediterranean recipe blog. These fixes ensure that users can seamlessly navigate, interact, and enjoy the platform.
 
+#### Am I Responsive
+
+![IAMresponsivepic]( static/images/respo.jpg "flavournest")
+
+
+
 #### Lighthouse Performance Test
 
-![Lighthouse test](./assets/images/readme/lighthouse.png)
+![Lighthouse test](static/images/lighthouse.jpg)
+
+#### User stories Testing
+| User Story                        | FlavourNest App screenShot |
+|-----------------                  |-----------------           |
+| Manage the Blog Posts             |  ![AddRecipe]( static/images/add_recipe.jpg "flavournest") ![RecipeEdit]( static/images/recipe_edit.jpg "flavournest")
+| Open a recipe post                | ![OpenPost]( static/images/click_post.jpg "flavournest") |
+| Edit or delete a post             | ![RecipeEdit]( static/images/recipe_edit.jpg "flavournest") |
+| Account registration              | ![Profile]( static/images/create_profile.jpg "flavournest") |
+| View reviews             | ![Rating]( static/images/view_review.jpg "flavournest") |
+|Rating a Blog Post             | ![Rating]( static/images/rating.jpg "flavournest") |
+| Searching for Blog Posts             | ![Search]( static/images/search_posts.png "flavournest") |
+| Approve Posts            | ![Approve]( static/images/approve_posts.jpg "flavournest") |
+| Contact the User             | ![Contact]( static/images/contact_users.jpg "flavournest") |
+| Manage my profile             | ![Profile]( static/images/edit_delete_profile.jpg "flavournest") ![Profile]( static/images/delete_profile.jpg "flavournest")  |
+
+
+
 
 ### Validation
 
 #### HTML Validation
 HTML validation was achieved using the [W3C Validator](https://validator.w3.org/) which ensured the code met web standards.
 
-![HTML Validation](assets/images/readme/HTML-Validation.png)
+![HTML Validation](static/images/html-valid.jpg )
 
 #### CSS Validation
 CSS validation was achieved using the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/) which ensured the code met web standards.
 
-![CSS Validation](assets/images/readme/CSS-validation.png)
-#### JavaScript Validation
-Although there was not a specific JavaScript validator for web standards, we used a version of [JSHint](https://mfs4711.github.io/jshint-api/) which was created during a walkthrough session in a previous Code Institute module. This suggested only one potential error when the code was input. A screenshot of this is shown below.
+![CSS Validation](static/images/css_valid.jpg)
 
-![JS Validation](assets/images/readme/JS-validation.png)
+#### Python Validation
+Python validation was achieved using ***CI Python Linter*** validator.
+
+![Python Validation](static/images/python_valid.jpg)
 
 ## Deployment
 
 ### Deployment Process
+#### Deployment Process to Heroku for FlavourNest
 
-The project was deployed early in the process to GitHub Pages to ensure any issues encountered could be resolved quickly.
-Before deploying the project, We ensured to code the basic structure in HTML and CSS, and some basic JavaScript to ensure everything was working in unison.
-The project was deployed via GitHub Pages which was accessed via the settings in the project repository. 
-This involved publishing the main branch and root directory which took a few minutes before completing.
-The deployed project updated as required after each git push and few, if any, issues were encountered.
+The live deployed application can be found deployed on :
+[FlavourNest](https://flavornest-7cb17784f79b.herokuapp.com/)
 
-### File Structure
-The root directory is structured in a way that is clear an organised. This is separated into an assets folder and the index.html file as well as this README.md file.
+This is the process followed to deploy **FlavourNest** Django application to **Heroku**:
 
-In the assets folder, the images folder has been split into clear, logical folders, each enclosing images to be applied to the location of the folder name. This is particularly important as there are a large number of images used in the project and so having a single image file would make it difficult to read. Also, in this way, the relative image file paths, included in the html, can be followed easily.
+#### 1. Prepare Django Application for Heroku
 
-Further to this, as per convention, in the assets folder, along with the image folder, there is a styles folder, which contains all css stylesheets used. In this project there was only one used, however, if there were more these would be easily found here. The same is true for the scripts folder containing the javascript which is also found in the assets folder.
+Before deploying, I made the necessary adjustments to my Django project.
 
-This file structure allows for easy navigation and reading for anyone attempting to read the code. 
+   ##### a. Install Dependencies
+
+Ensure that there is all the necessary dependencies for Heroku:
+
+```
+pip install gunicorn  whitenoise psycopg2 
+```
+After installing the dependencies, update your requirements.txt:
+```
+pip freeze > requirements.txt
+```
+   ##### b. Configure Django for Production
+
+In the settings.py, made the following changes :
+
+1. Database Configuration (PostgreSQL)
+
+ ```
+ DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+```
+2. Static File Handling with Whitenoise
+```
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
+]
+```
+3. Secret Key
+```
+SECRET_KEY = 'django-insecure-+*******************
+```
+4. Allowed Hosts
+```
+ALLOWED_HOSTS = ["8000-mery369-flavornestproje-84m89s5cmly.ws.codeinstitute-ide.net",".herokuapp.com"]
+```
+5. Debug Mode
+```
+DEBUG = False
+```
+   ##### c. Create a Procfile
+Created a Procfile in the root directory of my project to specify how to run the app on Heroku
+   ##### d. Environment Variables
+   Set environment variables (DJANGO_SECRET_KEY, DataBase URL,...) for sensitive data into the congi vars in Heroku
+#### Initialize Git and Commit Changes
+```
+git add .
+git commit -m "Initial commit"
+git push
+```
+#### Create a Heroku App
+Connect Heroku to the github , then select FlavourNest project 
+#### PostgreSQL Database
+This project uses a [Code Institute PostgreSQL](Databasehttps://dbs.ci-dbs.net/)
+
+## Tools and Technologies used
+
+***Markdown Builder*** used to generate README and TESTING templates.</br>
+***Git*** used for version control. (git add, git commit, git push)</br>
+***Git*** used for secure online code storage.</br>
+***Gitpod*** used as a cloud-based IDE for development.</br>
+***HTML*** used for the main site content.</br>
+***CSS*** used for the main site design and layout.</br>
+***Python*** used as the back-end programming language.</br>
+***Heroku*** used for hosting the deployed back-end site.</br>
+***Bootstrap*** used as the front-end CSS framework for modern responsiveness and pre-built components.</br>
+***Django*** used as the Python framework for the site.</br>
+***PostgreSQL*** used as the relational database management.</br>
+***PostgreSQL*** by Code Institute used as the Postgres database from Code Institute.</br>
+***Cloudinary*** used for online static file storage.</br>
+***WhiteNoise*** used for serving static files with Heroku.</br>
+***Balsamiq*** used for creating wireframes.</br>
+***Font Awesome*** used for the icons.</br>
+***ChatGPT*** used to help debug, troubleshoot, and explain things.</br>
+
 
 ## AI Tools Usage
 
@@ -689,532 +797,86 @@ In regards to the final product created, this has incorporated all the must-have
 ## Code Attribution
 
 ### Educational Sources
-There were many sources used for educational purposes during the course of this project to not only aid in refreshing previous content covered in HTML, CSS and JavaScript, but also provided a platform to enhance our knowledge further.
+There were many sources used for educational purposes during the course of this project to not only aid in refreshing previous content covered in HTML, CSS , Python but also provided a platform to enhance our knowledge further.
 
 Educational resources used include [Code Institute](https://codeinstitute.net/), [W3Schools](https://www.w3schools.com/) and [MDN Web Docs](https://developer.mozilla.org/en-US/).
 
 Use of ChatGPT supported clarification of coding issues faced as well as providing suggestions for improvement.
 
 ### Image Sources
-The Bookshelf background image that we used for the first and last page was taken form [Unsplash](https://unsplash.com/) 
-The favIcon image used on the Mind Mingle pages was sourced from [freepik](https://www.freepik.com/photos/degree/) 
-The cubes image used for the quiz page was sourced from          [pngtree](https://pngtree.com/free-backgrounds-photos/purple-cube-pictures)
+
+The hero image that we used for the home page was taken form [Freepik](https://www.freepik.com//) </br>
+The recipes image used on the Flavournest pages was sourced from [bbcfood](https://www.bbcgoodfood.com/) </br>
+The cover picture used for the profile page was sourced from    [Freepik](https://www.freepik.com//) </br>
 
 ### Icons/Styles
+
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Font Awesome](https://fontawesome.com/)
 
+
 ## Future Improvements
 
-Due to time spent on bug and merge conflict fixes, we were unable to add some of the features related to the should-have user stories. This includes having a countdown timer for each question as well as creating a leaderboard. Further to this, it would have been fairly easy to add further categories and question types, however, these features, due to the issues experienced, could not feature in the product. Further to this, primarily due to a lack of the necessary skillset/experience in javascript, we were unable to add the personalisation aspect illustrated in the could-have user stories. 
-The navigation bar is available on all the website pages. It is fully responsive and provides links to all the areas of the website, some links based on whether the user is authenticated and logged in or not. Users are able to navigate on any size device with a burger menu with dropdown for small devices. users can easily click on the site logo to returnm back to the landing page.
 
-Desktop
+As the FlavourNest Mediterranean recipe blog continues to evolve, there are several key areas identified for future improvement. These improvements will help enhance user experience, add new functionalities, and further optimize the platform for a growing user base.
 
-image
+### 1. **Enhanced Search Functionality**
+   - **Keyword Suggestions**: Implement keyword auto-suggestions to assist users in finding recipes faster as they type.
+   - **Advanced Filters**: Allow users to filter search results based on multiple criteria, such as difficulty level, cuisine type, dietary restrictions (e.g., vegan, gluten-free), and preparation time.
+   - **Search History**: Introduce a search history feature to show previously searched terms, making it easier for users to find recipes they've previously explored.
 
-image
+### 2. **Recipe Recommendations**
+   - **Personalized Recommendations**: Implement a recommendation engine to suggest recipes to users based on their browsing and rating history.
+   - **Related Recipes**: Add a “related recipes” section at the end of each recipe page to encourage users to discover more content within the same category or based on similar ingredients.
+   - **Trending Recipes**: Display trending or most-rated recipes on the homepage to attract more users.
 
-Mobile
+### 3. **User Profile Enhancements**
+   - **Customizable Profile**: Allow users to fully customize their profiles, including adding bio information, social media links, and a personalized profile image.
+   - **Recipe Book**: Introduce a "Recipe Book" feature where users can save their favorite recipes and organize them in a personalized cookbook.
+   - **User Activity Dashboard**: Provide users with a dashboard showing their activity, including their posted recipes, reviews, ratings, and favorited recipes.
 
-image
+### 4. **Improved Recipe Rating System**
+   - **Multiple Rating Criteria**: Enhance the rating system by allowing users to rate recipes based on different criteria, such as taste, ease of preparation, and appearance.
+   - **Rating Categories**: Introduce rating categories for user-generated reviews, such as "Most Helpful", "Most Liked", and "Most Recent" to make it easier to navigate user feedback.
+   - **Review Moderation**: Implement a moderation system for reviews to ensure that they meet community guidelines before being published.
 
-image
+### 5. **Recipe Video Integration**
+   - **Recipe Videos**: Allow users to upload or link to recipe videos to provide step-by-step cooking tutorials.
+   - **Video Tutorials**: Include embedded video tutorials within the recipe details for users who prefer visual instructions.
 
-Landing Page
+### 6. **Social Sharing Enhancements**
+   - **Social Media Integration**: Enhance social media sharing features by integrating with popular platforms (e.g., Facebook, Instagram, Twitter) to allow users to share their favorite recipes more easily.
+   - **Shareable Shopping Lists**: Enable users to create and share shopping lists directly from a recipe page.
 
-The landing page has a carousel of 3 images taking up 3/4 of the page. These are images of photographers at work to depict what the site is about. There is an overlay of text on each that gives the purpose of the website and photography qoutes that encourage the users to sign up. The other 1/4 is taken up by three cards that explain the 3 purposes of the site, to showcase their work, provide andn or receive peer review and access information in the photography industry.
+### 7. **Admin Panel Improvements**
+   - **Content Moderation**: Introduce a content moderation system in the admin panel to ensure posts are compliant with site guidelines.
+   - **User Activity Insights**: Provide admins with analytics on user activity, including which recipes are most viewed, rated, and commented on.
+   - **Post Approval Workflow**: Enhance the post approval process by adding an option for admins to request changes before approving content.
 
-image
+### 8. **Mobile App Development**
+   - **FlavourNest Mobile App**: Develop a native mobile application for iOS and Android to provide users with a more seamless and accessible experience on the go.
+   - **Offline Access**: Enable users to access saved recipes offline through the mobile app, especially useful when they’re grocery shopping or cooking without internet access.
 
-The Footer
+### 9. **Push Notifications**
+   - **Recipe Updates**: Implement push notifications to inform users when their favorite recipes are updated, or when new recipes are added that match their preferences.
+   - **Review Responses**: Notify users when there’s a new response to their review or comment on a recipe.
 
-The footer like the navbar is accessible on all pages of the website. On this section users can access the social sites of the website. Users have the choice to follow the blog on any of the social medis sites for any news, new implementaions announcements of future features and any updates on the newletter. Users can use these links to contact admin with any feedback and or suggestions.
+### 10. **Enhanced Security Features**
+   - **Two-Factor Authentication**: Add an extra layer of security by introducing two-factor authentication (2FA) for users logging into their accounts.
+   - **User Privacy**: Enhance user privacy settings to give users control over what information they share publicly on the site.
 
-image
+### 11. **Performance Optimization**
+   - **Caching**: Implement caching mechanisms to improve load times for frequently accessed content such as recipes and posts.
+   - **Database Optimization**: Optimize database queries and indexing to ensure faster content retrieval and to reduce server load, especially with a growing user base.
 
-Articles
+### 12. **Multilingual Support**
+   - **Language Options**: Expand the platform to support multiple languages to reach a broader audience, including translations for recipes, user profiles, and comments.
+   - **Region-Specific Recipes**: Tailor recipes based on region or local cuisines, allowing users to filter content by their geographic location or language preference.
 
-The articles section is where users can find , view and read all the articles uploaded on the site. The user can only see a snippet of the articles in this section.
 
-Articles are saved in categories. Users can use the search feature to narrow down on the category they are interested in.
-
-Users can still however browse through all the articles , they have a choice to make a mental note of the articles that intrigue them using the pagination feature. Articles are displayed 6 per page.
-
-Once a user has seen an article they like , they can click on it to view the whole article.
-
-At the bottom of every article there is a review section. Only authenticated and logged in users can view the full article and have access to review the article
-
-Users get a message when they've successfully sent a review
-
-Users can see how many reviews each article has at a glance.
-
-image
-
-image
-
-image
-
-image
-
-image
-
-image
-
-image
-
-Dashboard
-
-The Dashboard is only accessible to authenticated logged in users. This is an area where each user can see their own posted articles. In this section they are able to edit and or delete any of their articles.
-
-Users get a message each time they successfully edit and or delete an article.
-
-Users get a prompt message if they really want to delete. This is everytime they delete an article to give them a chance to change their mind if need be.
-
-There is an all articles button at the top of this page for easy navigation for the user to go back to view all articles on the site.
-
-image
-
-image
-
-image
-
-Newsletter
-
-The Newsletter provides an opportunity to promote photography services, products, workshops, or other offerings to the audience. The users can benefit from carefully curated industry content that is engaging and informative.
-
-image
-
-Signup
-
-Signup page allows the users to register and join the aperture adventurers site.
-
-This allows the user to be able to post articles as well as send reviews on other people's work.
-
-User's get a message pop up letting themn know they have successfully signed up.
-
-image
-
-image
-
-LogIn
-
-This page allows already authenticated users to log into the site and access their dashboard as well as read and review other articles on the site.
-
-Users get message to let then know theyve succesfully logged in
-
-The logIn will then change to logout once the user is successfully loggedin.
-
-The user gets a prompt message if they are sure they want to log out , before getting a message they have successfully logged out if they complete the process.
-
-image
-
-image
-
-Create Article
-
-This page is a form to create and post an article, it is only accessible to authenticated logged in users.
-
-Here the user's can upload their Image , there are fields availalble for the user to state what equipment they used in taking the image and the settings they had on their camera.
-
-Category has a dropdown list to choose from.
-
-In the discription the user gets to explain what they were trying to achieve how they have got there if succesful , or they can ask their peers on what else the could have done top achieve this.
-
-Once sent users get a message , their article has been posted successfully
-
-image
-
-image
-
-image
-
-Future Features
-User Profiles
-
-Users to have custom user profiles where they can list there accomplishments in photography and share their social media platforms.
-
-Users will have CRUD functionality and autonomy on their profiles
-
-Users to be able to add profile images for a more personal feel.
-
-Reviews
-
-Users to have added CRUD functionality on their reviews.
-
-Users to be able to like articles as well as review them.
-
-Direct Messaging
-
-Users can direct message each other , requesting collaborations or seeking advise for a photo shoot privately.
-
-Tools and Technologies used
-Markdown Builder used to generate README and TESTING templates.
-Git used for version control. (git add, git commit, git push)
-Git used for secure online code storage.
-Gitpod used as a cloud-based IDE for development.
-HTML used for the main site content.
-CSS used for the main site design and layout.
-Python used as the back-end programming language.
-Heroku used for hosting the deployed back-end site.
-Bootstrap used as the front-end CSS framework for modern responsiveness and pre-built components.
-Django used as the Python framework for the site.
-PostgreSQL used as the relational database management.
-PostgreSQL by Code Institute used as the Postgres database from Code Institute.
-Cloudinary used for online static file storage.
-WhiteNoise used for serving static files with Heroku.
-Balsamiq used for creating wireframes.
-Font Awesome used for the icons.
-ChatGPT used to help debug, troubleshoot, and explain things.
-Database Design
-Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
-
-Site used for ERD
-
-Lucidchart
-
-image
-
-Agile Development Process
-GitHub Projects
-GitHub Projects
-
-GitHub Projects is the Agile tool used for this project.
-
-It isn't a specialized tool, but with the right tags and project creation/issue assignments, it can be made to work.
-
-Through it, user stories, issues, and milestone tasks were planned, then tracked on a weekly basis using the basic Kanban board.
-
-image
-
-image
-
-GitHub Issues
-GitHub Issues
-
-This as an another Agile tool.
-
-There, I used my own User Story Template to manage user stories.
-
-It also helped with milestone iterations on a weekly basis.
-
-Open Issues GitHub issues
-
-Closed Issues GitHub closed issues
-
-image
-
-MoSCoW Prioritization
-I've decomposed my Epics into stories prior to prioritizing and implementing them. Using this approach, I was able to apply the MoSCow prioritization and labels to my user stories within the Issues tab.
-
-Must Have: guaranteed to be delivered (max 60% of stories)
-Should Have: adds significant value, but not vital (the rest ~20% of stories)
-Could Have: has small impact if left out (20% of stories)
-Won't Have: not a priority for this iteration
-Testing
-[!NOTE]
-Return back to the README.md file.
-
-Feature-by-Feature Testing:
-
-Navigation: Testested for smooth transitions between pages, links directing to the correct destinations.
-Responsive Design: Checked for compatibility across various devices and screen sizes.
-SS
-
-Portfolio Display: Articles are properly showcased with accurate descriptions, images, and links.
-
-Contact Forms: Tested the form submission process, ensuring the user receives a confirmation.
-
-SS
-
-User Experience Testing:
-
-Usability Testing: Family memebers interacted with the site and provided feedback. Log out confirmation was missing a cancel option. A cancel button thst links back ti the home page was added.
-
-Accessibility Testing: All images and links have well labeled alt text for screen reader compatibility compliance.
-
-Compatibility Testing:
-
-Browser Compatibility: Testing applied on different browsers (Chrome, Firefox, Safari,) to ensure consistent performance.
-SS
-
-Device Compatibility: EnsurED Functionality across various devices (desktops, laptops, tablets, and mobile phones).
-SS
-
-User Feedback Incorporation:
-
-Color contrast user feedback has been taken into account and implemented to enhance the user experience. Text in article description has been changed from gray to black.
-
-Code Validation
-HTML
-I have used the recommended HTML W3C Validator to validate all of my HTML files.
-
-Directory	File	Screenshot	Notes
-article	article-details.html	image	
-article	index.html	image	
-article	new-article.html	image	
-article	reviews.html	image	
-article	delete.html	image	
-dashboard	dash.html	image	
-mainhub	main.html	image	
-newsletter	news.html	image	
-CSS
-I have used the recommended CSS Jigsaw Validator to validate all of my CSS files.
-
-Directory	File	Screenshot	Notes
-static	custom.css	image	
-Python
-I have used the recommended PEP8 CI Python Linter to validate all of my Python files.
-
-Directory	File	CI URL	Screenshot	Notes
-article	admin.py	PEP8 CI	image	
-article	forms.py	PEP8 CI	image	
-article	models.py	PEP8 CI	image	
-article	urls.py	PEP8 CI	image	
-article	views.py	PEP8 CI	image	
-dashboard	admin.py	PEP8 CI		not used
-dashboard	models.py	PEP8 CI		not used
-dashboard	urls.py	PEP8 CI	image	
-dashboard	views.py	PEP8 CI	image	
-mainhub	admin.py	PEP8 CI		not used
-mainhub	models.py	PEP8 CI		not used
-mainhub	urls.py	PEP8 CI	image	
-mainhub	views.py	PEP8 CI	image	
-manage.py	PEP8 CI	image	
-newsletter	admin.py	PEP8 CI		not used
-newsletter	models.py	PEP8 CI		not used
-newsletter	urls.py	PEP8 CI	image	
-newsletter	views.py	PEP8 CI	image	
-photography	settings.py	PEP8 CI	image	
-photography	urls.py	PEP8 CI	image	
-Browser Compatibility
-I've tested my deployed project on multiple browsers to check for compatibility issues.
-
-Browser					Notes
-Chrome	image	image	image	Works as expected	
-Firefox	image	image	image	Works as expected	
-Safari	image	image	image	Works as expected	
-Responsiveness
-I've tested my deployed project on multiple devices to check for responsiveness issues.
-
-Notes
-Mobile (DevTools)	image	image	image	Works as expected	
-Tablet (DevTools)	image	image	image	Works as expected	
-Desktop	image	image	image	Works as expected	
-Lighthouse Audit
-I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
-
-Page	Mobile	Desktop	Notes
-image	image	Some minor warnings
-Defensive Programming
-Page	User Action	Expected Result	Pass/Fail	Comments
-Home				
-Click on Logo	Redirection to Home page	Pass	
-Click on Home link in navbar	Redirection to Home page	Pass	
-Gallery				
-Click on Gallery link in navbar	Redirection to Gallery page	Pass	
-Load gallery images	All images load as expected	Pass	
-Contact				
-Click on Contact link in navbar	Redirection to Contact page	Pass	
-Enter first/last name	Field will accept freeform text	Pass	
-Enter valid email address	Field will only accept email address format	Pass	
-Enter message in textarea	Field will accept freeform text	Pass	
-Click the Submit button	Redirects user to form-dump	Pass	User must click 'Back' button to return
-Sign Up				
-Click on Sign Up button	Redirection to Sign Up page	Pass	
-Enter valid email address	Field will only accept email address format	Pass	
-Enter valid password (twice)	Field will only accept password format	Pass	
-Click on Sign Up button	Asks user to confirm email page	Pass	Email sent to user
-Confirm email	Redirects user to blank Sign In page	Pass	
-Log In				
-Click on the Login link	Redirection to Login page	Pass	
-Enter valid email address	Field will only accept email address format	Pass	
-Enter valid password	Field will only accept password format	Pass	
-Click Login button	Redirects user to home page	Pass	
-Log Out				
-Click Logout button	Redirects user to logout page	Pass	Confirms logout first
-Click Confirm Logout button	Redirects user to home page	Pass	
-Profile				
-Click on Profile button	User will be redirected to the Profile page	Pass	
-Click on the Edit button	User will be redirected to the edit profile page	Pass	
-Click on the My Orders link	User will be redirected to the My Orders page	Pass	
-Brute forcing the URL to get to another user's profile	User should be given an error	Pass	Redirects user back to own profile
-repeat for all remaining pages	x	x	x	x
-User Story Testing
-User Story	Screenshot
-As a new site user, I would like to view the articles, so that I can read and learn.	image
-As a new site user, I would like to review a peer article, so that I can make a contribution to the site .	image
-As a new site user, I would like to create an article, so that I can have feedback from other users.	image
-As a returning site user, I would like to edit and delete my articles, so that I can manage my own content.	image
-As a new site user, I would like to signup to the site, so that I can read articles and post my own.	image
-As a returning site user, I would like to log in, so that I can see my posted articles.	image
-As a site user, I should be able to logout, so that I can keep my account secure.	image
-As a site administrator, I should be able to access all articles, so that I can review and manage site.	image
-As a site administrator, I should be able to share news in the photography industry, so that I can keep users well informed.	image
-Deployment
-The live deployed application can be found deployed on :
-
-Heroku.
-
-PostgreSQL Database
-This project uses a Code Institute PostgreSQL Database.
-
-To obtain my own Postgres Database from Code Institute, I followed these steps:
-
-Signed-in to the CI LMS using my email address.
-An email was sent to me with my new Postgres Database.
-[!CAUTION]
-
-PostgreSQL databases by Code Institute are only available to CI Students.
-You must acquire your own PostgreSQL database through some other method if you plan to clone/fork this repository.
-Code Institute students are allowed a maximum of 8 databases.
-Databases are subject to deletion after 18 months.
-Cloudinary API
-This project uses the Cloudinary API to store media assets online, due to the fact that Heroku doesn't persist this type of data.
-
-To obtain your own Cloudinary API key, create an account and log in.
-
-For Primary interest, you can choose Programmable Media for image and video API.
-Optional: edit your assigned cloud name to something more memorable.
-On your Cloudinary Dashboard, you can copy your API Environment Variable.
-Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
-Heroku Deployment
-This project uses Heroku, a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-
-Deployment steps are as follows, after account setup:
-
-Select New in the top-right corner of your Heroku Dashboard, and select Create new app from the dropdown menu.
-Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select Create App.
-From the new app Settings, click Reveal Config Vars, and set your environment variables.
-[!IMPORTANT]
-This is a sample only; you would replace the values with your own if cloning/forking my repository.
-
-Key	Value
-CLOUDINARY_NAME	user's own value
-CLOUDINARY_API	user's own value
-CLOUDINARY_SECRET	user's own value
-DB_URL	user's own value
-DISABLE_COLLECTSTATIC	1 (this is temporary, and can be removed for the final deployment)
-SECRET_KEY	user's own value
-Heroku needs three additional files in order to deploy properly.
-
-requirements.txt
-Procfile
-runtime.txt
-You can install this project's requirements (where applicable) using:
-
-pip3 install -r requirements.txt
-If you have your own packages that have been installed, then the requirements file needs updated using:
-
-pip3 freeze --local > requirements.txt
-The Procfile can be created with the following command:
-
-echo web: gunicorn app_name.wsgi > Procfile
-replace app_name with the name of your primary Django app name; the folder where settings.py is located
-The runtime.txt file needs to know which Python version you're using:
-
-type: python3 --version in the terminal.
-in the runtime.txt file, add your Python version:
-python-3.9.18
-For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
-
-Either:
-
-Select Automatic Deployment from the Heroku app.
-Or:
-
-In the Terminal/CLI, connect to Heroku using this command: heroku login -i
-Set the remote for Heroku: heroku git:remote -a app_name (replace app_name with your app name)
-After performing the standard Git add, commit, and push to GitHub, you can now type:
-git push heroku main
-The project should now be connected and deployed to Heroku!
-
-Local Deployment
-This project can be cloned or forked in order to make a local copy on your own system.
-
-For either method, you will need to install any applicable packages found within the requirements.txt file.
-
-pip3 install -r requirements.txt.
-You will need to create a new file called env.py at the root-level, and include the same environment variables listed above from the Heroku deployment steps.
-
-[!IMPORTANT]
-This is a sample only; you would replace the values with your own if cloning/forking my repository.
-
-Sample env.py file:
-
-import os
-
-os.environ.setdefault("CLOUDINARY_NAME", "user's own value")
-os.environ.setdefault("CLOUDINARY_API", "user's own value")
-os.environ.setdefault("CLOUDINARY_SECRET", "user's own value")
-os.environ.setdefault("DB_URL", "user's own value")
-os.environ.setdefault("SECRET_KEY", "user's own value")
-
-# local environment only (do not include these in production/deployment!)
-os.environ.setdefault("DEBUG", "True")
-Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
-
-Start the Django app: python3 manage.py runserver
-Stop the app once it's loaded: CTRL+C or ⌘+C (Mac)
-Make any necessary migrations: python3 manage.py makemigrations
-Migrate the data to the database: python3 manage.py migrate
-Create a superuser: python3 manage.py createsuperuser
-Load fixtures (if applicable): python3 manage.py loaddata file-name.json (repeat for each file)
-Everything should be ready now, so run the Django app again: python3 manage.py runserver
-Cloning
-You can clone the repository by following these steps:
-
-Go to the GitHub repository
-Locate the Code button above the list of files and click it
-Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your clipboard
-Open Git Bash or Terminal
-Change the current working directory to the one where you want the cloned directory
-In your IDE Terminal, type the following command to clone my repository:
-git clone https://github.com/shar-nm/lens-whisperer.git
-Press Enter to create your local clone.
-Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
-
-Open in Gitpod
-
-Please note that in order to directly open the project in Gitpod, you need to have the browser extension installed. A tutorial on how to do that can be found here.
-
-Forking
-By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
-
-Log in to GitHub and locate the GitHub Repository
-At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-Once clicked, you should now have a copy of the original repository in your own GitHub account!
-Local VS Deployment
-Local development environment has different configuration settings compared to the live deployment environment on Heroku. This includes database configurations, static file serving settings, debug mode, logging configurations
-Configuration settings and sensitive information such as database credentials, API keys, and secret keys are stored as environment variables in production environments in Heroku. In local env settings files and environment variables are stored locally during development.
-Heroku serves static files (CSS, JavaScript, images) using WhiteNoise or by integrating with a content delivery network (CDN). In local environment, Django's development server handles static files differently.
-Heroku provides security measures such as HTTPS support, automated security updates, and platform-level security features. These are not be present or configured in local development environment.
-Credits
-CI Blog
-SteinOveHelset
-Codemy
-Content
-ChatGPT 3.5
-Adobe Creative Cloud
-Source	Location	Notes
-Markdown Builder	README and TESTING	tool to help generate the Markdown files
-Chris Beams	version control	"How to Write a Git Commit Message"
-W3Schools	entire site	responsive HTML/CSS/JS navbar
-StackOverflow	troubleshooting	Authentication in django
-YouTube	CRUD	tutorial for adding, viewing, updating and deleting items with django the Python
-strftime	CRUD functionality	helpful tool to format date/time from string
-WhiteNoise	entire site	hosting static files on Heroku temporarily
-Bootstrap 5.3	entire site	responsivenes and CSS
-Media
-Source	Location	Type	Notes
-Pixabay	articles page	image	group of photos for articles
-Freepix	entire site	images	photos used thorough out the site
-Freepix,lookstudio	newsletter	image	image used in the newsletter
-Freepix,rawpixel.com	newsletter	image	image used in the newsletter
-Acknowledgements
-I would like to thank my Code Institute mentor, Tim Nelson for his support throughout the development of this project.
-
+## Acknowledgements
+I would like to thank our bootcamp facilitator Paul Thomas for his continuous support during this course.
+I would like to thank Code Institute mentors, John rearden and Kevin for their support throughout the development of this project.
 I would like to thank the Code Institute tutor team for their assistance with troubleshooting and debugging some project issues.
-I would like to thank the Code Institute Gwent-Bootcamp for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-I would like to thank my partner (Michael), for believing in me, and allowing me to make this transition into software development.
-I would like to thank my daughter (Nicole), for supporting me by doing all the user testing and proof-reading therefore supporting me through this career change towards becoming a software developer.
+
+
