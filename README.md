@@ -37,7 +37,11 @@
  10. [Future Improvements](#future-improvements)
 
 ## Overview
-
+<figure>
+    <img src="static/images/app.jpg"
+         alt="board">
+    <figcaption>FlavourNest</figcaption>
+</figure>
 ### Purpose
 
 
@@ -420,10 +424,10 @@ As a **site user**, I can **add recipes to my favorites** so that **I can get ba
 - Allow users to share via social media platforms (Facebook, Twitter, etc.), email, or copyable link.
 - Ensure the shared link takes the recipient to the specific recipe post or sign-up page.
 - Optionally, track how often posts are shared for analytics purposes.
-## Design Decisions
+## Design and DataBase Decisions
 
 
-### UX ### :
+### UX  :
 
 <br/>
 For this recipe blog site. The user is meant to feel the ownership of the site. Each registered user has a profile, with a picture, his shared recipes , and a list of other users to be contacted.The User Profile has the same hero picture as a profile cover picture to keep up with the recurring theme.
@@ -796,7 +800,7 @@ Through ongoing development, the platform can cater to a diverse user base, prov
 
 Ultimately, the vision for FlavourNest is to create a space where users can come together to celebrate the rich and diverse flavors of Mediterranean cuisine, share their own culinary creations, and discover new dishes to enjoy with friends and family.
 
-We are excited about the future of FlavourNest and look forward to continuously enhancing the platform to meet the needs of our growing community.
+I am excited about the future of FlavourNest and look forward to continuously enhancing the platform to meet the needs of the growing community.
 
 ## Code Attribution
 During the development of **FlavourNest**, several third-party resources and libraries were used to enhance the functionality, performance, and user experience. Below is a list of key libraries, frameworks, and tools that were leveraged to build the platform.
